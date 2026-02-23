@@ -5,11 +5,18 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { Map, Home, Server, ShieldCheck, Zap, Users, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
+import { Link } from "wouter";
+
 export default function HomePage() {
   const { t } = useLanguage();
 
   const scrollToContact = () => {
-    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/contact';
+    }
   };
 
   return (
@@ -17,19 +24,25 @@ export default function HomePage() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-display font-bold text-xl shadow-lg shadow-primary/20">
-              V
+          <Link href="/">
+            <div className="flex items-center gap-2 cursor-pointer">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-display font-bold text-xl shadow-lg shadow-primary/20">
+                V
+              </div>
+              <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
+                Vastgoed & IT
+              </span>
             </div>
-            <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
-              Vastgoed & IT
-            </span>
-          </div>
+          </Link>
           
           <div className="flex items-center gap-6">
             <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-              <a href="#services" className="hover:text-foreground transition-colors">{t('nav.services')}</a>
-              <a href="#about" className="hover:text-foreground transition-colors">{t('nav.about')}</a>
+              <Link href="/services">
+                <a className="hover:text-foreground transition-colors">{t('nav.services')}</a>
+              </Link>
+              <Link href="/about">
+                <a className="hover:text-foreground transition-colors">{t('nav.about')}</a>
+              </Link>
             </div>
             
             <LanguageToggle />
