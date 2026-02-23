@@ -2,7 +2,7 @@ import { useLanguage } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ServiceCard } from "@/components/ServiceCard";
-import { Map, Home, Server, ShieldCheck, Zap, Users } from "lucide-react";
+import { Map, Home, Server, ShieldCheck, Zap, Users, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
