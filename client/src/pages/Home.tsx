@@ -1,84 +1,34 @@
 import { useLanguage } from "@/lib/i18n";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { QuoteForm } from "@/components/QuoteForm";
 import { ServiceCard } from "@/components/ServiceCard";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { Map, Home, Server, ShieldCheck, Zap, Users, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
-
 import { Link } from "wouter";
 
 export default function HomePage() {
   const { t } = useLanguage();
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact-section');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = '/contact';
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-display font-bold text-xl shadow-lg shadow-primary/20">
-                V
-              </div>
-              <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
-                Vastgoed & IT
-              </span>
-            </div>
-          </Link>
-          
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-              <Link href="/services">
-                <span className="hover:text-foreground transition-colors cursor-pointer">{t('nav.services')}</span>
-              </Link>
-              <Link href="/about">
-                <span className="hover:text-foreground transition-colors cursor-pointer">{t('nav.about')}</span>
-              </Link>
-              <Link href="/contact">
-                <span className="hover:text-foreground transition-colors cursor-pointer">{t('nav.contact')}</span>
-              </Link>
-            </div>
-            
-            <LanguageToggle />
-            
-            <button 
-              onClick={scrollToContact}
-              className="hidden sm:flex px-5 py-2.5 rounded-full font-semibold text-sm bg-foreground text-background hover-elevate hover:-translate-y-0.5 transition-all"
-            >
-              {t('nav.cta')}
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
-      {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        {/* Subtle background abstract lines - Unsplash architectural detail */}
-        {/* architectural modern minimal background */}
         <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-10 mix-blend-multiply pointer-events-none">
-          <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-            alt="Background texture" 
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+            alt="Background texture"
             className="w-full h-full object-cover"
           />
         </div>
-        
-        {/* Gradient Meshes */}
+
         <div className="absolute top-1/4 -left-64 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -87,8 +37,8 @@ export default function HomePage() {
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               {t('hero.badge')}
             </motion.div>
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -96,8 +46,8 @@ export default function HomePage() {
             >
               {t('hero.title')}
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -105,20 +55,25 @@ export default function HomePage() {
             >
               {t('hero.subtitle')}
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <button 
-                onClick={scrollToContact}
-                className="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 transition-all"
+              <Link
+                href="/contact"
+                data-testid="button-hero-cta"
+                className="w-full sm:w-auto px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 transition-all text-center"
               >
                 {t('hero.cta')}
-              </button>
-              <Link href="/services" className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-center text-foreground bg-secondary hover:bg-secondary/80 transition-colors">
+              </Link>
+              <Link
+                href="/services"
+                data-testid="button-hero-services"
+                className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-center text-foreground bg-secondary hover:bg-secondary/80 transition-colors"
+              >
                 {t('hero.secondary')}
               </Link>
             </motion.div>
@@ -126,28 +81,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Section */}
       <section id="services" className="py-24 bg-secondary/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-primary font-bold tracking-wider uppercase text-sm mb-3">{t('services.badge')}</h2>
             <h3 className="text-3xl md:text-4xl font-bold font-display">{t('services.title')}</h3>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ServiceCard 
+            <ServiceCard
               icon={Map}
               title={t('services.survey.title')}
               description={t('services.survey.desc')}
               delay={0.1}
             />
-            <ServiceCard 
+            <ServiceCard
               icon={Home}
               title={t('services.home.title')}
               description={t('services.home.desc')}
               delay={0.2}
             />
-            <ServiceCard 
+            <ServiceCard
               icon={Server}
               title={t('services.it.title')}
               description={t('services.it.desc')}
@@ -157,20 +111,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features/Why Us Section */}
       <section id="about" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-8">{t('features.title')}</h2>
-              
+
               <div className="space-y-8">
                 {[
                   { icon: ShieldCheck, title: t('features.1.title'), desc: t('features.1.desc') },
                   { icon: Zap, title: t('features.2.title'), desc: t('features.2.desc') },
                   { icon: Users, title: t('features.3.title'), desc: t('features.3.desc') },
                 ].map((feature, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -189,18 +142,16 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            
+
             <div className="relative">
-              {/* architectural tech detail overlay */}
-              <img 
-                src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?q=80&w=2070&auto=format&fit=crop" 
-                alt="Professional service detail" 
+              <img
+                src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?q=80&w=2070&auto=format&fit=crop"
+                alt="Professional service detail"
                 className="rounded-3xl shadow-2xl object-cover h-[500px] w-full"
               />
               <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10 pointer-events-none" />
-              
-              {/* Floating trust badge */}
-              <motion.div 
+
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -221,10 +172,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA / Contact Section */}
       <section id="contact-section" className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div className="pt-8">
@@ -233,7 +183,7 @@ export default function HomePage() {
               <p className="text-primary-foreground/80 text-lg leading-relaxed mb-8 max-w-md">
                 {t('contact.subtitle')}
               </p>
-              
+
               <div className="space-y-6 mt-12 hidden lg:block">
                 <div className="flex items-center gap-4 text-primary-foreground/90">
                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm">
@@ -249,8 +199,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            
-            {/* The Quote Form overrides the dark background of the section to stand out */}
+
             <div className="text-foreground">
               <QuoteForm />
             </div>
@@ -258,30 +207,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-background py-12 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-display font-bold shadow-md">
-                  V
-                </div>
-                <span className="font-display font-bold">Vastgoed & IT</span>
-              </div>
-              <div className="text-sm text-muted-foreground space-y-1">
-                <p>{t('footer.owner')}</p>
-                <p>{t('footer.vat')}</p>
-                <p>contact@roanr.be</p>
-                <p>+32 468 25 95 03</p>
-              </div>
-            </div>
-            <div className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Vastgoed & IT. {t('footer.rights')}
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
