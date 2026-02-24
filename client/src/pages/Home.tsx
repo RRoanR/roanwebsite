@@ -20,7 +20,7 @@ export default function HomePage() {
           <img
             src={logoImg}
             alt=""
-            className="w-[350px] h-[350px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] object-contain opacity-[0.12] dark:opacity-[0.15]"
+            className="w-[350px] h-[350px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] object-contain opacity-[0.18] dark:opacity-[0.22]"
           />
         </div>
 
