@@ -11,19 +11,23 @@ interface I18nStore {
 const translations = {
   en: {
     'nav.services': 'Services',
+    'nav.services.survey': 'Condition Reports',
+    'nav.services.domotica': 'Home Automation',
+    'nav.services.it': 'IT Consulting',
     'nav.about': 'About',
     'nav.contact': 'Contact',
+    'nav.privacy': 'Privacy',
     'nav.cta': 'Get a Quote',
     
     'hero.badge': 'Available for new projects',
     'hero.title': 'Expert Solutions for Your Property & Tech Needs',
     'hero.subtitle': 'Combining precision topographical surveying, smart home automation, and professional IT consulting to deliver results you can trust.',
     'hero.cta': 'Request a Free Quote',
-    'hero.secondary': 'Explore Services',
+    'hero.secondary': 'Our Services',
     
     'services.badge': 'Our Expertise',
     'services.title': 'Specialized Services Tailored for You',
-    'services.survey.title': 'Topographical Surveying',
+    'services.survey.title': 'Condition Reports',
     'services.survey.desc': 'Accurate, legally compliant condition reports (Plaatsbeschrijvingen) for rental properties, renovations, and construction projects.',
     'services.home.title': 'Smart Home Automation',
     'services.home.desc': 'Consulting and installation of Home Assistant ecosystems. Secure, efficient, and seamless automation for modern living.',
@@ -103,15 +107,19 @@ const translations = {
   },
   nl: {
     'nav.services': 'Diensten',
+    'nav.services.survey': 'Plaatsbeschrijvingen',
+    'nav.services.domotica': 'Domotica',
+    'nav.services.it': 'IT Consultancy',
     'nav.about': 'Over Ons',
     'nav.contact': 'Contact',
+    'nav.privacy': 'Privacy',
     'nav.cta': 'Offerte Aanvragen',
     
     'hero.badge': 'Beschikbaar voor nieuwe projecten',
     'hero.title': 'Expert Oplossingen voor uw Vastgoed & IT Noden',
     'hero.subtitle': 'Nauwkeurige plaatsbeschrijvingen, slimme thuisautomatisering en professionele IT-consultancy, op maat geleverd.',
     'hero.cta': 'Vraag een Gratis Offerte',
-    'hero.secondary': 'Bekijk Diensten',
+    'hero.secondary': 'Onze Diensten',
     
     'services.badge': 'Onze Expertise',
     'services.title': 'Gespecialiseerde Diensten op Maat',

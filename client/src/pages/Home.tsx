@@ -71,7 +71,7 @@ export default function HomePage() {
                 {t('hero.cta')}
               </Link>
               <Link
-                href="/services"
+                href="/plaatsbeschrijvingen"
                 data-testid="button-hero-services"
                 className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-center text-foreground bg-secondary hover:bg-secondary/80 transition-colors"
               >
@@ -94,21 +94,21 @@ export default function HomePage() {
               icon={Map}
               title={t('services.survey.title')}
               description={t('services.survey.desc')}
-              href="/services/survey"
+              href="/plaatsbeschrijvingen"
               delay={0.1}
             />
             <ServiceCard
               icon={Home}
               title={t('services.home.title')}
               description={t('services.home.desc')}
-              href="/services/home-automation"
+              href="/domotica"
               delay={0.2}
             />
             <ServiceCard
               icon={Server}
               title={t('services.it.title')}
               description={t('services.it.desc')}
-              href="/services/it-consulting"
+              href="/it-consultancy"
               delay={0.3}
             />
           </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
 
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?q=80&w=2070&auto=format&fit=crop"
+                src="/images/service-survey.jpg"
                 alt="Professional service detail"
                 className="rounded-3xl shadow-2xl object-cover h-[300px] sm:h-[400px] lg:h-[500px] w-full"
               />
@@ -177,7 +177,7 @@ export default function HomePage() {
       </section>
 
       <section id="contact-section" className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay" />
+        <div className="absolute inset-0 opacity-10 bg-[url('/images/service-it.jpg')] bg-cover bg-center mix-blend-overlay" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">

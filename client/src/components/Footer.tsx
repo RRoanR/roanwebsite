@@ -25,14 +25,20 @@ export function Footer() {
           </div>
           <div className="flex flex-col items-start md:items-end gap-4">
             <div className="flex flex-wrap gap-4 sm:gap-6 text-sm text-muted-foreground">
-              <Link href="/services" className="hover:text-foreground transition-colors">
-                {t('nav.services')}
+              <Link href="/plaatsbeschrijvingen" className="hover:text-foreground transition-colors">
+                {t('nav.services.survey')}
               </Link>
-              <Link href="/about" className="hover:text-foreground transition-colors">
-                {t('nav.about')}
+              <Link href="/domotica" className="hover:text-foreground transition-colors">
+                {t('nav.services.domotica')}
+              </Link>
+              <Link href="/it-consultancy" className="hover:text-foreground transition-colors">
+                {t('nav.services.it')}
               </Link>
               <Link href="/contact" className="hover:text-foreground transition-colors">
                 {t('nav.contact')}
+              </Link>
+              <Link href="/privacy-en-bewaring" className="hover:text-foreground transition-colors">
+                {t('nav.privacy')}
               </Link>
             </div>
             <p className="text-sm text-muted-foreground">

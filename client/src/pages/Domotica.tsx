@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Camera, Scale, Clock, ArrowLeft } from "lucide-react";
+import { Shield, LayoutDashboard, Wrench, ArrowLeft } from "lucide-react";
 
-export default function ServiceSurveyPage() {
-  const { t } = useLanguage();
+export default function DomoticaPage() {
+  const { t, language } = useLanguage();
 
   const features = [
-    { icon: Camera, title: t('services.survey.feature1'), desc: t('services.survey.feature1Desc') },
-    { icon: Scale, title: t('services.survey.feature2'), desc: t('services.survey.feature2Desc') },
-    { icon: Clock, title: t('services.survey.feature3'), desc: t('services.survey.feature3Desc') },
+    { icon: Shield, title: t('services.home.feature1'), desc: t('services.home.feature1Desc') },
+    { icon: LayoutDashboard, title: t('services.home.feature2'), desc: t('services.home.feature2Desc') },
+    { icon: Wrench, title: t('services.home.feature3'), desc: t('services.home.feature3Desc') },
   ];
 
   return (
@@ -21,26 +21,26 @@ export default function ServiceSurveyPage() {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/service-survey.jpg"
-            alt="Topographical surveying"
+            src="/images/service-home.jpg"
+            alt="Smart home automation"
             className="w-full h-full object-cover opacity-15"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 to-background" />
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <Link href="/services" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8" data-testid="link-back-services">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8" data-testid="link-back-home">
             <ArrowLeft className="w-4 h-4" />
-            {t('services.backToServices')}
+            {language === 'nl' ? 'Terug naar Home' : 'Back to Home'}
           </Link>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold font-display mb-6"
-            data-testid="text-survey-title"
+            data-testid="text-domotica-title"
           >
-            {t('services.survey.hero')}
+            {t('services.home.hero')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export default function ServiceSurveyPage() {
             transition={{ delay: 0.1 }}
             className="text-xl text-muted-foreground max-w-2xl"
           >
-            {t('services.survey.heroDesc')}
+            {t('services.home.heroDesc')}
           </motion.p>
         </div>
       </section>
@@ -57,12 +57,12 @@ export default function ServiceSurveyPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-2xl font-bold font-display mb-4">{t('services.survey.what')}</h2>
-              <p className="text-muted-foreground leading-relaxed">{t('services.survey.whatDesc')}</p>
+              <h2 className="text-2xl font-bold font-display mb-4">{t('services.home.what')}</h2>
+              <p className="text-muted-foreground leading-relaxed">{t('services.home.whatDesc')}</p>
             </div>
             <img
-              src="/images/service-survey.jpg"
-              alt="Surveying work"
+              src="/images/service-home.jpg"
+              alt="Home automation setup"
               className="rounded-2xl shadow-lg w-full h-64 object-cover"
             />
           </div>
@@ -96,7 +96,7 @@ export default function ServiceSurveyPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link
             href="/contact"
-            data-testid="button-survey-cta"
+            data-testid="button-domotica-cta"
             className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all"
           >
             {t('services.cta')}

@@ -11,8 +11,9 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { href: "/services", label: t('nav.services'), testId: "link-services" },
-    { href: "/about", label: t('nav.about'), testId: "link-about" },
+    { href: "/plaatsbeschrijvingen", label: t('nav.services.survey'), testId: "link-plaatsbeschrijvingen" },
+    { href: "/domotica", label: t('nav.services.domotica'), testId: "link-domotica" },
+    { href: "/it-consultancy", label: t('nav.services.it'), testId: "link-it-consultancy" },
     { href: "/contact", label: t('nav.contact'), testId: "link-contact" },
   ];
 
@@ -28,8 +29,8 @@ export function Navbar() {
           </div>
         </Link>
 
-        <div className="hidden md:flex items-center gap-6">
-          <div className="flex items-center gap-6 text-sm font-medium">
+        <div className="hidden lg:flex items-center gap-6">
+          <div className="flex items-center gap-5 text-sm font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -53,7 +54,7 @@ export function Navbar() {
           </Link>
         </div>
 
-        <div className="flex md:hidden items-center gap-3">
+        <div className="flex lg:hidden items-center gap-3">
           <LanguageToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -67,7 +68,7 @@ export function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border">
+        <div className="lg:hidden bg-background/95 backdrop-blur-lg border-b border-border">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link

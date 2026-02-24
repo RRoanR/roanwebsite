@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Shield, LayoutDashboard, Wrench, ArrowLeft } from "lucide-react";
+import { Network, ShieldCheck, HeadphonesIcon, ArrowLeft } from "lucide-react";
 
-export default function ServiceHomePage() {
-  const { t } = useLanguage();
+export default function ITConsultancyPage() {
+  const { t, language } = useLanguage();
 
   const features = [
-    { icon: Shield, title: t('services.home.feature1'), desc: t('services.home.feature1Desc') },
-    { icon: LayoutDashboard, title: t('services.home.feature2'), desc: t('services.home.feature2Desc') },
-    { icon: Wrench, title: t('services.home.feature3'), desc: t('services.home.feature3Desc') },
+    { icon: Network, title: t('services.it.feature1'), desc: t('services.it.feature1Desc') },
+    { icon: ShieldCheck, title: t('services.it.feature2'), desc: t('services.it.feature2Desc') },
+    { icon: HeadphonesIcon, title: t('services.it.feature3'), desc: t('services.it.feature3Desc') },
   ];
 
   return (
@@ -21,26 +21,26 @@ export default function ServiceHomePage() {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/service-home.jpg"
-            alt="Smart home automation"
+            src="/images/service-it.jpg"
+            alt="IT consulting"
             className="w-full h-full object-cover opacity-15"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 to-background" />
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <Link href="/services" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8" data-testid="link-back-services">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8" data-testid="link-back-home">
             <ArrowLeft className="w-4 h-4" />
-            {t('services.backToServices')}
+            {language === 'nl' ? 'Terug naar Home' : 'Back to Home'}
           </Link>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold font-display mb-6"
-            data-testid="text-home-automation-title"
+            data-testid="text-it-consultancy-title"
           >
-            {t('services.home.hero')}
+            {t('services.it.hero')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export default function ServiceHomePage() {
             transition={{ delay: 0.1 }}
             className="text-xl text-muted-foreground max-w-2xl"
           >
-            {t('services.home.heroDesc')}
+            {t('services.it.heroDesc')}
           </motion.p>
         </div>
       </section>
@@ -57,12 +57,12 @@ export default function ServiceHomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-2xl font-bold font-display mb-4">{t('services.home.what')}</h2>
-              <p className="text-muted-foreground leading-relaxed">{t('services.home.whatDesc')}</p>
+              <h2 className="text-2xl font-bold font-display mb-4">{t('services.it.what')}</h2>
+              <p className="text-muted-foreground leading-relaxed">{t('services.it.whatDesc')}</p>
             </div>
             <img
-              src="/images/service-home.jpg"
-              alt="Home automation setup"
+              src="/images/service-it.jpg"
+              alt="IT infrastructure"
               className="rounded-2xl shadow-lg w-full h-64 object-cover"
             />
           </div>
@@ -96,7 +96,7 @@ export default function ServiceHomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link
             href="/contact"
-            data-testid="button-home-automation-cta"
+            data-testid="button-it-consultancy-cta"
             className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all"
           >
             {t('services.cta')}
