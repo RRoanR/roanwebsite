@@ -1,5 +1,7 @@
 import { useLanguage } from "@/lib/i18n";
 import { motion } from "framer-motion";
+import { Map, Home, Server } from "lucide-react";
+import { ServiceCard } from "@/components/ServiceCard";
 
 export default function ServicesPage() {
   const { t } = useLanguage();
@@ -10,7 +12,7 @@ export default function ServicesPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-3xl mx-auto mb-20"
         >
           <h1 className="text-4xl md:text-5xl font-bold font-display mb-6">
             {t('nav.services')}
@@ -20,19 +22,25 @@ export default function ServicesPage() {
           </p>
         </motion.div>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">{t('services.survey.title')}</h3>
-            <p className="text-muted-foreground">{t('services.survey.desc')}</p>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">{t('services.home.title')}</h3>
-            <p className="text-muted-foreground">{t('services.home.desc')}</p>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">{t('services.it.title')}</h3>
-            <p className="text-muted-foreground">{t('services.it.desc')}</p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <ServiceCard 
+            icon={Map}
+            title={t('services.survey.title')}
+            description={t('services.survey.desc')}
+            delay={0.1}
+          />
+          <ServiceCard 
+            icon={Home}
+            title={t('services.home.title')}
+            description={t('services.home.desc')}
+            delay={0.2}
+          />
+          <ServiceCard 
+            icon={Server}
+            title={t('services.it.title')}
+            description={t('services.it.desc')}
+            delay={0.3}
+          />
         </div>
       </div>
     </div>

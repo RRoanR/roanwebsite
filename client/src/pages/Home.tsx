@@ -43,6 +43,9 @@ export default function HomePage() {
               <Link href="/about">
                 <a className="hover:text-foreground transition-colors">{t('nav.about')}</a>
               </Link>
+              <Link href="/contact">
+                <a className="hover:text-foreground transition-colors">{t('nav.contact')}</a>
+              </Link>
             </div>
             
             <LanguageToggle />
@@ -115,12 +118,11 @@ export default function HomePage() {
               >
                 {t('hero.cta')}
               </button>
-              <a 
-                href="#services"
-                className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-foreground bg-secondary hover:bg-secondary/80 transition-colors"
-              >
-                {t('hero.secondary')}
-              </a>
+              <Link href="/services">
+                <a className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-center text-foreground bg-secondary hover:bg-secondary/80 transition-colors">
+                  {t('hero.secondary')}
+                </a>
+              </Link>
             </motion.div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { useLanguage } from "@/lib/i18n";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 export default function AboutPage() {
   const { t } = useLanguage();
@@ -18,9 +19,14 @@ export default function AboutPage() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               {t('features.1.desc')}
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
               {t('features.3.desc')}
             </p>
+            <Link href="/contact">
+              <a className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all">
+                {t('nav.cta')}
+              </a>
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
