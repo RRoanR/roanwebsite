@@ -18,6 +18,7 @@ import VaststellingPage from "@/pages/plaatsbeschrijvingen/Vaststelling";
 import DomoticaPage from "@/pages/Domotica";
 import ITConsultancyPage from "@/pages/ITConsultancy";
 import PrivacyBewaringPage from "@/pages/PrivacyBewaring";
+import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 
 function Router() {
   return (
@@ -47,6 +48,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <WhatsAppWidget />
       </TooltipProvider>
     </QueryClientProvider>
   );
