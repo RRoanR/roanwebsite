@@ -38,13 +38,13 @@ export default function HomePage() {
           <div className="flex items-center gap-6">
             <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
               <Link href="/services">
-                <a className="hover:text-foreground transition-colors">{t('nav.services')}</a>
+                <span className="hover:text-foreground transition-colors cursor-pointer">{t('nav.services')}</span>
               </Link>
               <Link href="/about">
-                <a className="hover:text-foreground transition-colors">{t('nav.about')}</a>
+                <span className="hover:text-foreground transition-colors cursor-pointer">{t('nav.about')}</span>
               </Link>
               <Link href="/contact">
-                <a className="hover:text-foreground transition-colors">{t('nav.contact')}</a>
+                <span className="hover:text-foreground transition-colors cursor-pointer">{t('nav.contact')}</span>
               </Link>
             </div>
             
@@ -118,10 +118,8 @@ export default function HomePage() {
               >
                 {t('hero.cta')}
               </button>
-              <Link href="/services">
-                <a className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-center text-foreground bg-secondary hover:bg-secondary/80 transition-colors">
-                  {t('hero.secondary')}
-                </a>
+              <Link href="/services" className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-center text-foreground bg-secondary hover:bg-secondary/80 transition-colors">
+                {t('hero.secondary')}
               </Link>
             </motion.div>
           </div>

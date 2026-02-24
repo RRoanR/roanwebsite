@@ -22,10 +22,8 @@ export default function AboutPage() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-10">
               {t('features.3.desc')}
             </p>
-            <Link href="/contact">
-              <a className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all">
-                {t('nav.cta')}
-              </a>
+            <Link href="/contact" className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all">
+              {t('nav.cta')}
             </Link>
           </motion.div>
           <motion.div
