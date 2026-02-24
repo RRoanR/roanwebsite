@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Map, Home, Server, ShieldCheck, Zap, Users, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import logoImg from "@assets/roanros_logo_1771933628066.png";
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -15,11 +16,11 @@ export default function HomePage() {
       <Navbar />
 
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-10 mix-blend-multiply pointer-events-none">
+        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
           <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-            alt="Background texture"
-            className="w-full h-full object-cover"
+            src={logoImg}
+            alt=""
+            className="w-[500px] h-[500px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] object-contain opacity-[0.06] dark:opacity-[0.08]"
           />
         </div>
 
