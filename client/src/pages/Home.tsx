@@ -260,16 +260,26 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="bg-background py-12 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-display font-bold shadow-md">
-              V
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-display font-bold shadow-md">
+                  V
+                </div>
+                <span className="font-display font-bold">Vastgoed & IT</span>
+              </div>
+              <div className="text-sm text-muted-foreground space-y-1">
+                <p>{t('footer.owner')}</p>
+                <p>{t('footer.vat')}</p>
+                <p>contact@roanr.be</p>
+                <p>+32 468 25 95 03</p>
+              </div>
             </div>
-            <span className="font-display font-bold">Vastgoed & IT</span>
+            <div className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Vastgoed & IT. {t('footer.rights')}
+            </div>
           </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Vastgoed & IT. {t('footer.rights')}
-          </p>
         </div>
       </footer>
     </div>

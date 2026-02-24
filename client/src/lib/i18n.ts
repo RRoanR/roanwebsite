@@ -60,6 +60,9 @@ const translations = {
     'form.success.desc': 'Thank you. We will be in touch shortly.',
     
     'footer.rights': 'All rights reserved.',
+    'footer.address': 'Belgium',
+    'footer.vat': 'BE 1022.177.189',
+    'footer.owner': 'Roan Ros',
   },
   nl: {
     'nav.services': 'Diensten',
@@ -112,6 +115,9 @@ const translations = {
     'form.success.desc': 'Bedankt. Wij nemen spoedig contact met u op.',
     
     'footer.rights': 'Alle rechten voorbehouden.',
+    'footer.address': 'België',
+    'footer.vat': 'BE 1022.177.189',
+    'footer.owner': 'Roan Ros',
   }
 };
 
