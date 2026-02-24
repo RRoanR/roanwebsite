@@ -23,8 +23,8 @@ export function Footer() {
               <p>+32 468 25 95 03</p>
             </div>
           </div>
-          <div className="flex flex-col items-end gap-4">
-            <div className="flex gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-col items-start md:items-end gap-4">
+            <div className="flex flex-wrap gap-4 sm:gap-6 text-sm text-muted-foreground">
               <Link href="/services" className="hover:text-foreground transition-colors">
                 {t('nav.services')}
               </Link>

@@ -20,7 +20,7 @@ export default function HomePage() {
           <img
             src={logoImg}
             alt=""
-            className="w-[500px] h-[500px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] object-contain opacity-[0.06] dark:opacity-[0.08]"
+            className="w-[350px] h-[350px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] object-contain opacity-[0.12] dark:opacity-[0.15]"
           />
         </div>
 
@@ -43,7 +43,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-balance mb-6"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-balance mb-6"
             >
               {t('hero.title')}
             </motion.h1>
@@ -52,7 +52,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-muted-foreground text-balance mb-10 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground text-balance mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0"
             >
               {t('hero.subtitle')}
             </motion.p>
@@ -151,7 +151,7 @@ export default function HomePage() {
               <img
                 src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?q=80&w=2070&auto=format&fit=crop"
                 alt="Professional service detail"
-                className="rounded-3xl shadow-2xl object-cover h-[500px] w-full"
+                className="rounded-3xl shadow-2xl object-cover h-[300px] sm:h-[400px] lg:h-[500px] w-full"
               />
               <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10 pointer-events-none" />
 
@@ -159,7 +159,7 @@ export default function HomePage() {
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                className="absolute -bottom-8 -left-8 bg-card p-6 rounded-2xl shadow-xl border border-border max-w-xs"
+                className="absolute -bottom-6 left-2 sm:-bottom-8 sm:-left-8 bg-card p-4 sm:p-6 rounded-2xl shadow-xl border border-border max-w-[200px] sm:max-w-xs"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 dark:text-green-400">
@@ -180,10 +180,10 @@ export default function HomePage() {
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div className="pt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div className="pt-4 lg:pt-8">
               <h2 className="text-accent font-bold tracking-wider uppercase text-sm mb-3">{t('contact.badge')}</h2>
-              <h3 className="text-4xl md:text-5xl font-bold font-display mb-6 text-white">{t('contact.title')}</h3>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-6 text-white">{t('contact.title')}</h3>
               <p className="text-primary-foreground/80 text-lg leading-relaxed mb-8 max-w-md">
                 {t('contact.subtitle')}
               </p>

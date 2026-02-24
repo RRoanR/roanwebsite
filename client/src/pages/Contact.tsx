@@ -12,14 +12,14 @@ export default function ContactPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <div className="pt-32 pb-24">
+      <div className="pt-24 md:pt-32 pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold font-display mb-8" data-testid="text-contact-title">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-6 md:mb-8" data-testid="text-contact-title">
                 {t('contact.title')}
               </h1>
               <p className="text-xl text-muted-foreground mb-10">
