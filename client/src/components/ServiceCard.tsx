@@ -32,15 +32,16 @@ export function ServiceCard({ icon: Icon, title, description, delay = 0, href = 
         {title}
       </h3>
 
-      <p className="text-muted-foreground leading-relaxed">
+      <p className="text-muted-foreground leading-relaxed mb-6">
         {description}
       </p>
 
       <Link
         href={href}
-        className="mt-6 flex items-center text-sm font-semibold text-primary opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+        className="inline-flex items-center text-sm font-semibold text-primary hover:underline transition-all"
+        data-testid={`link-service-${href.split('/').pop()}`}
       >
-        {t('nav.cta')} <span className="ml-1">&rarr;</span>
+        {t('services.learnMore')} <span className="ml-1">&rarr;</span>
       </Link>
     </motion.div>
   );

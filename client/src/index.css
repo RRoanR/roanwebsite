@@ -9,73 +9,68 @@
     --font-sans: 'Inter', sans-serif;
     --font-display: 'Plus Jakarta Sans', sans-serif;
 
-    /* Professional, trustworthy Belgian color palette */
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    --background: 40 10% 97%;
+    --foreground: 220 15% 15%;
     
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 15% 15%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 220 15% 15%;
     
-    /* Deep Royal/Navy Blue for primary */
-    --primary: 226 71% 40%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 43 76% 52%;
+    --primary-foreground: 220 15% 10%;
     
-    /* Secondary/Muted */
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 40 12% 93%;
+    --secondary-foreground: 220 15% 15%;
     
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 12% 93%;
+    --muted-foreground: 220 10% 45%;
     
-    /* Warm Amber for high-conversion CTAs */
-    --accent: 38 92% 50%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 220 12% 30%;
+    --accent-foreground: 40 10% 97%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 226 71% 40%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 43 76% 52%;
 
     --radius: 0.75rem;
 
-    /* Custom Elevation Utilities */
     --elevate-1: rgba(0,0,0, 0.03);
     --elevate-2: rgba(0,0,0, 0.08);
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    --background: 220 15% 10%;
+    --foreground: 40 10% 95%;
     
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 15% 13%;
+    --card-foreground: 40 10% 95%;
     
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 15% 13%;
+    --popover-foreground: 40 10% 95%;
     
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 43 76% 52%;
+    --primary-foreground: 220 15% 10%;
     
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 12% 18%;
+    --secondary-foreground: 40 10% 95%;
     
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 12% 18%;
+    --muted-foreground: 40 8% 60%;
     
-    --accent: 38 92% 50%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 43 60% 40%;
+    --accent-foreground: 40 10% 95%;
     
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 220 12% 20%;
+    --input: 220 12% 20%;
+    --ring: 43 76% 52%;
   }
 
   body {
@@ -94,12 +89,10 @@
     text-wrap: balance;
   }
   
-  /* Smooth scroll for anchor links */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Custom Elevation Hover System */
   .hover-elevate {
     position: relative;
     z-index: 0;

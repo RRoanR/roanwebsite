@@ -33,18 +33,21 @@ export default function ServicesPage() {
               icon={Map}
               title={t('services.survey.title')}
               description={t('services.survey.desc')}
+              href="/services/survey"
               delay={0.1}
             />
             <ServiceCard
               icon={Home}
               title={t('services.home.title')}
               description={t('services.home.desc')}
+              href="/services/home-automation"
               delay={0.2}
             />
             <ServiceCard
               icon={Server}
               title={t('services.it.title')}
               description={t('services.it.desc')}
+              href="/services/it-consulting"
               delay={0.3}
             />
           </div>

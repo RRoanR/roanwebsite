@@ -1,6 +1,7 @@
 import { useLanguage } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { Link, useLocation } from "wouter";
+import logoImg from "@assets/roanros_logo_1771933628066.png";
 
 export function Navbar() {
   const { t } = useLanguage();
@@ -10,12 +11,10 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <Link href="/" data-testid="link-home">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground font-display font-bold text-xl shadow-lg shadow-primary/20">
-              V
-            </div>
+          <div className="flex items-center gap-3 cursor-pointer">
+            <img src={logoImg} alt="Roan Ros logo" className="w-10 h-10 rounded-lg object-contain" />
             <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
-              Vastgoed & IT
+              Roan Ros
             </span>
           </div>
         </Link>
@@ -50,7 +49,7 @@ export function Navbar() {
           <Link
             href="/contact"
             data-testid="button-cta"
-            className="hidden sm:flex px-5 py-2.5 rounded-full font-semibold text-sm bg-foreground text-background hover:-translate-y-0.5 transition-all"
+            className="hidden sm:flex px-5 py-2.5 rounded-full font-semibold text-sm bg-primary text-primary-foreground hover:-translate-y-0.5 transition-all shadow-md shadow-primary/20"
           >
             {t('nav.cta')}
           </Link>

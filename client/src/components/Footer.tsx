@@ -1,5 +1,6 @@
 import { useLanguage } from "@/lib/i18n";
 import { Link } from "wouter";
+import logoImg from "@assets/roanros_logo_1771933628066.png";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -10,11 +11,9 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div className="space-y-4">
             <Link href="/">
-              <div className="flex items-center gap-2 cursor-pointer">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-display font-bold shadow-md">
-                  V
-                </div>
-                <span className="font-display font-bold">Vastgoed & IT</span>
+              <div className="flex items-center gap-3 cursor-pointer">
+                <img src={logoImg} alt="Roan Ros logo" className="w-8 h-8 rounded-md object-contain" />
+                <span className="font-display font-bold">Roan Ros</span>
               </div>
             </Link>
             <div className="text-sm text-muted-foreground space-y-1">
@@ -37,7 +36,7 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} Vastgoed & IT. {t('footer.rights')}
+              &copy; {new Date().getFullYear()} Roan Ros. {t('footer.rights')}
             </p>
           </div>
         </div>
