@@ -6,37 +6,45 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/Home";
 import ContactPage from "@/pages/Contact";
-import PlaatsbeschrijvingenPage from "@/pages/Plaatsbeschrijvingen";
-import FaqPage from "@/pages/plaatsbeschrijvingen/Faq";
-import WatIsPage from "@/pages/plaatsbeschrijvingen/WatIs";
-import WetgevingPage from "@/pages/plaatsbeschrijvingen/Wetgeving";
-import BijHuurPage from "@/pages/plaatsbeschrijvingen/BijHuur";
-import BijWerkenPage from "@/pages/plaatsbeschrijvingen/BijWerken";
-import KostenPage from "@/pages/plaatsbeschrijvingen/Kosten";
-import ChecklistPage from "@/pages/plaatsbeschrijvingen/Checklist";
-import VaststellingPage from "@/pages/plaatsbeschrijvingen/Vaststelling";
-import DomoticaPage from "@/pages/Domotica";
 import ITConsultancyPage from "@/pages/ITConsultancy";
 import PrivacyBewaringPage from "@/pages/PrivacyBewaring";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
+import DomoticaOverviewPage from "@/pages/clusters/DomoticaOverview";
+import HomeAssistantServicePage from "@/pages/clusters/HomeAssistantService";
+import HomeAssistantFaqPage from "@/pages/clusters/HomeAssistantFaq";
+import HomeAssistantTopicPage from "@/pages/clusters/HomeAssistantTopic";
+import PlaatsOverviewPage from "@/pages/clusters/PlaatsOverview";
+import PlaatsFaqPage from "@/pages/clusters/PlaatsFaq";
+import PlaatsTopicPage from "@/pages/clusters/PlaatsTopic";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
-      <Route path="/plaatsbeschrijvingen" component={PlaatsbeschrijvingenPage} />
-      <Route path="/plaatsbeschrijvingen/faq.html" component={FaqPage} />
-      <Route path="/plaatsbeschrijvingen/wat-is-een-plaatsbeschrijving.html" component={WatIsPage} />
-      <Route path="/plaatsbeschrijvingen/wetgeving-per-gewest.html" component={WetgevingPage} />
-      <Route path="/plaatsbeschrijvingen/plaatsbeschrijving-bij-huur.html" component={BijHuurPage} />
-      <Route path="/plaatsbeschrijvingen/plaatsbeschrijving-bij-werken.html" component={BijWerkenPage} />
-      <Route path="/plaatsbeschrijvingen/kosten-en-wie-betaalt.html" component={KostenPage} />
-      <Route path="/plaatsbeschrijvingen/voorbereiding-checklist.html" component={ChecklistPage} />
-      <Route path="/plaatsbeschrijvingen/vaststelling-vs-plaatsbeschrijving.html" component={VaststellingPage} />
-      <Route path="/domotica" component={DomoticaPage} />
+
+      <Route path="/domotica/" component={DomoticaOverviewPage} />
+      <Route path="/domotica" component={DomoticaOverviewPage} />
+      <Route path="/domotica/home-assistant/" component={HomeAssistantServicePage} />
+      <Route path="/domotica/home-assistant" component={HomeAssistantServicePage} />
+      <Route path="/domotica/home-assistant/faq/" component={HomeAssistantFaqPage} />
+      <Route path="/domotica/home-assistant/faq" component={HomeAssistantFaqPage} />
+      <Route path="/domotica/home-assistant/faq.html" component={HomeAssistantFaqPage} />
+      <Route path="/domotica/home-assistant/:slug">{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
+      <Route path="/domotica/home-assistant/:slug/">{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
+
+      <Route path="/plaatsbeschrijvingen/" component={PlaatsOverviewPage} />
+      <Route path="/plaatsbeschrijvingen" component={PlaatsOverviewPage} />
+      <Route path="/plaatsbeschrijvingen/faq/" component={PlaatsFaqPage} />
+      <Route path="/plaatsbeschrijvingen/faq" component={PlaatsFaqPage} />
+      <Route path="/plaatsbeschrijvingen/faq.html" component={PlaatsFaqPage} />
+      <Route path="/plaatsbeschrijvingen/:slug">{(params) => <PlaatsTopicPage slug={params.slug} />}</Route>
+      <Route path="/plaatsbeschrijvingen/:slug/">{(params) => <PlaatsTopicPage slug={params.slug} />}</Route>
+
       <Route path="/it-consultancy" component={ITConsultancyPage} />
       <Route path="/privacy-en-bewaring" component={PrivacyBewaringPage} />
+      <Route path="/privacy-en-bewaring/" component={PrivacyBewaringPage} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/contact/" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,7 +1,12 @@
-import { db } from "./db";
+import { db, hasDatabase } from "./db";
 import { leads } from "@shared/schema";
 
 async function seed() {
+  if (!hasDatabase || !db) {
+    console.error("DATABASE_URL is required to seed the database.");
+    process.exit(1);
+  }
+
   const existing = await db.select().from(leads);
   if (existing.length === 0) {
     await db.insert(leads).values([

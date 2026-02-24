@@ -203,8 +203,31 @@ const translations = {
   }
 };
 
+function getInitialLanguage(): Language {
+  if (typeof window === 'undefined') return 'en';
+
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang === 'nl' || urlLang === 'en') return urlLang;
+
+  const storedLang = window.localStorage.getItem('lang');
+  if (storedLang === 'nl' || storedLang === 'en') return storedLang;
+
+  return window.navigator.language.toLowerCase().startsWith('nl') ? 'nl' : 'en';
+}
+
+function syncLanguageInUrl(language: Language) {
+  if (typeof window === 'undefined') return;
+  const url = new URL(window.location.href);
+  url.searchParams.set('lang', language);
+  window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+}
+
 export const useLanguage = create<I18nStore>((set, get) => ({
-  language: 'en',
-  setLanguage: (lang) => set({ language: lang }),
+  language: getInitialLanguage(),
+  setLanguage: (lang) => {
+    window.localStorage.setItem('lang', lang);
+    syncLanguageInUrl(lang);
+    set({ language: lang });
+  },
   t: (key) => translations[get().language][key] || key,
 }));

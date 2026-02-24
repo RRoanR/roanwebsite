@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertLeadSchema } from "@shared/schema";
@@ -20,7 +20,11 @@ const surveyTypes = {
   en: ['Entry', 'Exit', 'Entry + Exit', 'Pre-construction', 'Post-construction'],
 };
 
-export function QuoteForm() {
+interface QuoteFormProps {
+  preselectedService?: "survey" | "home" | "it";
+}
+
+export function QuoteForm({ preselectedService }: QuoteFormProps) {
   const { t, language } = useLanguage();
   const nl = language === 'nl';
   const createLead = useCreateLead();
@@ -33,7 +37,7 @@ export function QuoteForm() {
       name: "",
       email: "",
       phone: "",
-      service: "",
+      service: preselectedService || "",
       sliderValue: 2,
       message: "",
       language: language,
@@ -43,6 +47,11 @@ export function QuoteForm() {
   const selectedService = form.watch("service");
   const sliderValue = form.watch("sliderValue");
   const isSurvey = selectedService === "survey";
+
+  useEffect(() => {
+    if (!preselectedService) return;
+    form.setValue("service", preselectedService, { shouldValidate: true });
+  }, [form, preselectedService]);
 
   const services = [
     { value: "survey", icon: Map, label: t('services.survey.title'), color: "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800" },
