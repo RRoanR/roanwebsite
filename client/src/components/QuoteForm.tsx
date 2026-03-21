@@ -5,23 +5,13 @@ import { insertLeadSchema } from "@shared/schema";
 import { useCreateLead } from "@/hooks/use-leads";
 import { useLanguage } from "@/lib/i18n";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ChevronRight, Send, Map, Home, Server } from "lucide-react";
+import { CheckCircle2, ChevronRight, Send, Home, Server } from "lucide-react";
 import { z } from "zod";
 
 type FormData = z.infer<typeof insertLeadSchema>;
 
-const buildingSizes = {
-  nl: ['Studio', 'Appartement', 'Huis', 'Villa / Groot'],
-  en: ['Studio', 'Apartment', 'House', 'Villa / Large'],
-};
-
-const surveyTypes = {
-  nl: ['Ingaande', 'Uitgaande', 'In + Uit', 'Aanvang werken', 'Einde werken'],
-  en: ['Entry', 'Exit', 'Entry + Exit', 'Pre-construction', 'Post-construction'],
-};
-
 interface QuoteFormProps {
-  preselectedService?: "survey" | "home" | "it";
+  preselectedService?: "home" | "it";
 }
 
 export function QuoteForm({ preselectedService }: QuoteFormProps) {
@@ -29,7 +19,6 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
   const nl = language === 'nl';
   const createLead = useCreateLead();
   const [isSuccess, setIsSuccess] = useState(false);
-  const [surveyTypeIndex, setSurveyTypeIndex] = useState(0);
 
   const form = useForm<FormData>({
     resolver: zodResolver(insertLeadSchema),
@@ -46,7 +35,6 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
 
   const selectedService = form.watch("service");
   const sliderValue = form.watch("sliderValue");
-  const isSurvey = selectedService === "survey";
 
   useEffect(() => {
     if (!preselectedService) return;
@@ -54,12 +42,11 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
   }, [form, preselectedService]);
 
   const services = [
-    { value: "survey", icon: Map, label: t('services.survey.title'), color: "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800" },
     { value: "home", icon: Home, label: t('services.home.title'), color: "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800" },
     { value: "it", icon: Server, label: t('services.it.title'), color: "bg-violet-50 dark:bg-violet-950/30 border-violet-200 dark:border-violet-800" },
   ];
 
-  const sizes = isSurvey ? buildingSizes[language] : [
+  const sizes = [
     t('form.size.1'),
     t('form.size.2'),
     t('form.size.3'),
@@ -68,16 +55,9 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
 
   const onSubmit = async (data: FormData) => {
     try {
-      let finalMessage = data.message;
-      if (isSurvey) {
-        const bSize = buildingSizes[language][data.sliderValue - 1] || '';
-        const sType = surveyTypes[language][surveyTypeIndex] || '';
-        finalMessage = `[${nl ? 'Gebouw' : 'Building'}: ${bSize}] [Type: ${sType}]\n${data.message}`;
-      }
-      await createLead.mutateAsync({ ...data, message: finalMessage, language });
+      await createLead.mutateAsync({ ...data, message: data.message, language });
       setIsSuccess(true);
       form.reset();
-      setSurveyTypeIndex(0);
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (e) {
     }
@@ -124,7 +104,7 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
                   {...form.register("name")}
                   data-testid="input-name"
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
-                  placeholder="John Doe"
+                  placeholder="Joske Vermeulen"
                 />
                 {form.formState.errors.name && (
                   <p className="text-sm text-destructive">{form.formState.errors.name.message}</p>
@@ -158,7 +138,7 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
 
             <div className="space-y-3">
               <label className="text-sm font-semibold text-foreground">{t('form.service')} *</label>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {services.map((svc) => {
                   const isSelected = selectedService === svc.value;
                   return (
@@ -166,12 +146,7 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
                       key={svc.value}
                       type="button"
                       data-testid={`button-service-${svc.value}`}
-                      onClick={() => {
-                        form.setValue("service", svc.value, { shouldValidate: true });
-                        if (svc.value === "survey") {
-                          form.setValue("sliderValue", 2);
-                        }
-                      }}
+                      onClick={() => form.setValue("service", svc.value, { shouldValidate: true })}
                       className={`relative flex flex-col items-center gap-2 p-3 sm:p-4 rounded-xl border-2 transition-all duration-200 text-center cursor-pointer
                         ${isSelected
                           ? 'border-primary bg-primary/5 shadow-md shadow-primary/10 ring-1 ring-primary/20'
@@ -204,107 +179,40 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
               )}
             </div>
 
-            <AnimatePresence mode="wait">
-              {isSurvey ? (
-                <motion.div
-                  key="survey-options"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="space-y-5 overflow-hidden"
-                >
-                  <div className="space-y-4 bg-secondary/30 px-5 py-5 rounded-2xl border border-border/50">
-                    <div className="flex justify-between items-center">
-                      <label className="text-sm font-semibold text-foreground">
-                        {nl ? 'Type gebouw' : 'Building type'}
-                      </label>
-                      <span className="text-sm font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
-                        {sizes[sliderValue - 1]}
-                      </span>
-                    </div>
-                    <div className="relative pt-1">
-                      <input
-                        type="range"
-                        min="1"
-                        max="4"
-                        step="1"
-                        {...form.register("sliderValue", { valueAsNumber: true })}
-                        data-testid="slider-building-size"
-                        className="w-full h-2 bg-border rounded-lg appearance-none cursor-pointer"
-                        style={{
-                          background: `linear-gradient(to right, hsl(var(--primary)) ${(sliderValue - 1) * 33.33}%, hsl(var(--border)) ${(sliderValue - 1) * 33.33}%)`
-                        }}
-                      />
-                    </div>
-                    <div className="flex justify-between text-xs text-muted-foreground font-medium px-0.5">
-                      {sizes.map((s, i) => (
-                        <span key={i} className={`${sliderValue === i + 1 ? 'text-primary font-semibold' : ''} transition-colors`}>
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-3 bg-secondary/30 px-5 py-5 rounded-2xl border border-border/50">
-                    <label className="text-sm font-semibold text-foreground">
-                      {nl ? 'Type plaatsbeschrijving' : 'Type of survey'}
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {surveyTypes[language].map((type, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          data-testid={`button-survey-type-${i}`}
-                          onClick={() => setSurveyTypeIndex(i)}
-                          className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200
-                            ${surveyTypeIndex === i
-                              ? 'bg-primary text-primary-foreground shadow-sm'
-                              : 'bg-background border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground'
-                            }`}
-                        >
-                          {type}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="generic-slider"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="overflow-hidden"
-                >
-                  <div className="space-y-4 bg-secondary/30 px-5 py-5 rounded-2xl border border-border/50">
-                    <div className="flex justify-between items-center">
-                      <label className="text-sm font-semibold text-foreground">{t('form.size')}</label>
-                      <span className="text-sm font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
-                        {sizes[sliderValue - 1]}
-                      </span>
-                    </div>
-                    <div className="relative pt-1">
-                      <input
-                        type="range"
-                        min="1"
-                        max="4"
-                        step="1"
-                        {...form.register("sliderValue", { valueAsNumber: true })}
-                        data-testid="slider-project-size"
-                        className="w-full h-2 bg-border rounded-lg appearance-none cursor-pointer"
-                        style={{
-                          background: `linear-gradient(to right, hsl(var(--primary)) ${(sliderValue - 1) * 33.33}%, hsl(var(--border)) ${(sliderValue - 1) * 33.33}%)`
-                        }}
-                      />
-                    </div>
-                    <div className="flex justify-between text-xs text-muted-foreground font-medium px-1">
-                      <span>Min</span>
-                      <span>Max</span>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <motion.div
+              key="generic-slider"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="overflow-hidden"
+            >
+              <div className="space-y-4 bg-secondary/30 px-5 py-5 rounded-2xl border border-border/50">
+                <div className="flex justify-between items-center">
+                  <label className="text-sm font-semibold text-foreground">{t('form.size')}</label>
+                  <span className="text-sm font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    {sizes[sliderValue - 1]}
+                  </span>
+                </div>
+                <div className="relative pt-1">
+                  <input
+                    type="range"
+                    min="1"
+                    max="4"
+                    step="1"
+                    {...form.register("sliderValue", { valueAsNumber: true })}
+                    data-testid="slider-project-size"
+                    className="w-full h-2 bg-border rounded-lg appearance-none cursor-pointer"
+                    style={{
+                      background: `linear-gradient(to right, hsl(var(--primary)) ${(sliderValue - 1) * 33.33}%, hsl(var(--border)) ${(sliderValue - 1) * 33.33}%)`
+                    }}
+                  />
+                </div>
+                <div className="flex justify-between text-xs text-muted-foreground font-medium px-1">
+                  <span>{nl ? "Compact" : "Compact"}</span>
+                  <span>{nl ? "Uitgebreid" : "Comprehensive"}</span>
+                </div>
+              </div>
+            </motion.div>
 
             <div className="space-y-2">
               <label className="text-sm font-semibold text-foreground">{t('form.message')} *</label>

@@ -24,28 +24,6 @@ export function Navbar() {
 
   const navGroups: NavGroup[] = [
     {
-      id: "plaats",
-      label: t("nav.services.survey"),
-      links: [
-        {
-          href: "/plaatsbeschrijvingen/",
-          label: language === "nl" ? "Overzicht" : "Overview",
-        },
-        {
-          href: "/plaatsbeschrijvingen/faq/",
-          label: "FAQ",
-        },
-        {
-          href: "/plaatsbeschrijvingen/wat-is-een-plaatsbeschrijving/",
-          label: language === "nl" ? "Wat is het?" : "What is it?",
-        },
-        {
-          href: "/plaatsbeschrijvingen/kosten-en-wie-betaalt/",
-          label: language === "nl" ? "Kosten" : "Costs",
-        },
-      ],
-    },
-    {
       id: "domotica",
       label: t("nav.services.domotica"),
       links: [
@@ -216,4 +194,3 @@ export function Navbar() {
     </nav>
   );
 }
-

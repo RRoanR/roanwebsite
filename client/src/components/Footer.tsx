@@ -25,9 +25,6 @@ export function Footer() {
           </div>
           <div className="flex flex-col items-start md:items-end gap-4">
             <div className="flex flex-wrap gap-4 sm:gap-6 text-sm text-muted-foreground">
-              <Link href="/plaatsbeschrijvingen" className="hover:text-foreground transition-colors">
-                {t('nav.services.survey')}
-              </Link>
               <Link href="/domotica" className="hover:text-foreground transition-colors">
                 {t('nav.services.domotica')}
               </Link>

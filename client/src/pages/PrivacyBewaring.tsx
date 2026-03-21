@@ -13,22 +13,22 @@ export default function PrivacyBewaringPage() {
       icon: Shield,
       title: language === 'nl' ? 'Privacybeleid' : 'Privacy Policy',
       content: language === 'nl'
-        ? 'Roan Ros hecht groot belang aan de bescherming van uw persoonsgegevens. Wij verwerken enkel gegevens die noodzakelijk zijn voor de uitvoering van onze diensten, zoals plaatsbeschrijvingen, domotica-installaties en IT-consultancy. Uw gegevens worden nooit verkocht aan derden.'
-        : 'Roan Ros places great importance on the protection of your personal data. We only process data that is necessary for the execution of our services, such as property surveys, home automation installations, and IT consultancy. Your data is never sold to third parties.',
+        ? 'Roan Ros hecht groot belang aan de bescherming van uw persoonsgegevens. Wij verwerken enkel gegevens die noodzakelijk zijn voor de uitvoering van onze huidige diensten rond domotica, automatisatie en IT-consultancy. Uw gegevens worden nooit verkocht aan derden.'
+        : 'Roan Ros places great importance on protecting your personal data. We only process data that is necessary to deliver our current home automation and IT consultancy services. Your data is never sold to third parties.',
     },
     {
       icon: Database,
       title: language === 'nl' ? 'Beeldarchief & Bewaring' : 'Image Archive & Retention',
       content: language === 'nl'
-        ? 'Alle foto\'s en beelden die wij maken in het kader van plaatsbeschrijvingen worden gedurende 10 jaar bewaard in ons beveiligd digitaal archief. Gedurende deze periode hebben klanten op elk moment toegang tot hun beeldmateriaal via een persoonlijke link. Dit garandeert dat u steeds over bewijsmateriaal beschikt bij eventuele geschillen.'
-        : 'All photos and images taken during property surveys are stored for 10 years in our secure digital archive. During this period, clients have access to their image materials at any time via a personal link. This ensures you always have evidence available in case of disputes.',
+        ? 'Projectgerelateerde foto\'s, configuratie-exporten en technische documentatie bewaren wij enkel wanneer dat nodig is voor oplevering, support, garantie of wettelijke verplichtingen. Toegang blijft beperkt tot bevoegde personen en gedeelde klantinformatie wordt steeds zo minimaal mogelijk gehouden.'
+        : 'We only retain project-related photos, configuration exports, and technical documentation when needed for delivery, support, warranty, or legal obligations. Access remains limited to authorized people, and shared client information is kept to the minimum required.',
     },
     {
       icon: Clock,
       title: language === 'nl' ? 'Bewaartermijnen' : 'Retention Periods',
       content: language === 'nl'
-        ? 'Persoonsgegevens worden bewaard zolang als nodig voor de doeleinden waarvoor ze zijn verzameld. Beeldmateriaal van plaatsbeschrijvingen wordt 10 jaar bewaard. Contactgegevens en facturatiegegevens worden bewaard conform de wettelijke verplichtingen (7 jaar voor boekhoudkundige documenten). Na afloop van de bewaartermijn worden de gegevens veilig verwijderd.'
-        : 'Personal data is retained for as long as necessary for the purposes for which it was collected. Image materials from property surveys are retained for 10 years. Contact and billing information is retained in accordance with legal obligations (7 years for accounting documents). After the retention period expires, data is securely deleted.',
+        ? 'Persoonsgegevens worden bewaard zolang als nodig voor de doeleinden waarvoor ze zijn verzameld. Contact- en facturatiegegevens bewaren wij conform de wettelijke verplichtingen, terwijl projectdocumentatie enkel wordt bijgehouden zolang support, opvolging of compliance dat vereist. Na afloop van de bewaartermijn worden gegevens veilig verwijderd.'
+        : 'Personal data is retained only for as long as necessary for the purpose for which it was collected. Contact and billing information is stored in line with legal obligations, while project documentation is kept only as long as support, follow-up, or compliance requires it. Data is securely deleted once the retention period expires.',
     },
     {
       icon: Lock,

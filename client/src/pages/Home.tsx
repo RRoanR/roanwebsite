@@ -3,7 +3,7 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Map, Home, Server, ShieldCheck, Zap, Users, CheckCircle2 } from "lucide-react";
+import { Home, Server, ShieldCheck, Zap, Users, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import logoImg from "@assets/roanros_logo_1771933628066.png";
@@ -70,13 +70,13 @@ export default function HomePage() {
               >
                 {t('hero.cta')}
               </Link>
-              <Link
-                href="/plaatsbeschrijvingen"
+              <a
+                href="#services"
                 data-testid="button-hero-services"
                 className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-center text-foreground bg-secondary hover:bg-secondary/80 transition-colors"
               >
                 {t('hero.secondary')}
-              </Link>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -89,27 +89,20 @@ export default function HomePage() {
             <h3 className="text-3xl md:text-4xl font-bold font-display">{t('services.title')}</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ServiceCard
-              icon={Map}
-              title={t('services.survey.title')}
-              description={t('services.survey.desc')}
-              href="/plaatsbeschrijvingen"
-              delay={0.1}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <ServiceCard
               icon={Home}
               title={t('services.home.title')}
               description={t('services.home.desc')}
               href="/domotica"
-              delay={0.2}
+              delay={0.1}
             />
             <ServiceCard
               icon={Server}
               title={t('services.it.title')}
               description={t('services.it.desc')}
               href="/it-consultancy"
-              delay={0.3}
+              delay={0.2}
             />
           </div>
         </div>
@@ -149,8 +142,8 @@ export default function HomePage() {
 
             <div className="relative">
               <img
-                src="/images/service-survey.jpg"
-                alt="Professional service detail"
+                src="/images/service-home.jpg"
+                alt="Home automation setup"
                 className="rounded-3xl shadow-2xl object-cover h-[300px] sm:h-[400px] lg:h-[500px] w-full"
               />
               <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10 pointer-events-none" />

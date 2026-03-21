@@ -21,7 +21,7 @@ const translations = {
     
     'hero.badge': 'Available for new projects',
     'hero.title': 'Expert Solutions for Your Property & Tech Needs',
-    'hero.subtitle': 'Combining precision topographical surveying, smart home automation, and professional IT consulting to deliver results you can trust.',
+    'hero.subtitle': 'Smart home automation and practical IT consulting for people who want reliable systems without unnecessary complexity.',
     'hero.cta': 'Request a Free Quote',
     'hero.secondary': 'Our Services',
     
@@ -72,12 +72,12 @@ const translations = {
     'services.backToServices': 'Back to All Services',
     
     'features.title': 'Why Choose Us?',
-    'features.1.title': 'Belgian Standards',
-    'features.1.desc': 'Fully compliant with local regulations and building standards.',
-    'features.2.title': 'Tech-Driven',
-    'features.2.desc': 'Utilizing the latest software and hardware for unmatched precision.',
+    'features.1.title': 'Reliable Automation',
+    'features.1.desc': 'Stable Home Assistant setups with clear logic, clean dashboards, and local-first control.',
+    'features.2.title': 'Practical IT',
+    'features.2.desc': 'Hands-on infrastructure and troubleshooting that solve real problems without overengineering.',
     'features.3.title': 'Personalized Approach',
-    'features.3.desc': 'Direct communication and customized solutions for every client.',
+    'features.3.desc': 'Direct communication and solutions tailored to your home, workflow, and budget.',
     
     'contact.badge': 'Let\'s Talk',
     'contact.title': 'Ready to start your project?',
@@ -117,7 +117,7 @@ const translations = {
     
     'hero.badge': 'Beschikbaar voor nieuwe projecten',
     'hero.title': 'Expert Oplossingen voor uw Vastgoed & IT Noden',
-    'hero.subtitle': 'Nauwkeurige plaatsbeschrijvingen, slimme thuisautomatisering en professionele IT-consultancy, op maat geleverd.',
+    'hero.subtitle': 'Slimme thuisautomatisering en professionele IT-consultancy, op maat geleverd voor betrouwbare resultaten.',
     'hero.cta': 'Vraag een Gratis Offerte',
     'hero.secondary': 'Onze Diensten',
     
@@ -168,12 +168,12 @@ const translations = {
     'services.backToServices': 'Terug naar Alle Diensten',
     
     'features.title': 'Waarom voor ons kiezen?',
-    'features.1.title': 'Belgische Normen',
-    'features.1.desc': 'Volledig in overeenstemming met de lokale wetgeving en bouwnormen.',
-    'features.2.title': 'Technologie-Gedreven',
-    'features.2.desc': 'Gebruik van de nieuwste software en hardware voor ongeëvenaarde precisie.',
+    'features.1.title': 'Betrouwbare Automatisatie',
+    'features.1.desc': 'Stabiele Home Assistant-opstellingen met duidelijke logica, overzichtelijke dashboards en lokale controle.',
+    'features.2.title': 'Praktische IT',
+    'features.2.desc': 'Hands-on infrastructuur en troubleshooting die echte problemen oplossen zonder overbodige complexiteit.',
     'features.3.title': 'Persoonlijke Aanpak',
-    'features.3.desc': 'Directe communicatie en oplossingen op maat voor elke klant.',
+    'features.3.desc': 'Directe communicatie en oplossingen op maat van uw woning, workflow en budget.',
     
     'contact.badge': 'Laten we praten',
     'contact.title': 'Klaar om uw project te starten?',

@@ -13,9 +13,6 @@ import DomoticaOverviewPage from "@/pages/clusters/DomoticaOverview";
 import HomeAssistantServicePage from "@/pages/clusters/HomeAssistantService";
 import HomeAssistantFaqPage from "@/pages/clusters/HomeAssistantFaq";
 import HomeAssistantTopicPage from "@/pages/clusters/HomeAssistantTopic";
-import PlaatsOverviewPage from "@/pages/clusters/PlaatsOverview";
-import PlaatsFaqPage from "@/pages/clusters/PlaatsFaq";
-import PlaatsTopicPage from "@/pages/clusters/PlaatsTopic";
 
 function Router() {
   return (
@@ -31,14 +28,6 @@ function Router() {
       <Route path="/domotica/home-assistant/faq.html" component={HomeAssistantFaqPage} />
       <Route path="/domotica/home-assistant/:slug">{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
       <Route path="/domotica/home-assistant/:slug/">{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
-
-      <Route path="/plaatsbeschrijvingen/" component={PlaatsOverviewPage} />
-      <Route path="/plaatsbeschrijvingen" component={PlaatsOverviewPage} />
-      <Route path="/plaatsbeschrijvingen/faq/" component={PlaatsFaqPage} />
-      <Route path="/plaatsbeschrijvingen/faq" component={PlaatsFaqPage} />
-      <Route path="/plaatsbeschrijvingen/faq.html" component={PlaatsFaqPage} />
-      <Route path="/plaatsbeschrijvingen/:slug">{(params) => <PlaatsTopicPage slug={params.slug} />}</Route>
-      <Route path="/plaatsbeschrijvingen/:slug/">{(params) => <PlaatsTopicPage slug={params.slug} />}</Route>
 
       <Route path="/it-consultancy" component={ITConsultancyPage} />
       <Route path="/privacy-en-bewaring" component={PrivacyBewaringPage} />
