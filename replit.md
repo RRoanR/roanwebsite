@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a bilingual (English/Dutch) business website for "Vastgoed & IT" (roanr.be), a Belgian sole proprietorship offering three services: topographical surveying (Plaatsbeschrijvingen), smart home automation (Home Assistant), and IT consulting. The site is a lead-generation tool — visitors browse services, learn about the company, and submit quote requests via a form. Leads are stored in a PostgreSQL database.
+This is a bilingual (English/Dutch) business website for "Vastgoed & IT" (roanr.be), a Belgian sole proprietorship currently focused on two live services: smart home automation (Home Assistant) and IT consulting. The site is a lead-generation tool where visitors browse services, learn about the company, and submit quote requests via a form. Leads are stored in a PostgreSQL database.
 
 ## User Preferences
 
@@ -12,10 +12,10 @@ Preferred communication style: Simple, everyday language.
 
 ### Frontend
 - **Framework**: React 18 with TypeScript, bundled by Vite
-- **Routing**: Wouter (lightweight client-side router) with pages: Home (/), Plaatsbeschrijvingen (/plaatsbeschrijvingen + 7 info subpages + FAQ), Domotica (/domotica), IT Consultancy (/it-consultancy), Privacy (/privacy-en-bewaring), Contact (/contact)
+- **Routing**: Wouter (lightweight client-side router) with pages: Home (/), Domotica (/domotica + Home Assistant cluster pages), IT Consultancy (/it-consultancy), Privacy (/privacy-en-bewaring), Contact (/contact)
 - **Styling**: Tailwind CSS with shadcn/ui component library (New York style). Custom color palette uses CSS variables (golden amber primary, charcoal accent)
 - **State Management**: Zustand for i18n language toggle (English/Dutch). No other global state needed
-- **Forms**: react-hook-form with @hookform/resolvers for Zod validation on the quote/lead form
+- **Forms**: react-hook-form with @hookform/resolvers for Zod validation on the quote/lead form. The live UI currently exposes Home Automation and IT Consulting as the selectable services.
 - **Animations**: Framer Motion for page transitions, scroll-triggered animations, and micro-interactions (e.g., language toggle)
 - **Data Fetching**: TanStack React Query for server state; custom `useCreateLead` hook wraps the mutation
 - **Path aliases**: `@/` maps to `client/src/`, `@shared/` maps to `shared/`
@@ -37,11 +37,17 @@ Preferred communication style: Simple, everyday language.
 - `shared/schema.ts` — Drizzle table definitions and Zod insert schemas
 - `shared/routes.ts` — API route contracts (paths, methods, input/output schemas) shared between frontend and backend for type safety
 
+### Archived Content
+- The former `plaatsbeschrijvingen` section is not part of the live router anymore.
+- Its source was preserved under `stashed/plaatsbeschrijvingen/client/src/...` so the original hierarchy can be restored later without rebuilding it from scratch.
+- `stashed/plaatsbeschrijvingen/README.md` documents the archived paths and the basic restore steps.
+
 ### Key Design Decisions
 - **Shared route contracts**: Both client and server import from `shared/routes.ts` so API paths, HTTP methods, and validation schemas are defined once. This prevents drift between frontend and backend
 - **Zustand for i18n**: Lightweight alternative to full i18n libraries. All translations live in a single `client/src/lib/i18n.ts` file as a flat key-value map for 'en' and 'nl'
 - **No authentication**: This is a public-facing lead generation site with no user accounts
-- **Slider for budget**: The quote form uses a numeric slider (`sliderValue`) instead of a free-text budget field, keeping UX clean and conversion-friendly
+- **Slider for project scope**: The quote form uses a numeric slider (`sliderValue`) instead of a free-text budget field, keeping UX clean and conversion-friendly
+- **Services-only live branch**: The live site was simplified to focus on automation and IT while preserving the removed survey content in a dedicated archive folder
 
 ## External Dependencies
 
