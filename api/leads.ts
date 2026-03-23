@@ -1,7 +1,31 @@
+import pg from "pg";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { pgTable, text, serial, timestamp, integer } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
-import { api } from "../shared/routes";
-import { db, hasDatabase } from "../server/db";
-import { leads, type InsertLead, type Lead } from "../shared/schema";
+
+const { Pool } = pg;
+
+const leads = pgTable("leads", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone"),
+  service: text("service").notNull(),
+  sliderValue: integer("slider_value").notNull(),
+  message: text("message").notNull(),
+  language: text("language").notNull().default("en"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+const insertLeadSchema = createInsertSchema(leads).omit({ id: true, createdAt: true });
+type InsertLead = z.infer<typeof insertLeadSchema>;
+type Lead = typeof leads.$inferSelect;
+
+const connectionString = process.env.DATABASE_URL;
+const hasDatabase = Boolean(connectionString);
+const pool = hasDatabase ? new Pool({ connectionString }) : null;
+const db = pool ? drizzle(pool, { schema: { leads } }) : null;
 
 let nextId = 1;
 const memoryLeads: Lead[] = [];
@@ -25,18 +49,20 @@ async function createLead(insertLead: InsertLead): Promise<Lead> {
 }
 
 export default async function handler(req: any, res: any) {
+  const method = "POST";
+
   if (req.method === "OPTIONS") {
-    res.setHeader("Allow", `${api.leads.create.method}, OPTIONS`);
+    res.setHeader("Allow", `${method}, OPTIONS`);
     return res.status(204).end();
   }
 
-  if (req.method !== api.leads.create.method) {
-    res.setHeader("Allow", `${api.leads.create.method}, OPTIONS`);
+  if (req.method !== method) {
+    res.setHeader("Allow", `${method}, OPTIONS`);
     return res.status(405).json({ message: "Method not allowed" });
   }
 
   try {
-    const input = api.leads.create.input.parse(req.body);
+    const input = insertLeadSchema.parse(req.body);
     const lead = await createLead(input);
     return res.status(201).json(lead);
   } catch (err) {
