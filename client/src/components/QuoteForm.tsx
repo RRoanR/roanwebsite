@@ -118,7 +118,7 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
                   type="email"
                   data-testid="input-email"
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
-                  placeholder="john@example.com"
+                  placeholder="jos@vermeulen.be"
                 />
                 {form.formState.errors.email && (
                   <p className="text-sm text-destructive">{form.formState.errors.email.message}</p>
