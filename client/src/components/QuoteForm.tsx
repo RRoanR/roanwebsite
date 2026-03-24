@@ -5,13 +5,13 @@ import { insertLeadSchema } from "@shared/schema";
 import { useCreateLead } from "@/hooks/use-leads";
 import { useLanguage } from "@/lib/i18n";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ChevronRight, Send, Home, Server } from "lucide-react";
+import { CheckCircle2, ChevronRight, Send, Home, Leaf, Server } from "lucide-react";
 import { z } from "zod";
 
 type FormData = z.infer<typeof insertLeadSchema>;
 
 interface QuoteFormProps {
-  preselectedService?: "home" | "it";
+  preselectedService?: "home" | "it" | "garden";
 }
 
 export function QuoteForm({ preselectedService }: QuoteFormProps) {
@@ -43,7 +43,8 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
 
   const services = [
     { value: "home", icon: Home, label: t('services.home.title'), color: "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800" },
-    { value: "it", icon: Server, label: t('services.it.title'), color: "bg-violet-50 dark:bg-violet-950/30 border-violet-200 dark:border-violet-800" },
+    { value: "garden", icon: Leaf, label: t('services.garden.title'), color: "bg-lime-50 dark:bg-lime-950/30 border-lime-200 dark:border-lime-800" },
+    { value: "it", icon: Server, label: t('services.it.title'), color: "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800" },
   ];
 
   const sizes = [
@@ -64,7 +65,7 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
   };
 
   return (
-    <div className="bg-card rounded-3xl p-6 md:p-10 shadow-xl shadow-black/5 border border-border relative overflow-hidden">
+    <div className="site-card rounded-3xl p-6 md:p-10 relative overflow-hidden">
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <AnimatePresence mode="wait">
@@ -138,7 +139,7 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
 
             <div className="space-y-3">
               <label className="text-sm font-semibold text-foreground">{t('form.service')} *</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {services.map((svc) => {
                   const isSelected = selectedService === svc.value;
                   return (
@@ -233,8 +234,8 @@ export function QuoteForm({ preselectedService }: QuoteFormProps) {
               disabled={createLead.isPending}
               data-testid="button-submit"
               className="w-full py-4 rounded-xl font-bold text-lg text-primary-foreground
-                bg-gradient-to-r from-accent to-amber-400
-                shadow-lg shadow-accent/20
+                bg-gradient-to-r from-primary to-emerald-400
+                shadow-lg shadow-primary/20
                 hover:shadow-xl hover:-translate-y-0.5
                 active:translate-y-0 active:shadow-md
                 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none

@@ -4,6 +4,8 @@ import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowLeft, Shield, Database, Clock, Lock } from "lucide-react";
+import { SeoHead } from "@/components/SeoHead";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 export default function PrivacyBewaringPage() {
   const { language } = useLanguage();
@@ -41,6 +43,22 @@ export default function PrivacyBewaringPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SeoHead
+        title={language === "nl" ? "Privacy en bewaring | Roan Ros" : "Privacy and data retention | Roan Ros"}
+        description={
+          language === "nl"
+            ? "Lees hoe Roan Ros persoonsgegevens, projectfoto's en technische documentatie bewaart en beschermt."
+            : "Read how Roan Ros stores and protects personal data, project photos, and technical documentation."
+        }
+        path="/privacy-en-bewaring/"
+        language={language}
+        jsonLd={[
+          breadcrumbJsonLd("/privacy-en-bewaring/", [
+            { name: "Home", path: "/" },
+            { name: language === "nl" ? "Privacy & Bewaring" : "Privacy & Data Retention", path: "/privacy-en-bewaring/" },
+          ]),
+        ]}
+      />
       <Navbar />
 
       <section className="pt-32 pb-12">

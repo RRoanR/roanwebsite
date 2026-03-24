@@ -12,7 +12,8 @@ const translations = {
   en: {
     'nav.services': 'Services',
     'nav.services.survey': 'Condition Reports',
-    'nav.services.domotica': 'Home Automation',
+    'nav.services.domotica': 'Domotics & Home Assistant',
+    'nav.services.garden': 'Garden Maintenance',
     'nav.services.it': 'IT Consulting',
     'nav.about': 'About',
     'nav.contact': 'Contact',
@@ -20,8 +21,8 @@ const translations = {
     'nav.cta': 'Get a Quote',
     
     'hero.badge': 'Available for new projects',
-    'hero.title': 'Expert Solutions for Your Property & Tech Needs',
-    'hero.subtitle': 'Smart home automation and practical IT consulting for people who want reliable systems without unnecessary complexity.',
+    'hero.title': 'Green-tech systems for homes, businesses, and outdoor spaces',
+    'hero.subtitle': 'IT consulting with embedded home automation expertise, plus reliable garden care for people who want calm, future-ready systems.',
     'hero.cta': 'Request a Free Quote',
     'hero.secondary': 'Our Services',
     
@@ -29,10 +30,12 @@ const translations = {
     'services.title': 'Specialized Services Tailored for You',
     'services.survey.title': 'Condition Reports',
     'services.survey.desc': 'Accurate, legally compliant condition reports (Plaatsbeschrijvingen) for rental properties, renovations, and construction projects.',
-    'services.home.title': 'Smart Home Automation',
-    'services.home.desc': 'Consulting and installation of Home Assistant ecosystems. Secure, efficient, and seamless automation for modern living.',
+    'services.home.title': 'Domotics & Home Assistant',
+    'services.home.desc': 'A specialized IT subservice for Home Assistant, energy insight, dashboards, and reliable local automation.',
+    'services.garden.title': 'Garden Maintenance',
+    'services.garden.desc': 'Reliable garden care, trimming, seasonal clean-ups, and refresh work for private clients in the Antwerp area.',
     'services.it.title': 'IT Consulting',
-    'services.it.desc': 'Strategic IT advice, infrastructure setup, and troubleshooting for small businesses and individuals.',
+    'services.it.desc': 'Infrastructure, automation strategy, and hands-on troubleshooting for small teams, homes, and growing businesses.',
     'services.learnMore': 'Learn More',
     
     'services.survey.hero': 'Topographical Surveying & Condition Reports',
@@ -57,10 +60,10 @@ const translations = {
     'services.home.feature3': 'Ongoing Support',
     'services.home.feature3Desc': 'We provide maintenance and updates to keep your smart home running smoothly.',
 
-    'services.it.hero': 'IT Consulting & Infrastructure',
-    'services.it.heroDesc': 'Strategic technology advice and hands-on IT solutions for small businesses, sole proprietors, and individuals who need reliable tech without the complexity.',
+    'services.it.hero': 'IT Consulting, Infrastructure & Automation',
+    'services.it.heroDesc': 'Strategic technology advice, hands-on infrastructure support, and domotics expertise for people who want reliable systems without the chaos.',
     'services.it.what': 'What We Offer',
-    'services.it.whatDesc': 'From network setup and cloud migrations to security audits and troubleshooting — we provide practical, no-nonsense IT consulting that solves real problems and saves you time.',
+    'services.it.whatDesc': 'From network setup and cloud migrations to Home Assistant architecture, security reviews, and troubleshooting, we build practical systems that stay understandable over time.',
     'services.it.feature1': 'Infrastructure Setup',
     'services.it.feature1Desc': 'Network design, server configuration, and cloud deployment tailored to your needs.',
     'services.it.feature2': 'Security & Compliance',
@@ -108,7 +111,8 @@ const translations = {
   nl: {
     'nav.services': 'Diensten',
     'nav.services.survey': 'Plaatsbeschrijvingen',
-    'nav.services.domotica': 'Domotica',
+    'nav.services.domotica': 'Domotica & Home Assistant',
+    'nav.services.garden': 'Tuinonderhoud',
     'nav.services.it': 'IT Consultancy',
     'nav.about': 'Over Ons',
     'nav.contact': 'Contact',
@@ -116,8 +120,8 @@ const translations = {
     'nav.cta': 'Offerte Aanvragen',
     
     'hero.badge': 'Beschikbaar voor nieuwe projecten',
-    'hero.title': 'Expert Oplossingen voor uw Vastgoed & IT Noden',
-    'hero.subtitle': 'Slimme thuisautomatisering en professionele IT-consultancy, op maat geleverd voor betrouwbare resultaten.',
+    'hero.title': 'Groene technologie voor woning, zaak en buitenruimte',
+    'hero.subtitle': 'IT-consultancy met domotica-expertise ingebouwd, aangevuld met betrouwbaar tuinonderhoud voor wie rust en toekomstgerichte systemen wil.',
     'hero.cta': 'Vraag een Gratis Offerte',
     'hero.secondary': 'Onze Diensten',
     
@@ -125,10 +129,12 @@ const translations = {
     'services.title': 'Gespecialiseerde Diensten op Maat',
     'services.survey.title': 'Plaatsbeschrijvingen',
     'services.survey.desc': 'Gedetailleerde en juridisch sluitende plaatsbeschrijvingen voor verhuur, renovatie en bouwwerken.',
-    'services.home.title': 'Thuisautomatisering',
-    'services.home.desc': 'Advies en implementatie van Home Assistant ecosystemen. Veilige en naadloze automatisering voor een slimme woning.',
-    'services.it.title': 'IT Consultant',
-    'services.it.desc': 'Strategisch IT-advies, infrastructuur en probleemoplossing voor zelfstandigen, KMO\'s en particulieren.',
+    'services.home.title': 'Domotica & Home Assistant',
+    'services.home.desc': 'Een gespecialiseerde IT-subdienst voor Home Assistant, energie-inzicht, dashboards en betrouwbare lokale automatisatie.',
+    'services.garden.title': 'Tuinonderhoud',
+    'services.garden.desc': 'Betrouwbaar tuinonderhoud, snoeiwerken, seizoensopkuis en opfriswerk voor particulieren in de Antwerpse regio.',
+    'services.it.title': 'IT Consultancy',
+    'services.it.desc': 'Infrastructuur, automatisatiestrategie en hands-on troubleshooting voor woningen, kleine teams en groeiende ondernemingen.',
     'services.learnMore': 'Meer Info',
 
     'services.survey.hero': 'Plaatsbeschrijvingen & Vastgoedopnames',
@@ -153,10 +159,10 @@ const translations = {
     'services.home.feature3': 'Doorlopende Ondersteuning',
     'services.home.feature3Desc': 'Wij voorzien in onderhoud en updates om uw slimme woning soepel te laten draaien.',
 
-    'services.it.hero': 'IT-Consultancy & Infrastructuur',
-    'services.it.heroDesc': 'Strategisch technologisch advies en praktische IT-oplossingen voor kleine ondernemingen, zelfstandigen en particulieren die betrouwbare technologie nodig hebben zonder de complexiteit.',
+    'services.it.hero': 'IT-Consultancy, Infrastructuur & Automatisatie',
+    'services.it.heroDesc': 'Strategisch technologisch advies, praktische infrastructuurondersteuning en domotica-expertise voor wie betrouwbare systemen wil zonder ruis.',
     'services.it.what': 'Wat Wij Bieden',
-    'services.it.whatDesc': 'Van netwerkconfiguratie en cloudmigraties tot beveiligingsaudits en probleemoplossing — wij bieden praktische, no-nonsense IT-consultancy die echte problemen oplost en u tijd bespaart.',
+    'services.it.whatDesc': 'Van netwerkconfiguratie en cloudmigraties tot Home Assistant architectuur, security checks en troubleshooting: wij bouwen praktische systemen die op lange termijn begrijpelijk blijven.',
     'services.it.feature1': 'Infrastructuur Setup',
     'services.it.feature1Desc': 'Netwerkontwerp, serverconfiguratie en cloudimplementatie afgestemd op uw noden.',
     'services.it.feature2': 'Beveiliging & Compliance',
@@ -204,7 +210,11 @@ const translations = {
 };
 
 function getInitialLanguage(): Language {
-  if (typeof window === 'undefined') return 'en';
+  if (typeof window === 'undefined') return 'nl';
+
+  const pathname = window.location.pathname.toLowerCase();
+  if (pathname.startsWith('/en/garden-maintenance')) return 'en';
+  if (pathname.startsWith('/tuinonderhoud')) return 'nl';
 
   const urlLang = new URLSearchParams(window.location.search).get('lang');
   if (urlLang === 'nl' || urlLang === 'en') return urlLang;
@@ -212,7 +222,7 @@ function getInitialLanguage(): Language {
   const storedLang = window.localStorage.getItem('lang');
   if (storedLang === 'nl' || storedLang === 'en') return storedLang;
 
-  return window.navigator.language.toLowerCase().startsWith('nl') ? 'nl' : 'en';
+  return 'nl';
 }
 
 function syncLanguageInUrl(language: Language) {

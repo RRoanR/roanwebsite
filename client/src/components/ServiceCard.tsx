@@ -9,10 +9,19 @@ interface ServiceCardProps {
   description: string;
   delay?: number;
   href?: string;
+  className?: string;
 }
 
-export function ServiceCard({ icon: Icon, title, description, delay = 0, href = "/contact" }: ServiceCardProps) {
+export function ServiceCard({
+  icon: Icon,
+  title,
+  description,
+  delay = 0,
+  href = "/contact",
+  className = "",
+}: ServiceCardProps) {
   const { t } = useLanguage();
+  const testId = href.replace(/\/+$/, "").split("/").pop() || "service";
 
   return (
     <motion.div
@@ -20,26 +29,26 @@ export function ServiceCard({ icon: Icon, title, description, delay = 0, href = 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay }}
-      className="group relative bg-card p-8 rounded-3xl border border-border/50 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 overflow-hidden"
+      className={`site-card group relative overflow-hidden rounded-3xl p-8 transition-all duration-300 ${className}`}
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-[100px] -z-10 group-hover:scale-110 transition-transform duration-500" />
+      <div className="absolute right-0 top-0 -z-10 h-32 w-32 rounded-bl-[100px] bg-gradient-to-br from-primary/10 via-primary/5 to-transparent transition-transform duration-500 group-hover:scale-110" />
 
-      <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 shadow-inner">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/12 text-primary shadow-inner transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
         <Icon className="w-7 h-7" />
       </div>
 
-      <h3 className="text-xl font-bold text-foreground mb-3 font-display">
+      <h3 className="mb-3 mt-6 text-xl font-bold text-foreground font-display">
         {title}
       </h3>
 
-      <p className="text-muted-foreground leading-relaxed mb-6">
+      <p className="mb-6 leading-relaxed text-muted-foreground">
         {description}
       </p>
 
       <Link
         href={href}
         className="inline-flex items-center text-sm font-semibold text-primary hover:underline transition-all"
-        data-testid={`link-service-${href.split('/').pop()}`}
+        data-testid={`link-service-${testId}`}
       >
         {t('services.learnMore')} <span className="ml-1">&rarr;</span>
       </Link>

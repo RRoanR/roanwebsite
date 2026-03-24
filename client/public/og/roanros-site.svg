@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Roan Ros</title>
+  <desc id="desc">Roan Ros branded social preview image.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbf7f0" />
+      <stop offset="100%" stop-color="#efe5d3" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#d8a726" />
+      <stop offset="100%" stop-color="#f0c451" />
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="24" />
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1020" cy="112" r="140" fill="#d8a726" opacity=".14" filter="url(#blur)" />
+  <circle cx="160" cy="520" r="170" fill="#1f2933" opacity=".08" filter="url(#blur)" />
+  <rect x="84" y="84" width="1032" height="462" rx="42" fill="#fffdf9" stroke="#efe2cf" stroke-width="2" />
+  <rect x="124" y="124" width="108" height="108" rx="30" fill="url(#accent)" />
+  <path d="M178 146c-14 0-25 11-25 25v12h50v-12c0-14-11-25-25-25zm-34 70h68v-19h-68z" fill="#1f2933" opacity=".9" />
+  <text x="274" y="167" fill="#1f2933" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="58" font-weight="800">
+    Roan Ros
+  </text>
+  <text x="274" y="223" fill="#56606b" font-family="'Inter', Arial, sans-serif" font-size="28" font-weight="500">
+    Smart homes, IT consulting and garden maintenance
+  </text>
+  <text x="124" y="334" fill="#1f2933" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="78" font-weight="800">
+    Practical services,
+  </text>
+  <text x="124" y="414" fill="#1f2933" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="78" font-weight="800">
+    built around trust.
+  </text>
+  <text x="124" y="500" fill="#56606b" font-family="'Inter', Arial, sans-serif" font-size="30" font-weight="500">
+    Belgium based. Bilingual. Clear offers and crawlable service pages.
+  </text>
+</svg>

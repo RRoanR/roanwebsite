@@ -1,18 +1,20 @@
 import { useLanguage } from "@/lib/i18n";
 import { Link } from "wouter";
 import logoImg from "@assets/roanros_logo_1771933628066.png";
+import { domoticaOverviewPath, itConsultancyPath, localizedGardenPath } from "@shared/siteRoutes";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const gardenHref = localizedGardenPath("landing", language);
 
   return (
-    <footer className="bg-background py-12 border-t border-border">
+    <footer className="border-t border-white/35 bg-background/80 py-12 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div className="space-y-4">
             <Link href="/">
-              <div className="flex items-center gap-3 cursor-pointer">
-                <img src={logoImg} alt="Roan Ros logo" className="w-8 h-8 rounded-md object-contain" />
+              <div className="flex cursor-pointer items-center gap-3">
+                <img src={logoImg} alt="Roan Ros logo" className="h-8 w-8 rounded-md object-contain" />
                 <span className="font-display font-bold">Roan Ros</span>
               </div>
             </Link>
@@ -25,11 +27,14 @@ export function Footer() {
           </div>
           <div className="flex flex-col items-start md:items-end gap-4">
             <div className="flex flex-wrap gap-4 sm:gap-6 text-sm text-muted-foreground">
-              <Link href="/domotica" className="hover:text-foreground transition-colors">
-                {t('nav.services.domotica')}
+              <Link href={gardenHref} className="hover:text-foreground transition-colors">
+                {t('nav.services.garden')}
               </Link>
-              <Link href="/it-consultancy" className="hover:text-foreground transition-colors">
+              <Link href={itConsultancyPath} className="hover:text-foreground transition-colors">
                 {t('nav.services.it')}
+              </Link>
+              <Link href={domoticaOverviewPath} className="hover:text-foreground transition-colors">
+                {t('nav.services.domotica')}
               </Link>
               <Link href="/contact" className="hover:text-foreground transition-colors">
                 {t('nav.contact')}

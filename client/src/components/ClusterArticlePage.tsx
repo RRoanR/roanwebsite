@@ -76,7 +76,7 @@ export function ClusterArticlePage({
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="site-shell min-h-screen bg-background">
       <SeoHead
         title={title[language]}
         description={description[language]}
@@ -86,10 +86,11 @@ export function ClusterArticlePage({
       />
       <Navbar />
 
-      <main>
-        <section className="pt-32 pb-14">
+      <main className="site-main">
+        <section className="site-hero pt-32 pb-14">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs items={breadcrumbs[language]} />
+            <div className="site-pill mb-5">{language === "nl" ? "Verdieping" : "Deep dive"}</div>
             <motion.h1
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -102,7 +103,7 @@ export function ClusterArticlePage({
         </section>
 
         {sections.map((section, index) => (
-          <section key={section.title.nl} className={index % 2 === 0 ? "py-12 bg-secondary/50" : "py-12"}>
+          <section key={section.title.nl} className={index % 2 === 0 ? "site-band py-12" : "py-12"}>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-2xl font-bold font-display mb-4">{section.title[language]}</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">{section.body[language]}</p>
@@ -118,14 +119,14 @@ export function ClusterArticlePage({
         ))}
 
         {faqs.length > 0 && (
-          <section className="py-12 bg-secondary/50">
+          <section className="site-band py-12">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-2xl font-bold font-display mb-6">
                 {language === "nl" ? "Veelgestelde vragen" : "Frequently asked questions"}
               </h2>
               <div className="space-y-4">
                 {faqs.map((item) => (
-                  <article key={item.question.nl} className="p-5 rounded-xl border border-border/50 bg-card">
+                  <article key={item.question.nl} className="site-card rounded-[1.5rem] p-5">
                     <h3 className="font-semibold mb-2">{item.question[language]}</h3>
                     <p className="text-sm text-muted-foreground">{item.answer[language]}</p>
                   </article>
@@ -146,7 +147,7 @@ export function ClusterArticlePage({
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="p-4 rounded-xl border border-border/50 bg-card hover:bg-secondary/50 transition-colors"
+                    className="site-card rounded-[1.5rem] p-4 transition-colors hover:bg-secondary/40"
                   >
                     {item.label[language]}
                   </Link>
@@ -158,14 +159,16 @@ export function ClusterArticlePage({
 
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl font-bold font-display mb-3">{ctaTitle[language]}</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-7">{ctaBody[language]}</p>
-            <Link
-              href={ctaHref}
-              className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all"
-            >
-              {ctaLabel[language]}
-            </Link>
+            <div className="site-card site-card-strong rounded-[2rem] p-8">
+              <h2 className="text-2xl font-bold font-display mb-3">{ctaTitle[language]}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto mb-7">{ctaBody[language]}</p>
+              <Link
+                href={ctaHref}
+                className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all"
+              >
+                {ctaLabel[language]}
+              </Link>
+            </div>
           </div>
         </section>
       </main>
@@ -174,4 +177,3 @@ export function ClusterArticlePage({
     </div>
   );
 }
-

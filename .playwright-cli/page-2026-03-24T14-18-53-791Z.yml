@@ -1,0 +1,128 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "Roan Ros logo Roan Ros IT, automation and care" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]:
+            - img "Roan Ros logo" [ref=e10]
+            - generic [ref=e11]:
+              - generic [ref=e12]: Roan Ros
+              - generic [ref=e13]: IT, automation and care
+        - generic [ref=e14]:
+          - generic [ref=e15]:
+            - generic [ref=e16]:
+              - button "IT Consulting" [ref=e17] [cursor=pointer]:
+                - text: IT Consulting
+                - img [ref=e18]
+              - generic:
+                - generic:
+                  - link "Overview":
+                    - /url: /it-consultancy/
+                  - link "Domotics & Home Assistant":
+                    - /url: /it-consultancy/domotica/
+                  - link "Home Assistant":
+                    - /url: /it-consultancy/domotica/home-assistant/
+                  - link "FAQ":
+                    - /url: /it-consultancy/domotica/home-assistant/faq/
+            - link "Garden Maintenance" [ref=e20] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "Contact" [ref=e21] [cursor=pointer]:
+              - /url: /contact
+          - generic [ref=e22]:
+            - button "Switch language to Dutch" [ref=e23] [cursor=pointer]: NL
+            - button "Switch language to English" [pressed] [ref=e24] [cursor=pointer]: EN
+          - link "Get a Quote" [ref=e26] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e27]:
+      - generic [ref=e29]:
+        - link "Back to Home" [ref=e30] [cursor=pointer]:
+          - /url: /
+          - img [ref=e31]
+          - text: Back to Home
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: Core service
+            - heading "IT Consulting, Infrastructure & Automation" [level=1] [ref=e36]
+            - paragraph [ref=e37]: Strategic technology advice, hands-on infrastructure support, and domotics expertise for people who want reliable systems without the chaos.
+            - generic [ref=e38]:
+              - link "View domotics subservice" [ref=e39] [cursor=pointer]:
+                - /url: /it-consultancy/domotica/
+              - link "Plan an advice call" [ref=e40] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - generic [ref=e43]:
+                - img [ref=e45]
+                - heading "Infrastructure" [level=2] [ref=e50]
+                - paragraph [ref=e51]: Networks, servers, cloud, and structure that still make sense long term.
+              - generic [ref=e52]:
+                - img [ref=e54]
+                - heading "Domotics subservice" [level=2] [ref=e57]
+                - paragraph [ref=e58]: Home Assistant, protocol selection, energy insight, and maintenance as a specialized layer within IT.
+            - generic [ref=e60]:
+              - img [ref=e62]
+              - generic [ref=e65]:
+                - paragraph [ref=e66]: Smart integration
+                - paragraph [ref=e67]: We connect infrastructure, automation, and support in one clear flow.
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - heading "What We Offer" [level=2] [ref=e72]
+          - paragraph [ref=e73]: From network setup and cloud migrations to Home Assistant architecture, security reviews, and troubleshooting, we build practical systems that stay understandable over time.
+        - generic [ref=e74]:
+          - generic [ref=e76]: Subservice spotlight
+          - heading "Domotics and Home Assistant" [level=3] [ref=e77]
+          - paragraph [ref=e78]: Domotics is no longer a disconnected island here, but a specialized extension of your IT environment. That keeps networking, security, dashboards, and maintenance aligned.
+          - generic [ref=e79]:
+            - link "Go to domotics overview" [ref=e80] [cursor=pointer]:
+              - /url: /it-consultancy/domotica/
+            - link "Home Assistant" [ref=e81] [cursor=pointer]:
+              - /url: /it-consultancy/domotica/home-assistant/
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - img [ref=e87]
+          - heading "Infrastructure Setup" [level=3] [ref=e92]
+          - paragraph [ref=e93]: Network design, server configuration, and cloud deployment tailored to your needs.
+        - generic [ref=e94]:
+          - img [ref=e96]
+          - heading "Security & Compliance" [level=3] [ref=e99]
+          - paragraph [ref=e100]: Protect your business with proper security practices and data protection.
+        - generic [ref=e101]:
+          - img [ref=e103]
+          - heading "Troubleshooting & Support" [level=3] [ref=e105]
+          - paragraph [ref=e106]: Quick diagnosis and resolution of technical issues to minimize downtime.
+      - generic [ref=e109]:
+        - heading "Need help with IT or Home Assistant?" [level=2] [ref=e110]
+        - paragraph [ref=e111]: We look at structure and priorities first, so you do not end up with even more disconnected tools.
+        - link "Request a Quote for This Service" [ref=e112] [cursor=pointer]:
+          - /url: /contact
+    - contentinfo [ref=e113]:
+      - generic [ref=e115]:
+        - generic [ref=e116]:
+          - link "Roan Ros logo Roan Ros" [ref=e117] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e118]:
+              - img "Roan Ros logo" [ref=e119]
+              - generic [ref=e120]: Roan Ros
+          - generic [ref=e121]:
+            - paragraph [ref=e122]: Roan Ros
+            - paragraph [ref=e123]: BE 1022.177.189
+            - paragraph [ref=e124]: contact@roanr.be
+            - paragraph [ref=e125]: +32 468 25 95 03
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - link "Garden Maintenance" [ref=e128] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "IT Consulting" [ref=e129] [cursor=pointer]:
+              - /url: /it-consultancy/
+            - link "Domotics & Home Assistant" [ref=e130] [cursor=pointer]:
+              - /url: /it-consultancy/domotica/
+            - link "Contact" [ref=e131] [cursor=pointer]:
+              - /url: /contact
+            - link "Privacy" [ref=e132] [cursor=pointer]:
+              - /url: /privacy-en-bewaring
+          - paragraph [ref=e133]: © 2026 Roan Ros. All rights reserved.
+  - button "WhatsApp" [ref=e135] [cursor=pointer]:
+    - img [ref=e136]

@@ -1,0 +1,153 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "Roan Ros logo Roan Ros" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]:
+            - img "Roan Ros logo" [ref=e8]
+            - generic [ref=e9]: Roan Ros
+        - generic [ref=e10]:
+          - generic [ref=e11]:
+            - generic [ref=e12]:
+              - button "Home Automation" [ref=e13] [cursor=pointer]:
+                - text: Home Automation
+                - img [ref=e14]
+              - generic:
+                - generic:
+                  - link "Overview":
+                    - /url: /domotica/
+                  - link "Home Assistant":
+                    - /url: /domotica/home-assistant/
+                  - link "FAQ":
+                    - /url: /domotica/home-assistant/faq/
+                  - link "Zigbee / Z-Wave / Matter":
+                    - /url: /domotica/home-assistant/zigbee-zwave-matter-thread/
+            - link "Garden Maintenance" [ref=e16] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "IT Consulting" [ref=e17] [cursor=pointer]:
+              - /url: /it-consultancy
+            - link "Contact" [ref=e18] [cursor=pointer]:
+              - /url: /contact
+          - generic [ref=e19]:
+            - button "Switch language to Dutch" [ref=e20] [cursor=pointer]: NL
+            - button "Switch language to English" [pressed] [ref=e21] [cursor=pointer]: EN
+          - link "Get a Quote" [ref=e23] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e24]:
+      - generic [ref=e26]:
+        - navigation "Breadcrumb" [ref=e27]:
+          - navigation "breadcrumb" [ref=e28]:
+            - list [ref=e29]:
+              - listitem [ref=e30]:
+                - link "Home" [ref=e31] [cursor=pointer]:
+                  - /url: /
+                - listitem [ref=e32]:
+                  - img [ref=e33]
+              - listitem [ref=e35]:
+                - link "Garden maintenance" [ref=e36] [cursor=pointer]:
+                  - /url: /en/garden-maintenance/
+                - listitem [ref=e37]:
+                  - img [ref=e38]
+              - listitem [ref=e40]:
+                - link "Services" [disabled] [ref=e41]
+        - heading "Services" [level=1] [ref=e42]
+        - paragraph [ref=e43]: Everything from the imported service copy is brought together here in a clearer catalogue, focused on upkeep, trimming, and a realistic maintenance cadence.
+      - generic [ref=e45]:
+        - link "Garden maintenance General garden upkeep that keeps everything neat, healthy, and manageable. Read more" [ref=e47] [cursor=pointer]:
+          - /url: /en/garden-maintenance/services/garden-maintenance/
+          - img [ref=e49]
+          - heading "Garden maintenance" [level=2] [ref=e53]
+          - paragraph [ref=e54]: General garden upkeep that keeps everything neat, healthy, and manageable.
+          - generic [ref=e55]:
+            - text: Read more
+            - img [ref=e56]
+        - link "Hedge and shrub trimming Tidy trimming with attention to shape, safety, and healthy growth. Read more" [ref=e59] [cursor=pointer]:
+          - /url: /en/garden-maintenance/services/hedge-and-shrub-trimming/
+          - img [ref=e61]
+          - heading "Hedge and shrub trimming" [level=2] [ref=e65]
+          - paragraph [ref=e66]: Tidy trimming with attention to shape, safety, and healthy growth.
+          - generic [ref=e67]:
+            - text: Read more
+            - img [ref=e68]
+        - link "Garden refresh Bring your garden back to a fresh, tidy state without major works. Read more" [ref=e71] [cursor=pointer]:
+          - /url: /en/garden-maintenance/services/garden-refresh/
+          - img [ref=e73]
+          - heading "Garden refresh" [level=2] [ref=e77]
+          - paragraph [ref=e78]: Bring your garden back to a fresh, tidy state without major works.
+          - generic [ref=e79]:
+            - text: Read more
+            - img [ref=e80]
+        - link "Planting and care Planting and caring for flowers, shrubs, and smaller beds with a natural feel. Read more" [ref=e83] [cursor=pointer]:
+          - /url: /en/garden-maintenance/services/planting-and-care/
+          - img [ref=e85]
+          - heading "Planting and care" [level=2] [ref=e89]
+          - paragraph [ref=e90]: Planting and caring for flowers, shrubs, and smaller beds with a natural feel.
+          - generic [ref=e91]:
+            - text: Read more
+            - img [ref=e92]
+        - link "On request or by schedule Choose between one-off help and recurring garden care that fits your schedule. Read more" [ref=e95] [cursor=pointer]:
+          - /url: /en/garden-maintenance/services/on-request-or-by-schedule/
+          - img [ref=e97]
+          - heading "On request or by schedule" [level=2] [ref=e101]
+          - paragraph [ref=e102]: Choose between one-off help and recurring garden care that fits your schedule.
+          - generic [ref=e103]:
+            - text: Read more
+            - img [ref=e104]
+        - link "Seasonal clean-up Spring or autumn clean-up for leaves, borders, and a fresh seasonal reset. Read more" [ref=e107] [cursor=pointer]:
+          - /url: /en/garden-maintenance/services/seasonal-clean-up/
+          - img [ref=e109]
+          - heading "Seasonal clean-up" [level=2] [ref=e113]
+          - paragraph [ref=e114]: Spring or autumn clean-up for leaves, borders, and a fresh seasonal reset.
+          - generic [ref=e115]:
+            - text: Read more
+            - img [ref=e116]
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - img [ref=e122]
+          - heading "On request or by schedule" [level=2] [ref=e126]
+          - paragraph [ref=e127]: Not every garden needs the same rhythm. That is why you can choose between a one-off intervention and a recurring plan.
+        - generic [ref=e128]:
+          - heading "Next step" [level=2] [ref=e129]
+          - paragraph [ref=e130]: Read the approach page or contact us right away for a no-obligation quote.
+          - generic [ref=e131]:
+            - link "Approach" [ref=e132] [cursor=pointer]:
+              - /url: /en/garden-maintenance/approach/
+            - link "FAQ" [ref=e133] [cursor=pointer]:
+              - /url: /en/garden-maintenance/faq/
+            - link "Get in touch" [ref=e134] [cursor=pointer]:
+              - /url: /en/garden-maintenance/contact/
+      - link "Request a quote" [ref=e137] [cursor=pointer]:
+        - /url: /en/garden-maintenance/contact/
+        - text: Request a quote
+        - img [ref=e138]
+    - contentinfo [ref=e140]:
+      - generic [ref=e142]:
+        - generic [ref=e143]:
+          - link "Roan Ros logo Roan Ros" [ref=e144] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e145]:
+              - img "Roan Ros logo" [ref=e146]
+              - generic [ref=e147]: Roan Ros
+          - generic [ref=e148]:
+            - paragraph [ref=e149]: Roan Ros
+            - paragraph [ref=e150]: BE 1022.177.189
+            - paragraph [ref=e151]: contact@roanr.be
+            - paragraph [ref=e152]: +32 468 25 95 03
+        - generic [ref=e153]:
+          - generic [ref=e154]:
+            - link "Garden Maintenance" [ref=e155] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "Home Automation" [ref=e156] [cursor=pointer]:
+              - /url: /domotica
+            - link "IT Consulting" [ref=e157] [cursor=pointer]:
+              - /url: /it-consultancy
+            - link "Contact" [ref=e158] [cursor=pointer]:
+              - /url: /contact
+            - link "Privacy" [ref=e159] [cursor=pointer]:
+              - /url: /privacy-en-bewaring
+          - paragraph [ref=e160]: © 2026 Roan Ros. All rights reserved.
+  - button "WhatsApp" [ref=e162] [cursor=pointer]:
+    - img [ref=e163]

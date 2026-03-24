@@ -1,0 +1,239 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "Roan Ros logo Roan Ros" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]:
+            - img "Roan Ros logo" [ref=e8]
+            - generic [ref=e9]: Roan Ros
+        - generic [ref=e10]:
+          - generic [ref=e11]:
+            - generic [ref=e12]:
+              - button "Home Automation" [ref=e13] [cursor=pointer]:
+                - text: Home Automation
+                - img [ref=e14]
+              - generic:
+                - generic:
+                  - link "Overview":
+                    - /url: /domotica/
+                  - link "Home Assistant":
+                    - /url: /domotica/home-assistant/
+                  - link "FAQ":
+                    - /url: /domotica/home-assistant/faq/
+                  - link "Zigbee / Z-Wave / Matter":
+                    - /url: /domotica/home-assistant/zigbee-zwave-matter-thread/
+            - link "Garden Maintenance" [ref=e16] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "IT Consulting" [ref=e17] [cursor=pointer]:
+              - /url: /it-consultancy
+            - link "Contact" [ref=e18] [cursor=pointer]:
+              - /url: /contact
+          - generic [ref=e19]:
+            - button "Switch language to Dutch" [ref=e20] [cursor=pointer]: NL
+            - button "Switch language to English" [pressed] [ref=e21] [cursor=pointer]: EN
+          - link "Get a Quote" [ref=e23] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e24]:
+      - generic [ref=e27]:
+        - navigation "Breadcrumb" [ref=e28]:
+          - navigation "breadcrumb" [ref=e29]:
+            - list [ref=e30]:
+              - listitem [ref=e31]:
+                - link "Home" [ref=e32] [cursor=pointer]:
+                  - /url: /
+                - listitem [ref=e33]:
+                  - img [ref=e34]
+              - listitem [ref=e36]:
+                - link "Garden maintenance" [disabled] [ref=e37]
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - img [ref=e41]
+              - text: Personal garden care for private clients
+            - heading "Garden maintenance with care and attention" [level=1] [ref=e44]
+            - paragraph [ref=e45]: For a well-kept garden in Edegem, Kontich, Lier, Duffel, Lint and Hove. Reliable maintenance, neat trimming, and a service rhythm that fits your schedule.
+            - generic [ref=e46]:
+              - link "Request a quote" [ref=e47] [cursor=pointer]:
+                - /url: /en/garden-maintenance/contact/
+              - link "View all services" [ref=e48] [cursor=pointer]:
+                - /url: /en/garden-maintenance/services/
+          - complementary [ref=e49]:
+            - heading "Quick overview" [level=2] [ref=e50]
+            - generic [ref=e51]:
+              - generic [ref=e52]:
+                - img [ref=e54]
+                - generic [ref=e60]:
+                  - heading "Trimming and upkeep" [level=3] [ref=e61]
+                  - paragraph [ref=e62]: From one-off refresh work to recurring visits.
+              - generic [ref=e63]:
+                - img [ref=e65]
+                - generic [ref=e69]:
+                  - heading "On request or by schedule" [level=3] [ref=e70]
+                  - paragraph [ref=e71]: You choose the cadence that fits your garden and your diary.
+              - generic [ref=e72]:
+                - img [ref=e74]
+                - generic [ref=e77]:
+                  - heading "Active in your area" [level=3] [ref=e78]
+                  - paragraph [ref=e79]: Edegem, Kontich, Lier, Duffel, Lint and Hove as the core service area.
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - heading "Where you can get help" [level=2] [ref=e83]
+          - paragraph [ref=e84]: The imported HTML copy is translated here into a clearer, brand-consistent service offer.
+        - generic [ref=e85]:
+          - link "Garden maintenance General garden upkeep that keeps everything neat, healthy, and manageable." [ref=e86] [cursor=pointer]:
+            - /url: /en/garden-maintenance/services/garden-maintenance/
+            - img [ref=e88]
+            - heading "Garden maintenance" [level=3] [ref=e92]
+            - paragraph [ref=e93]: General garden upkeep that keeps everything neat, healthy, and manageable.
+          - link "Hedge and shrub trimming Tidy trimming with attention to shape, safety, and healthy growth." [ref=e94] [cursor=pointer]:
+            - /url: /en/garden-maintenance/services/hedge-and-shrub-trimming/
+            - img [ref=e96]
+            - heading "Hedge and shrub trimming" [level=3] [ref=e100]
+            - paragraph [ref=e101]: Tidy trimming with attention to shape, safety, and healthy growth.
+          - link "Garden refresh Bring your garden back to a fresh, tidy state without major works." [ref=e102] [cursor=pointer]:
+            - /url: /en/garden-maintenance/services/garden-refresh/
+            - img [ref=e104]
+            - heading "Garden refresh" [level=3] [ref=e108]
+            - paragraph [ref=e109]: Bring your garden back to a fresh, tidy state without major works.
+          - link "Planting and care Planting and caring for flowers, shrubs, and smaller beds with a natural feel." [ref=e110] [cursor=pointer]:
+            - /url: /en/garden-maintenance/services/planting-and-care/
+            - img [ref=e112]
+            - heading "Planting and care" [level=3] [ref=e116]
+            - paragraph [ref=e117]: Planting and caring for flowers, shrubs, and smaller beds with a natural feel.
+          - link "On request or by schedule Choose between one-off help and recurring garden care that fits your schedule." [ref=e118] [cursor=pointer]:
+            - /url: /en/garden-maintenance/services/on-request-or-by-schedule/
+            - img [ref=e120]
+            - heading "On request or by schedule" [level=3] [ref=e124]
+            - paragraph [ref=e125]: Choose between one-off help and recurring garden care that fits your schedule.
+          - link "Seasonal clean-up Spring or autumn clean-up for leaves, borders, and a fresh seasonal reset." [ref=e126] [cursor=pointer]:
+            - /url: /en/garden-maintenance/services/seasonal-clean-up/
+            - img [ref=e128]
+            - heading "Seasonal clean-up" [level=3] [ref=e132]
+            - paragraph [ref=e133]: Spring or autumn clean-up for leaves, borders, and a fresh seasonal reset.
+      - generic [ref=e135]:
+        - generic [ref=e136]:
+          - heading "A personal approach" [level=2] [ref=e137]
+          - paragraph [ref=e138]: "Every garden is different. That is why we start simply: what is the current state, what do you want improved, and what rhythm is realistic?"
+          - generic [ref=e139]:
+            - generic [ref=e142]: One-off clean-up or refresh
+            - generic [ref=e145]: Maintenance on an agreed schedule
+            - generic [ref=e148]: Clear communication on scope, timing, and price
+        - generic [ref=e149]:
+          - heading "Service area" [level=2] [ref=e150]
+          - paragraph [ref=e151]: The core region covers Edegem, Kontich, Lier, Duffel, Lint and Hove, with room to review nearby requests.
+          - generic [ref=e152]:
+            - link "Edegem" [ref=e153] [cursor=pointer]:
+              - /url: /en/garden-maintenance/region/edegem/
+            - link "Kontich" [ref=e154] [cursor=pointer]:
+              - /url: /en/garden-maintenance/region/kontich/
+            - link "Lier" [ref=e155] [cursor=pointer]:
+              - /url: /en/garden-maintenance/region/lier/
+            - link "Duffel" [ref=e156] [cursor=pointer]:
+              - /url: /en/garden-maintenance/region/duffel/
+            - link "Lint" [ref=e157] [cursor=pointer]:
+              - /url: /en/garden-maintenance/region/lint/
+            - link "Hove" [ref=e158] [cursor=pointer]:
+              - /url: /en/garden-maintenance/region/hove/
+          - link "More about the area" [ref=e159] [cursor=pointer]:
+            - /url: /en/garden-maintenance/region/
+            - text: More about the area
+            - img [ref=e160]
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - heading "Frequently asked questions" [level=2] [ref=e165]
+          - paragraph [ref=e166]: Extra context for search intent around maintenance, scheduling, and local availability.
+        - generic [ref=e167]:
+          - article [ref=e168]:
+            - heading "Can I start with a one-off visit?" [level=3] [ref=e169]
+            - paragraph [ref=e170]: Yes. Many clients start with a clean-up or trimming visit and only later move to scheduled maintenance.
+          - article [ref=e171]:
+            - heading "Do you only work for private clients?" [level=3] [ref=e172]
+            - paragraph [ref=e173]: The focus is on private gardens where personal follow-up and flexible maintenance matter most.
+          - article [ref=e174]:
+            - heading "Which municipalities do you serve as a gardener?" [level=3] [ref=e175]
+            - paragraph [ref=e176]: The core service area covers Edegem, Kontich, Lier, Duffel, Lint and Hove.
+          - article [ref=e177]:
+            - heading "Can I request a quote for recurring maintenance?" [level=3] [ref=e178]
+            - paragraph [ref=e179]: Yes. After an initial intake we can review which maintenance rhythm suits your garden best.
+      - generic [ref=e182]:
+        - generic [ref=e183]:
+          - heading "Request a no-obligation quote" [level=2] [ref=e184]
+          - paragraph [ref=e185]: Use the same lead flow as the rest of the site, with garden maintenance preselected.
+          - generic [ref=e186]:
+            - link "Read the approach first" [ref=e187] [cursor=pointer]:
+              - /url: /en/garden-maintenance/approach/
+              - text: Read the approach first
+              - img [ref=e188]
+            - link "View the FAQ too" [ref=e190] [cursor=pointer]:
+              - /url: /en/garden-maintenance/faq/
+              - text: View the FAQ too
+              - img [ref=e191]
+        - generic [ref=e194]:
+          - generic [ref=e195]:
+            - generic [ref=e196]:
+              - generic [ref=e197]: Full Name *
+              - textbox "Joske Vermeulen" [ref=e198]
+            - generic [ref=e199]:
+              - generic [ref=e200]: Email Address *
+              - textbox "jos@vermeulen.be" [ref=e201]
+          - generic [ref=e202]:
+            - text: Phone Number (Optional)
+            - textbox "+32 400 00 00 00" [ref=e203]
+          - generic [ref=e204]:
+            - generic [ref=e205]: Interested Service *
+            - generic [ref=e206]:
+              - button "Smart Home Automation" [ref=e207] [cursor=pointer]:
+                - img [ref=e209]
+                - generic [ref=e212]: Smart Home Automation
+              - button "Garden Maintenance" [ref=e213] [cursor=pointer]:
+                - img [ref=e215]
+                - generic [ref=e218]: Garden Maintenance
+                - img [ref=e220]
+              - button "IT Consulting" [ref=e223] [cursor=pointer]:
+                - img [ref=e225]
+                - generic [ref=e228]: IT Consulting
+          - generic [ref=e230]:
+            - generic [ref=e231]:
+              - generic [ref=e232]: Project Size / Scope
+              - generic [ref=e233]: Medium / Standard Setup
+            - slider [ref=e235] [cursor=pointer]: "2"
+            - generic [ref=e236]:
+              - generic [ref=e237]: Compact
+              - generic [ref=e238]: Comprehensive
+          - generic [ref=e239]:
+            - generic [ref=e240]: Project Details *
+            - textbox "Tell us a bit about what you need..." [ref=e241]
+          - button "Request Quote" [ref=e242] [cursor=pointer]:
+            - text: Request Quote
+            - img [ref=e243]
+    - contentinfo [ref=e246]:
+      - generic [ref=e248]:
+        - generic [ref=e249]:
+          - link "Roan Ros logo Roan Ros" [ref=e250] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e251]:
+              - img "Roan Ros logo" [ref=e252]
+              - generic [ref=e253]: Roan Ros
+          - generic [ref=e254]:
+            - paragraph [ref=e255]: Roan Ros
+            - paragraph [ref=e256]: BE 1022.177.189
+            - paragraph [ref=e257]: contact@roanr.be
+            - paragraph [ref=e258]: +32 468 25 95 03
+        - generic [ref=e259]:
+          - generic [ref=e260]:
+            - link "Garden Maintenance" [ref=e261] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "Home Automation" [ref=e262] [cursor=pointer]:
+              - /url: /domotica
+            - link "IT Consulting" [ref=e263] [cursor=pointer]:
+              - /url: /it-consultancy
+            - link "Contact" [ref=e264] [cursor=pointer]:
+              - /url: /contact
+            - link "Privacy" [ref=e265] [cursor=pointer]:
+              - /url: /privacy-en-bewaring
+          - paragraph [ref=e266]: © 2026 Roan Ros. All rights reserved.
+  - button "WhatsApp" [ref=e268] [cursor=pointer]:
+    - img [ref=e269]

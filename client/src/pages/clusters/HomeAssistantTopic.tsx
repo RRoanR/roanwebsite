@@ -2,6 +2,7 @@ import { ClusterArticlePage } from "@/components/ClusterArticlePage";
 import { useLanguage } from "@/lib/i18n";
 import { domoticaTopics } from "@/data/domotica";
 import NotFound from "@/pages/not-found";
+import { domoticaOverviewPath, homeAssistantPath, itConsultancyPath } from "@shared/siteRoutes";
 
 interface HomeAssistantTopicPageProps {
   slug: string;
@@ -26,14 +27,16 @@ export default function HomeAssistantTopicPage({ slug }: HomeAssistantTopicPageP
       breadcrumbs={{
         nl: [
           { label: "Home", href: "/" },
-          { label: "Domotica", href: "/domotica/" },
-          { label: "Home Assistant", href: "/domotica/home-assistant/" },
+          { label: "IT Consultancy", href: itConsultancyPath },
+          { label: "Domotica", href: domoticaOverviewPath },
+          { label: "Home Assistant", href: homeAssistantPath },
           { label: page.title.nl },
         ],
         en: [
           { label: "Home", href: "/" },
-          { label: "Home automation", href: "/domotica/" },
-          { label: "Home Assistant", href: "/domotica/home-assistant/" },
+          { label: "IT Consulting", href: itConsultancyPath },
+          { label: "Domotics", href: domoticaOverviewPath },
+          { label: "Home Assistant", href: homeAssistantPath },
           { label: page.title.en },
         ],
       }}

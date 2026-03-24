@@ -1,0 +1,225 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "Roan Ros logo Roan Ros IT, automation and care" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]:
+            - img "Roan Ros logo" [ref=e10]
+            - generic [ref=e11]:
+              - generic [ref=e12]: Roan Ros
+              - generic [ref=e13]: IT, automation and care
+        - generic [ref=e14]:
+          - generic [ref=e15]:
+            - generic [ref=e16]:
+              - button "IT Consulting" [ref=e17] [cursor=pointer]:
+                - text: IT Consulting
+                - img [ref=e18]
+              - generic:
+                - generic:
+                  - link "Overview":
+                    - /url: /it-consultancy/
+                  - link "Domotics & Home Assistant":
+                    - /url: /it-consultancy/domotica/
+                  - link "Home Assistant":
+                    - /url: /it-consultancy/domotica/home-assistant/
+                  - link "FAQ":
+                    - /url: /it-consultancy/domotica/home-assistant/faq/
+            - link "Garden Maintenance" [ref=e20] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "Contact" [ref=e21] [cursor=pointer]:
+              - /url: /contact
+          - generic [ref=e22]:
+            - button "Switch language to Dutch" [ref=e23] [cursor=pointer]: NL
+            - button "Switch language to English" [pressed] [ref=e24] [cursor=pointer]: EN
+          - link "Get a Quote" [ref=e26] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e27]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: Available for new projects
+          - heading "Green-tech systems for homes, businesses, and outdoor spaces" [level=1] [ref=e36]
+          - paragraph [ref=e37]: IT consulting with embedded home automation expertise, plus reliable garden care for people who want calm, future-ready systems.
+          - generic [ref=e38]:
+            - link "Request a Free Quote" [ref=e39] [cursor=pointer]:
+              - /url: /contact
+              - text: Request a Free Quote
+              - img [ref=e40]
+            - link "Our Services" [ref=e42] [cursor=pointer]:
+              - /url: "#services"
+          - generic [ref=e43]:
+            - generic [ref=e44]: Local automation without cloud chaos
+            - generic [ref=e45]: Clear IT architecture for small teams
+            - generic [ref=e46]: Practical care for home and garden
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - paragraph [ref=e51]: Innovative flow
+              - heading "IT consulting as the base, domotics as the smart layer on top." [level=2] [ref=e52]
+            - generic [ref=e53]:
+              - generic [ref=e54]: Response
+              - generic [ref=e55]: 24h
+          - generic [ref=e56]:
+            - generic [ref=e58]:
+              - img [ref=e60]
+              - generic [ref=e63]:
+                - generic [ref=e64]: Foundation
+                - generic [ref=e65]: IT architecture and support
+            - generic [ref=e68]:
+              - generic [ref=e69]:
+                - img [ref=e71]
+                - heading "Domotics subservice" [level=3] [ref=e74]
+                - paragraph [ref=e75]: Home Assistant, dashboards, energy, sensors, and maintenance.
+              - generic [ref=e76]:
+                - img [ref=e78]
+                - heading "Garden Maintenance" [level=3] [ref=e81]
+                - paragraph [ref=e82]: Practical garden maintenance with the same clear approach.
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - heading "Our Expertise" [level=2] [ref=e86]
+          - heading "Specialized Services Tailored for You" [level=3] [ref=e87]
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - img [ref=e92]
+            - heading "IT Consulting" [level=3] [ref=e95]
+            - paragraph [ref=e96]: Infrastructure, automation strategy, and hands-on troubleshooting for small teams, homes, and growing businesses.
+            - link "Learn More →" [ref=e97] [cursor=pointer]:
+              - /url: /it-consultancy/
+              - text: Learn More
+              - generic [ref=e98]: →
+          - generic [ref=e99]:
+            - img [ref=e102]
+            - heading "Garden Maintenance" [level=3] [ref=e105]
+            - paragraph [ref=e106]: Reliable garden care, trimming, seasonal clean-ups, and refresh work for private clients in the Antwerp area.
+            - link "Learn More →" [ref=e107] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+              - text: Learn More
+              - generic [ref=e108]: →
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e112]: Subservice inside IT Consulting
+            - heading "Domotics now sits under IT Consulting, with Home Assistant as the specialized path." [level=3] [ref=e113]
+            - paragraph [ref=e114]: Use this entry for architecture, protocol choices, dashboards, energy visibility, and maintenance.
+          - generic [ref=e115]:
+            - link "Domotics & Home Assistant" [ref=e116] [cursor=pointer]:
+              - /url: /it-consultancy/domotica/
+            - link "Home Assistant" [ref=e117] [cursor=pointer]:
+              - /url: /it-consultancy/domotica/home-assistant/
+            - link "FAQ" [ref=e118] [cursor=pointer]:
+              - /url: /it-consultancy/domotica/home-assistant/faq/
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - generic [ref=e122]: Why this approach works
+          - heading "Why Choose Us?" [level=2] [ref=e123]
+          - generic [ref=e124]:
+            - generic [ref=e126]:
+              - img [ref=e128]
+              - generic [ref=e131]:
+                - heading "Reliable Automation" [level=3] [ref=e132]
+                - paragraph [ref=e133]: Stable Home Assistant setups with clear logic, clean dashboards, and local-first control.
+            - generic [ref=e135]:
+              - img [ref=e137]
+              - generic [ref=e139]:
+                - heading "Practical IT" [level=3] [ref=e140]
+                - paragraph [ref=e141]: Hands-on infrastructure and troubleshooting that solve real problems without overengineering.
+            - generic [ref=e143]:
+              - img [ref=e145]
+              - generic [ref=e150]:
+                - heading "Personalized Approach" [level=3] [ref=e151]
+                - paragraph [ref=e152]: Direct communication and solutions tailored to your home, workflow, and budget.
+        - generic [ref=e154]:
+          - generic [ref=e155]:
+            - img [ref=e157]
+            - heading "Analysis and priorities" [level=3] [ref=e161]
+            - paragraph [ref=e162]: We start with what causes friction today.
+          - generic [ref=e163]:
+            - img [ref=e165]
+            - heading "Smart automation" [level=3] [ref=e168]
+            - paragraph [ref=e169]: Robust flows, local logic, and clear dashboards.
+          - generic [ref=e170]:
+            - img [ref=e172]
+            - heading "Maintainable result" [level=3] [ref=e175]
+            - paragraph [ref=e176]: Fewer loose tools, more visibility and calm.
+          - generic [ref=e177]:
+            - img [ref=e179]
+            - heading "Human follow-up" [level=3] [ref=e182]
+            - paragraph [ref=e183]: Direct contact, clear decisions, no overengineering.
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - generic [ref=e189]: Let's Talk
+          - heading "Ready to start your project?" [level=2] [ref=e190]
+          - paragraph [ref=e191]: Fill out the form below with your project details, and we'll get back to you within 24 hours with a custom proposal.
+          - generic [ref=e192]:
+            - generic [ref=e193]:
+              - img [ref=e195]
+              - generic [ref=e198]: Reply within 24 hours
+            - generic [ref=e199]:
+              - img [ref=e201]
+              - generic [ref=e204]: Clear scope and transparent pricing
+        - generic [ref=e207]:
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - generic [ref=e210]: Full Name *
+              - textbox "Joske Vermeulen" [ref=e211]
+            - generic [ref=e212]:
+              - generic [ref=e213]: Email Address *
+              - textbox "jos@vermeulen.be" [ref=e214]
+          - generic [ref=e215]:
+            - text: Phone Number (Optional)
+            - textbox "+32 400 00 00 00" [ref=e216]
+          - generic [ref=e217]:
+            - generic [ref=e218]: Interested Service *
+            - generic [ref=e219]:
+              - button "Domotics & Home Assistant" [ref=e220] [cursor=pointer]:
+                - img [ref=e222]
+                - generic [ref=e225]: Domotics & Home Assistant
+              - button "Garden Maintenance" [ref=e226] [cursor=pointer]:
+                - img [ref=e228]
+                - generic [ref=e231]: Garden Maintenance
+              - button "IT Consulting" [ref=e232] [cursor=pointer]:
+                - img [ref=e234]
+                - generic [ref=e237]: IT Consulting
+          - generic [ref=e239]:
+            - generic [ref=e240]:
+              - generic [ref=e241]: Project Size / Scope
+              - generic [ref=e242]: Medium / Standard Setup
+            - slider [ref=e244] [cursor=pointer]: "2"
+            - generic [ref=e245]:
+              - generic [ref=e246]: Compact
+              - generic [ref=e247]: Comprehensive
+          - generic [ref=e248]:
+            - generic [ref=e249]: Project Details *
+            - textbox "Tell us a bit about what you need..." [ref=e250]
+          - button "Request Quote" [ref=e251] [cursor=pointer]:
+            - text: Request Quote
+            - img [ref=e252]
+    - contentinfo [ref=e255]:
+      - generic [ref=e257]:
+        - generic [ref=e258]:
+          - link "Roan Ros logo Roan Ros" [ref=e259] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e260]:
+              - img "Roan Ros logo" [ref=e261]
+              - generic [ref=e262]: Roan Ros
+          - generic [ref=e263]:
+            - paragraph [ref=e264]: Roan Ros
+            - paragraph [ref=e265]: BE 1022.177.189
+            - paragraph [ref=e266]: contact@roanr.be
+            - paragraph [ref=e267]: +32 468 25 95 03
+        - generic [ref=e268]:
+          - generic [ref=e269]:
+            - link "Garden Maintenance" [ref=e270] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "IT Consulting" [ref=e271] [cursor=pointer]:
+              - /url: /it-consultancy/
+            - link "Domotics & Home Assistant" [ref=e272] [cursor=pointer]:
+              - /url: /it-consultancy/domotica/
+            - link "Contact" [ref=e273] [cursor=pointer]:
+              - /url: /contact
+            - link "Privacy" [ref=e274] [cursor=pointer]:
+              - /url: /privacy-en-bewaring
+          - paragraph [ref=e275]: © 2026 Roan Ros. All rights reserved.
+  - button "WhatsApp" [ref=e277] [cursor=pointer]:
+    - img [ref=e278]

@@ -1,0 +1,121 @@
+- generic [ref=e2]:
+  - region "Notifications (F8)":
+    - list
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "Roan Ros logo Roan Ros IT, automation and care" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]:
+            - img "Roan Ros logo" [ref=e10]
+            - generic [ref=e11]:
+              - generic [ref=e12]: Roan Ros
+              - generic [ref=e13]: IT, automation and care
+        - generic [ref=e14]:
+          - generic [ref=e15]:
+            - generic [ref=e16]:
+              - button "IT Consulting" [ref=e17] [cursor=pointer]:
+                - text: IT Consulting
+                - img [ref=e18]
+              - generic:
+                - generic:
+                  - link "Overview":
+                    - /url: /it-consultancy/
+                  - link "Domotics & Home Assistant":
+                    - /url: /it-consultancy/domotica/
+                  - link "Home Assistant":
+                    - /url: /it-consultancy/domotica/home-assistant/
+                  - link "FAQ":
+                    - /url: /it-consultancy/domotica/home-assistant/faq/
+            - link "Garden Maintenance" [ref=e20] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "Contact" [ref=e21] [cursor=pointer]:
+              - /url: /contact
+          - generic [ref=e22]:
+            - button "Switch language to Dutch" [ref=e23] [cursor=pointer]: NL
+            - button "Switch language to English" [pressed] [ref=e24] [cursor=pointer]: EN
+          - link "Get a Quote" [ref=e26] [cursor=pointer]:
+            - /url: /contact
+    - main [ref=e27]:
+      - generic [ref=e29]:
+        - navigation "Breadcrumb" [ref=e30]:
+          - navigation "breadcrumb" [ref=e31]:
+            - list [ref=e32]:
+              - listitem [ref=e33]:
+                - link "Home" [ref=e34] [cursor=pointer]:
+                  - /url: /
+                - listitem [ref=e35]:
+                  - img [ref=e36]
+              - listitem [ref=e38]:
+                - link "IT Consulting" [ref=e39] [cursor=pointer]:
+                  - /url: /it-consultancy/
+                - listitem [ref=e40]:
+                  - img [ref=e41]
+              - listitem [ref=e43]:
+                - link "Domotics" [disabled] [ref=e44]
+        - generic [ref=e45]:
+          - generic [ref=e46]: IT subservice
+          - heading "Domotics inside IT Consulting" [level=1] [ref=e47]
+          - paragraph [ref=e48]: From Home Assistant baseline setup to advanced integrations, dashboards, and maintenance, as a specialized layer within your broader IT environment.
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - heading "Home Assistant cluster" [level=2] [ref=e54]
+          - paragraph [ref=e55]: Use this route for setup, protocol selection, dashboards, energy, security notifications, and maintenance.
+        - generic [ref=e56]:
+          - link "Home Assistant" [ref=e57] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/
+          - link "FAQ" [ref=e58] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/faq/
+      - generic [ref=e60]:
+        - heading "Topics and locations" [level=2] [ref=e61]
+        - generic [ref=e62]:
+          - link "What is Home Assistant?" [ref=e63] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/wat-is-home-assistant/
+          - link "Installation vs configuration" [ref=e64] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/installatie-vs-configuratie/
+          - link "Zigbee vs Z-Wave vs Matter/Thread" [ref=e65] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/zigbee-zwave-matter-thread/
+          - link "Dashboards, tablet and wall panel" [ref=e66] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/dashboards-tablet-wandpaneel/
+          - link "Energy monitoring, solar and EV charger" [ref=e67] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/energie-monitoring-zonnepanelen-laadpaal/
+          - link "Security, notifications and presence" [ref=e68] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/beveiliging-meldingen-aanwezigheid/
+          - link "Maintenance, backups and updates" [ref=e69] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/onderhoud-back-ups-updates/
+          - link "Smart lighting, sensors and scenes" [ref=e70] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/slimme-verlichting-sensoren-scenes/
+          - link "Home Assistant specialist in Antwerp" [ref=e71] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/antwerpen/
+          - link "Home Assistant in Berchem" [ref=e72] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/berchem/
+          - link "Home Assistant in Deurne" [ref=e73] [cursor=pointer]:
+            - /url: /it-consultancy/domotica/home-assistant/deurne/
+    - contentinfo [ref=e74]:
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - link "Roan Ros logo Roan Ros" [ref=e78] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e79]:
+              - img "Roan Ros logo" [ref=e80]
+              - generic [ref=e81]: Roan Ros
+          - generic [ref=e82]:
+            - paragraph [ref=e83]: Roan Ros
+            - paragraph [ref=e84]: BE 1022.177.189
+            - paragraph [ref=e85]: contact@roanr.be
+            - paragraph [ref=e86]: +32 468 25 95 03
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - link "Garden Maintenance" [ref=e89] [cursor=pointer]:
+              - /url: /en/garden-maintenance/
+            - link "IT Consulting" [ref=e90] [cursor=pointer]:
+              - /url: /it-consultancy/
+            - link "Domotics & Home Assistant" [ref=e91] [cursor=pointer]:
+              - /url: /it-consultancy/domotica/
+            - link "Contact" [ref=e92] [cursor=pointer]:
+              - /url: /contact
+            - link "Privacy" [ref=e93] [cursor=pointer]:
+              - /url: /privacy-en-bewaring
+          - paragraph [ref=e94]: © 2026 Roan Ros. All rights reserved.
+  - button "WhatsApp" [ref=e96] [cursor=pointer]:
+    - img [ref=e97]

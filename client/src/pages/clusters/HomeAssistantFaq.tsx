@@ -6,12 +6,13 @@ import { SeoHead } from "@/components/SeoHead";
 import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structuredData";
 import { domoticaFaqCategories, domoticaFaqItems } from "@/data/domotica";
+import { domoticaOverviewPath, homeAssistantFaqPath, homeAssistantPath, itConsultancyPath } from "@shared/siteRoutes";
 
 export default function HomeAssistantFaqPage() {
   const { language } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="site-shell min-h-screen bg-background">
       <SeoHead
         title={
           language === "nl"
@@ -23,17 +24,18 @@ export default function HomeAssistantFaqPage() {
             ? "Veelgestelde vragen over Home Assistant installatie, compatibiliteit, onderhoud en energie monitoring."
             : "Frequently asked questions about Home Assistant setup, compatibility, maintenance, and energy monitoring."
         }
-        path="/domotica/home-assistant/faq/"
+        path={homeAssistantFaqPath}
         language={language}
         jsonLd={[
-          breadcrumbJsonLd("/domotica/home-assistant/faq/", [
+          breadcrumbJsonLd(homeAssistantFaqPath, [
             { name: "Home", path: "/" },
-            { name: language === "nl" ? "Domotica" : "Home automation", path: "/domotica/" },
-            { name: "Home Assistant", path: "/domotica/home-assistant/" },
-            { name: "FAQ", path: "/domotica/home-assistant/faq/" },
+            { name: language === "nl" ? "IT Consultancy" : "IT Consulting", path: itConsultancyPath },
+            { name: language === "nl" ? "Domotica" : "Domotics", path: domoticaOverviewPath },
+            { name: "Home Assistant", path: homeAssistantPath },
+            { name: "FAQ", path: homeAssistantFaqPath },
           ]),
           faqJsonLd(
-            "/domotica/home-assistant/faq/",
+            homeAssistantFaqPath,
             domoticaFaqItems.map((item) => ({
               question: item.question[language],
               answer: item.answer[language],
@@ -43,17 +45,19 @@ export default function HomeAssistantFaqPage() {
       />
       <Navbar />
 
-      <main>
-        <section className="pt-32 pb-14">
+      <main className="site-main">
+        <section className="site-hero pt-32 pb-14">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
                 { label: "Home", href: "/" },
-                { label: language === "nl" ? "Domotica" : "Home automation", href: "/domotica/" },
-                { label: "Home Assistant", href: "/domotica/home-assistant/" },
+                { label: language === "nl" ? "IT Consultancy" : "IT Consulting", href: itConsultancyPath },
+                { label: language === "nl" ? "Domotica" : "Domotics", href: domoticaOverviewPath },
+                { label: "Home Assistant", href: homeAssistantPath },
                 { label: "FAQ" },
               ]}
             />
+            <div className="site-pill mb-5">{language === "nl" ? "Veelgestelde vragen" : "Frequently asked questions"}</div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-5">Home Assistant FAQ</h1>
             <p className="text-lg text-muted-foreground max-w-3xl">
               {language === "nl"
@@ -64,12 +68,12 @@ export default function HomeAssistantFaqPage() {
         </section>
 
         {domoticaFaqCategories.map((category, categoryIndex) => (
-          <section key={category.title.nl} className={categoryIndex % 2 === 0 ? "py-12 bg-secondary/50" : "py-12"}>
+          <section key={category.title.nl} className={categoryIndex % 2 === 0 ? "site-band py-12" : "py-12"}>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-2xl font-bold font-display mb-5">{category.title[language]}</h2>
               <div className="space-y-4">
                 {category.items.map((item) => (
-                  <article key={item.question.nl} className="p-5 rounded-xl border border-border/50 bg-card">
+                  <article key={item.question.nl} className="site-card rounded-[1.5rem] p-5">
                     <h3 className="text-lg font-bold mb-2">{item.question[language]}</h3>
                     <p className="text-muted-foreground mb-3">{item.answer[language]}</p>
                     <Link href={item.link} className="text-sm font-semibold text-primary hover:underline">
@@ -93,7 +97,7 @@ export default function HomeAssistantFaqPage() {
                 : "View the service page or book an advice call right away."}
             </p>
             <div className="flex justify-center flex-wrap gap-3">
-              <Link href="/domotica/home-assistant/" className="px-6 py-3 rounded-full bg-secondary">
+              <Link href={homeAssistantPath} className="px-6 py-3 rounded-full bg-secondary">
                 {language === "nl" ? "Naar servicepagina" : "Go to service page"}
               </Link>
               <Link

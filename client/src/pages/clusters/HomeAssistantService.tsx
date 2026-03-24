@@ -7,6 +7,7 @@ import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { useLanguage } from "@/lib/i18n";
 import { breadcrumbJsonLd, faqJsonLd, homeAssistantServiceJsonLd } from "@/lib/structuredData";
 import { domoticaFaqItems, domoticaTopics } from "@/data/domotica";
+import { domoticaOverviewPath, homeAssistantFaqPath, homeAssistantPath, itConsultancyPath } from "@shared/siteRoutes";
 
 export default function HomeAssistantServicePage() {
   const { language } = useLanguage();
@@ -14,7 +15,7 @@ export default function HomeAssistantServicePage() {
   const nl = language === "nl";
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="site-shell min-h-screen bg-background">
       <SeoHead
         title={
           language === "nl"
@@ -26,20 +27,21 @@ export default function HomeAssistantServicePage() {
             ? "Home Assistant installatie, configuratie, dashboards, integraties, energie monitoring en onderhoud in regio Antwerpen."
             : "Home Assistant installation, configuration, dashboards, integrations, energy monitoring, and maintenance in Antwerp region."
         }
-        path="/domotica/home-assistant/"
+        path={homeAssistantPath}
         language={language}
         jsonLd={[
           homeAssistantServiceJsonLd(
-            "/domotica/home-assistant/",
+            homeAssistantPath,
             language === "nl" ? "Home Assistant automatisatie op maat" : "Custom Home Assistant automation",
           ),
-          breadcrumbJsonLd("/domotica/home-assistant/", [
+          breadcrumbJsonLd(homeAssistantPath, [
             { name: "Home", path: "/" },
-            { name: language === "nl" ? "Domotica" : "Home automation", path: "/domotica/" },
-            { name: "Home Assistant", path: "/domotica/home-assistant/" },
+            { name: language === "nl" ? "IT Consultancy" : "IT Consulting", path: itConsultancyPath },
+            { name: language === "nl" ? "Domotica" : "Domotics", path: domoticaOverviewPath },
+            { name: "Home Assistant", path: homeAssistantPath },
           ]),
           faqJsonLd(
-            "/domotica/home-assistant/",
+            homeAssistantPath,
             faqPreview.map((item) => ({
               question: item.question[language],
               answer: item.answer[language],
@@ -49,16 +51,18 @@ export default function HomeAssistantServicePage() {
       />
       <Navbar />
 
-      <main>
-        <section className="pt-32 pb-14">
+      <main className="site-main">
+        <section className="site-hero pt-32 pb-14">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
                 { label: "Home", href: "/" },
-                { label: language === "nl" ? "Domotica" : "Home automation", href: "/domotica/" },
+                { label: language === "nl" ? "IT Consultancy" : "IT Consulting", href: itConsultancyPath },
+                { label: language === "nl" ? "Domotica" : "Domotics", href: domoticaOverviewPath },
                 { label: "Home Assistant" },
               ]}
             />
+            <div className="site-pill mb-5">{language === "nl" ? "Gespecialiseerde subservice" : "Specialized subservice"}</div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-5">
               {nl ? "Home Assistant automatisatie op maat in regio Antwerpen" : "Custom Home Assistant automation in Antwerp region"}
             </h1>
@@ -68,7 +72,7 @@ export default function HomeAssistantServicePage() {
                 : "From intake to aftercare: installation, configuration, protocols, dashboards, energy, and maintenance with reliability first."}
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Link href="/domotica/home-assistant/faq/" className="px-5 py-2.5 rounded-full bg-secondary text-sm font-semibold">
+              <Link href={homeAssistantFaqPath} className="px-5 py-2.5 rounded-full bg-secondary text-sm font-semibold">
                 {nl ? "Volgende stap: FAQ" : "Next step: FAQ"}
               </Link>
               <Link href="#offerte" className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold">
@@ -78,7 +82,7 @@ export default function HomeAssistantServicePage() {
           </div>
         </section>
 
-        <section className="py-12 bg-secondary/50">
+        <section className="site-band py-12">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
               <h2 className="text-2xl font-bold font-display mb-4">
@@ -108,14 +112,14 @@ export default function HomeAssistantServicePage() {
               </ul>
             </div>
             <div className="space-y-3">
-              <Link href="/domotica/home-assistant/wat-is-home-assistant/" className="block p-4 rounded-xl border border-border/50 bg-card hover:bg-secondary/50 transition-colors">
+              <Link href={`${homeAssistantPath}wat-is-home-assistant/`} className="site-card block rounded-[1.5rem] p-4 transition-colors hover:bg-secondary/40">
                 {nl ? "Eerst begrijpen: wat is Home Assistant?" : "Start here: what is Home Assistant?"}
               </Link>
               {domoticaTopics.slice(1, 6).map((topic) => (
                 <Link
                   key={topic.slug}
                   href={topic.path}
-                  className="block p-4 rounded-xl border border-border/50 bg-card hover:bg-secondary/50 transition-colors"
+                  className="site-card block rounded-[1.5rem] p-4 transition-colors hover:bg-secondary/40"
                 >
                   {topic.title[language]}
                 </Link>
@@ -137,17 +141,17 @@ export default function HomeAssistantServicePage() {
             <h3 className="text-xl font-bold font-display mb-3">{nl ? "Home Assistant diensten" : "Home Assistant services"}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
               {[
-                "/domotica/home-assistant/installatie-vs-configuratie/",
-                "/domotica/home-assistant/zigbee-zwave-matter-thread/",
-                "/domotica/home-assistant/dashboards-tablet-wandpaneel/",
-                "/domotica/home-assistant/energie-monitoring-zonnepanelen-laadpaal/",
-                "/domotica/home-assistant/beveiliging-meldingen-aanwezigheid/",
-                "/domotica/home-assistant/onderhoud-back-ups-updates/",
+                `${homeAssistantPath}installatie-vs-configuratie/`,
+                `${homeAssistantPath}zigbee-zwave-matter-thread/`,
+                `${homeAssistantPath}dashboards-tablet-wandpaneel/`,
+                `${homeAssistantPath}energie-monitoring-zonnepanelen-laadpaal/`,
+                `${homeAssistantPath}beveiliging-meldingen-aanwezigheid/`,
+                `${homeAssistantPath}onderhoud-back-ups-updates/`,
               ].map((href) => {
                 const topic = domoticaTopics.find((item) => item.path === href);
                 if (!topic) return null;
                 return (
-                  <Link key={href} href={href} className="p-4 rounded-xl border border-border/50 bg-card hover:bg-secondary/50 transition-colors">
+                  <Link key={href} href={href} className="site-card rounded-[1.5rem] p-4 transition-colors hover:bg-secondary/40">
                     {topic.title[language]}
                   </Link>
                 );
@@ -159,7 +163,7 @@ export default function HomeAssistantServicePage() {
             </h2>
             <div className="space-y-4">
               {faqPreview.map((item) => (
-                <article key={item.question.nl} className="p-5 rounded-xl border border-border/50 bg-card">
+                <article key={item.question.nl} className="site-card rounded-[1.5rem] p-5">
                   <h3 className="font-bold mb-2">{item.question[language]}</h3>
                   <p className="text-muted-foreground">{item.answer[language]}</p>
                 </article>
@@ -167,7 +171,7 @@ export default function HomeAssistantServicePage() {
             </div>
             <div className="mt-5">
               <Link
-                href="/domotica/home-assistant/faq/"
+                href={homeAssistantFaqPath}
                 className="inline-block px-6 py-3 rounded-full bg-secondary hover:bg-secondary/80 transition-colors"
               >
                 {nl ? "Alle FAQ's bekijken" : "View all FAQs"}
@@ -176,7 +180,7 @@ export default function HomeAssistantServicePage() {
           </div>
         </section>
 
-        <section className="py-12 bg-secondary/50">
+        <section className="site-band py-12">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold font-display mb-4">{nl ? "Regio" : "Coverage area"}</h2>
             <p className="text-muted-foreground mb-4">
@@ -185,9 +189,9 @@ export default function HomeAssistantServicePage() {
                 : "Active in Antwerp and nearby areas, with local pages per zone."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/domotica/home-assistant/antwerpen/" className="px-4 py-2 rounded-lg border border-border/50 bg-card">Antwerpen</Link>
-              <Link href="/domotica/home-assistant/berchem/" className="px-4 py-2 rounded-lg border border-border/50 bg-card">Berchem</Link>
-              <Link href="/domotica/home-assistant/deurne/" className="px-4 py-2 rounded-lg border border-border/50 bg-card">Deurne</Link>
+              <Link href={`${homeAssistantPath}antwerpen/`} className="site-card rounded-lg px-4 py-2">Antwerpen</Link>
+              <Link href={`${homeAssistantPath}berchem/`} className="site-card rounded-lg px-4 py-2">Berchem</Link>
+              <Link href={`${homeAssistantPath}deurne/`} className="site-card rounded-lg px-4 py-2">Deurne</Link>
             </div>
           </div>
         </section>
