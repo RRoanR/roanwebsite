@@ -7,10 +7,15 @@ import { SeoHead } from "@/components/SeoHead";
 import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
 import { domoticaTopics } from "@/data/domotica";
-import { domoticaOverviewPath, homeAssistantFaqPath, homeAssistantPath, itConsultancyPath } from "@shared/siteRoutes";
+import { localizedSitePath, siteRoutePairs } from "@shared/siteRoutes";
 
 export default function DomoticaOverviewPage() {
   const { language } = useLanguage();
+  const homeHref = localizedSitePath("home", language);
+  const itHref = localizedSitePath("itConsultancy", language);
+  const homeAutomationHref = localizedSitePath("homeAutomationOverview", language);
+  const homeAssistantHref = localizedSitePath("homeAssistant", language);
+  const homeAssistantFaqHref = localizedSitePath("homeAssistantFaq", language);
 
   return (
     <div className="site-shell min-h-screen bg-background">
@@ -18,20 +23,21 @@ export default function DomoticaOverviewPage() {
         title={
           language === "nl"
             ? "Domotica als IT subservice in regio Antwerpen | Roan Ros"
-            : "Domotics as an IT subservice in the Antwerp region | Roan Ros"
+            : "Home automation as an IT specialization in the Antwerp region | Roan Ros"
         }
         description={
           language === "nl"
             ? "Overzicht van domotica diensten binnen IT consultancy: Home Assistant installatie, configuratie, dashboards, energie en onderhoud."
-            : "Overview of domotics services inside IT consulting: Home Assistant setup, configuration, dashboards, energy, and maintenance."
+            : "Overview of home automation services inside IT consulting: Home Assistant setup, configuration, dashboards, energy, and maintenance."
         }
-        path={domoticaOverviewPath}
+        path={siteRoutePairs.homeAutomationOverview[language]}
         language={language}
+        alternates={{ ...siteRoutePairs.homeAutomationOverview, "x-default": siteRoutePairs.homeAutomationOverview.nl }}
         jsonLd={[
-          breadcrumbJsonLd(domoticaOverviewPath, [
-            { name: "Home", path: "/" },
-            { name: language === "nl" ? "IT Consultancy" : "IT Consulting", path: itConsultancyPath },
-            { name: language === "nl" ? "Domotica" : "Domotics", path: domoticaOverviewPath },
+          breadcrumbJsonLd(siteRoutePairs.homeAutomationOverview[language], [
+            { name: "Home", path: homeHref },
+            { name: language === "nl" ? "IT Consultancy" : "IT Consulting", path: itHref },
+            { name: language === "nl" ? "Domotica" : "Home automation", path: homeAutomationHref },
           ]),
         ]}
       />
@@ -42,15 +48,15 @@ export default function DomoticaOverviewPage() {
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
-                { label: language === "nl" ? "Home" : "Home", href: "/" },
-                { label: language === "nl" ? "IT Consultancy" : "IT Consulting", href: itConsultancyPath },
-                { label: language === "nl" ? "Domotica" : "Domotics" },
+                { label: "Home", href: homeHref },
+                { label: language === "nl" ? "IT Consultancy" : "IT Consulting", href: itHref },
+                { label: language === "nl" ? "Domotica" : "Home automation" },
               ]}
             />
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
               <div className="site-pill mb-5">{language === "nl" ? "IT subservice" : "IT subservice"}</div>
               <h1 className="mb-5 text-3xl font-bold sm:text-4xl md:text-5xl">
-                {language === "nl" ? "Domotica binnen IT Consultancy" : "Domotics inside IT Consulting"}
+                {language === "nl" ? "Domotica binnen IT Consultancy" : "Home automation inside IT Consulting"}
               </h1>
               <p className="max-w-3xl text-lg text-muted-foreground">
                 {language === "nl"
@@ -76,10 +82,10 @@ export default function DomoticaOverviewPage() {
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <Link href={homeAssistantPath} className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
+                  <Link href={homeAssistantHref} className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
                     Home Assistant
                   </Link>
-                  <Link href={homeAssistantFaqPath} className="rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-sm">
+                  <Link href={homeAssistantFaqHref} className="rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-sm">
                     FAQ
                   </Link>
                 </div>
@@ -95,7 +101,7 @@ export default function DomoticaOverviewPage() {
               {domoticaTopics.map((topic) => (
                 <Link
                   key={topic.slug}
-                  href={topic.path}
+                  href={topic.paths[language]}
                   className="site-card block rounded-[1.5rem] p-4 transition-colors hover:bg-secondary/40"
                 >
                   {topic.title[language]}

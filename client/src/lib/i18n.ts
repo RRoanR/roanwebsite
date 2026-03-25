@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { routeLanguageFromPath } from "@shared/siteRoutes";
 
 type Language = 'en' | 'nl';
 
@@ -11,8 +12,7 @@ interface I18nStore {
 const translations = {
   en: {
     'nav.services': 'Services',
-    'nav.services.survey': 'Condition Reports',
-    'nav.services.domotica': 'Domotics & Home Assistant',
+    'nav.services.domotica': 'Home Automation & Home Assistant',
     'nav.services.garden': 'Garden Maintenance',
     'nav.services.it': 'IT Consulting',
     'nav.about': 'About',
@@ -28,27 +28,14 @@ const translations = {
     
     'services.badge': 'Our Expertise',
     'services.title': 'Specialized Services Tailored for You',
-    'services.survey.title': 'Condition Reports',
-    'services.survey.desc': 'Accurate, legally compliant condition reports (Plaatsbeschrijvingen) for rental properties, renovations, and construction projects.',
-    'services.home.title': 'Domotics & Home Assistant',
-    'services.home.desc': 'A specialized IT subservice for Home Assistant, energy insight, dashboards, and reliable local automation.',
+    'services.home.title': 'Home Automation & Home Assistant',
+    'services.home.desc': 'A specialized service for Home Assistant, energy insights, dashboards, and reliable local automation.',
     'services.garden.title': 'Garden Maintenance',
     'services.garden.desc': 'Reliable garden care, trimming, seasonal clean-ups, and refresh work for private clients in the Antwerp area.',
     'services.it.title': 'IT Consulting',
     'services.it.desc': 'Infrastructure, automation strategy, and hands-on troubleshooting for small teams, homes, and growing businesses.',
     'services.learnMore': 'Learn More',
     
-    'services.survey.hero': 'Topographical Surveying & Condition Reports',
-    'services.survey.heroDesc': 'Professional, legally compliant property condition reports (Plaatsbeschrijvingen) for rental properties, renovations, and construction projects across Belgium.',
-    'services.survey.what': 'What We Offer',
-    'services.survey.whatDesc': 'Our topographical surveying service delivers detailed, court-admissible condition reports. We document the exact state of a property before and after rental periods, renovation works, or construction projects — protecting both landlords and tenants.',
-    'services.survey.feature1': 'Detailed Photo Documentation',
-    'services.survey.feature1Desc': 'Every room, wall, floor, and fixture is meticulously photographed and described.',
-    'services.survey.feature2': 'Legally Compliant Reports',
-    'services.survey.feature2Desc': 'Reports that meet Belgian legal standards for use in dispute resolution.',
-    'services.survey.feature3': 'Fast Turnaround',
-    'services.survey.feature3Desc': 'On-site inspections and digital reports delivered within days, not weeks.',
-
     'services.home.hero': 'Smart Home Automation',
     'services.home.heroDesc': 'Transform your home with Home Assistant — the leading open-source platform for smart home automation. Private, local, and fully customizable.',
     'services.home.what': 'What We Offer',
@@ -61,7 +48,7 @@ const translations = {
     'services.home.feature3Desc': 'We provide maintenance and updates to keep your smart home running smoothly.',
 
     'services.it.hero': 'IT Consulting, Infrastructure & Automation',
-    'services.it.heroDesc': 'Strategic technology advice, hands-on infrastructure support, and domotics expertise for people who want reliable systems without the chaos.',
+    'services.it.heroDesc': 'Strategic technology advice, hands-on infrastructure support, and home automation expertise for people who want reliable systems without the chaos.',
     'services.it.what': 'What We Offer',
     'services.it.whatDesc': 'From network setup and cloud migrations to Home Assistant architecture, security reviews, and troubleshooting, we build practical systems that stay understandable over time.',
     'services.it.feature1': 'Infrastructure Setup',
@@ -110,7 +97,6 @@ const translations = {
   },
   nl: {
     'nav.services': 'Diensten',
-    'nav.services.survey': 'Plaatsbeschrijvingen',
     'nav.services.domotica': 'Domotica & Home Assistant',
     'nav.services.garden': 'Tuinonderhoud',
     'nav.services.it': 'IT Consultancy',
@@ -127,8 +113,6 @@ const translations = {
     
     'services.badge': 'Onze Expertise',
     'services.title': 'Gespecialiseerde Diensten op Maat',
-    'services.survey.title': 'Plaatsbeschrijvingen',
-    'services.survey.desc': 'Gedetailleerde en juridisch sluitende plaatsbeschrijvingen voor verhuur, renovatie en bouwwerken.',
     'services.home.title': 'Domotica & Home Assistant',
     'services.home.desc': 'Een gespecialiseerde IT-subdienst voor Home Assistant, energie-inzicht, dashboards en betrouwbare lokale automatisatie.',
     'services.garden.title': 'Tuinonderhoud',
@@ -136,17 +120,6 @@ const translations = {
     'services.it.title': 'IT Consultancy',
     'services.it.desc': 'Infrastructuur, automatisatiestrategie en hands-on troubleshooting voor woningen, kleine teams en groeiende ondernemingen.',
     'services.learnMore': 'Meer Info',
-
-    'services.survey.hero': 'Plaatsbeschrijvingen & Vastgoedopnames',
-    'services.survey.heroDesc': 'Professionele, juridisch sluitende plaatsbeschrijvingen voor huurwoningen, renovaties en bouwprojecten doorheen heel België.',
-    'services.survey.what': 'Wat Wij Bieden',
-    'services.survey.whatDesc': 'Onze dienst levert gedetailleerde, gerechtelijk aanvaardbare conditierapporten. We documenteren de exacte staat van een pand voor en na huurperiodes, renovatiewerken of bouwprojecten — ter bescherming van zowel verhuurder als huurder.',
-    'services.survey.feature1': 'Gedetailleerde Fotodocumentatie',
-    'services.survey.feature1Desc': 'Elke kamer, muur, vloer en armatuur wordt nauwkeurig gefotografeerd en beschreven.',
-    'services.survey.feature2': 'Juridisch Sluitende Rapporten',
-    'services.survey.feature2Desc': 'Rapporten die voldoen aan de Belgische wettelijke normen voor gebruik bij geschillenbeslechting.',
-    'services.survey.feature3': 'Snelle Afhandeling',
-    'services.survey.feature3Desc': 'Inspecties ter plaatse en digitale rapporten geleverd binnen enkele dagen.',
 
     'services.home.hero': 'Thuisautomatisering',
     'services.home.heroDesc': 'Transformeer uw woning met Home Assistant — het toonaangevende open-source platform voor slimme thuisautomatisering. Privé, lokaal en volledig aanpasbaar.',
@@ -213,11 +186,13 @@ function getInitialLanguage(): Language {
   if (typeof window === 'undefined') return 'nl';
 
   const pathname = window.location.pathname.toLowerCase();
-  if (pathname.startsWith('/en/garden-maintenance')) return 'en';
-  if (pathname.startsWith('/tuinonderhoud')) return 'nl';
+  const pathLanguage = routeLanguageFromPath(pathname);
+  if (pathLanguage === 'en') return 'en';
 
   const urlLang = new URLSearchParams(window.location.search).get('lang');
   if (urlLang === 'nl' || urlLang === 'en') return urlLang;
+
+  if (pathLanguage) return pathLanguage;
 
   const storedLang = window.localStorage.getItem('lang');
   if (storedLang === 'nl' || storedLang === 'en') return storedLang;
@@ -225,18 +200,10 @@ function getInitialLanguage(): Language {
   return 'nl';
 }
 
-function syncLanguageInUrl(language: Language) {
-  if (typeof window === 'undefined') return;
-  const url = new URL(window.location.href);
-  url.searchParams.set('lang', language);
-  window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
-}
-
 export const useLanguage = create<I18nStore>((set, get) => ({
   language: getInitialLanguage(),
   setLanguage: (lang) => {
     window.localStorage.setItem('lang', lang);
-    syncLanguageInUrl(lang);
     set({ language: lang });
   },
   t: (key) => translations[get().language][key] || key,

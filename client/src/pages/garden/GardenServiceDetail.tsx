@@ -7,6 +7,7 @@ import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { useRouteLanguage } from "@/hooks/use-route-language";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/structuredData";
 import { gardenLinks, gardenServiceDetails, getGardenServiceByKey } from "@/data/garden";
+import { localizedSitePath } from "@shared/siteRoutes";
 
 interface GardenServiceDetailPageProps {
   routeLanguage: "nl" | "en";
@@ -22,6 +23,7 @@ export default function GardenServiceDetailPage({
   const service = getGardenServiceByKey(serviceKey);
   const links = gardenLinks(routeLanguage);
   const nl = routeLanguage === "nl";
+  const homeHref = localizedSitePath("home", routeLanguage);
 
   if (!service) return null;
 
@@ -39,7 +41,7 @@ export default function GardenServiceDetailPage({
         }}
         jsonLd={[
           breadcrumbJsonLd(service.route(routeLanguage), [
-            { name: "Home", path: "/" },
+            { name: "Home", path: homeHref },
             { name: nl ? "Tuinonderhoud" : "Garden maintenance", path: links.landing },
             { name: nl ? "Diensten" : "Services", path: links.services },
             { name: service.title[routeLanguage], path: service.route(routeLanguage) },
@@ -66,7 +68,7 @@ export default function GardenServiceDetailPage({
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
-                { label: "Home", href: "/" },
+                { label: "Home", href: homeHref },
                 { label: nl ? "Tuinonderhoud" : "Garden maintenance", href: links.landing },
                 { label: nl ? "Diensten" : "Services", href: links.services },
                 { label: service.title[routeLanguage] },

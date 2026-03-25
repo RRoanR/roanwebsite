@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/lib/i18n";
+import { localizedSitePath } from "@shared/siteRoutes";
 
 interface ServiceCardProps {
   icon: LucideIcon;
@@ -17,11 +18,12 @@ export function ServiceCard({
   title,
   description,
   delay = 0,
-  href = "/contact",
+  href,
   className = "",
 }: ServiceCardProps) {
-  const { t } = useLanguage();
-  const testId = href.replace(/\/+$/, "").split("/").pop() || "service";
+  const { t, language } = useLanguage();
+  const resolvedHref = href ?? localizedSitePath("contact", language);
+  const testId = resolvedHref.replace(/\/+$/, "").split("/").pop() || "service";
 
   return (
     <motion.div
@@ -46,7 +48,7 @@ export function ServiceCard({
       </p>
 
       <Link
-        href={href}
+        href={resolvedHref}
         className="inline-flex items-center text-sm font-semibold text-primary hover:underline transition-all"
         data-testid={`link-service-${testId}`}
       >

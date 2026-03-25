@@ -8,7 +8,7 @@ import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { useRouteLanguage } from "@/hooks/use-route-language";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
 import { gardenLinks } from "@/data/garden";
-import { gardenRoutePairs } from "@shared/siteRoutes";
+import { gardenRoutePairs, localizedSitePath } from "@shared/siteRoutes";
 
 interface GardenApproachPageProps {
   routeLanguage: "nl" | "en";
@@ -58,6 +58,7 @@ export default function GardenApproachPage({ routeLanguage }: GardenApproachPage
 
   const nl = routeLanguage === "nl";
   const links = gardenLinks(routeLanguage);
+  const homeHref = localizedSitePath("home", routeLanguage);
   const alternates = {
     nl: gardenRoutePairs.approach.nl,
     en: gardenRoutePairs.approach.en,
@@ -78,7 +79,7 @@ export default function GardenApproachPage({ routeLanguage }: GardenApproachPage
         alternates={alternates}
         jsonLd={[
           breadcrumbJsonLd(alternates[routeLanguage], [
-            { name: "Home", path: "/" },
+            { name: "Home", path: homeHref },
             { name: nl ? "Tuinonderhoud" : "Garden maintenance", path: links.landing },
             { name: nl ? "Werkwijze" : "Approach", path: alternates[routeLanguage] },
           ]),
@@ -91,7 +92,7 @@ export default function GardenApproachPage({ routeLanguage }: GardenApproachPage
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
-                { label: "Home", href: "/" },
+                { label: "Home", href: homeHref },
                 { label: nl ? "Tuinonderhoud" : "Garden maintenance", href: links.landing },
                 { label: nl ? "Werkwijze" : "Approach" },
               ]}
@@ -105,8 +106,8 @@ export default function GardenApproachPage({ routeLanguage }: GardenApproachPage
             </motion.h1>
             <p className="text-lg text-muted-foreground max-w-3xl">
               {nl
-                ? "De aangeleverde werkwijzepagina is hier herschreven naar een duidelijke route van eerste contact tot onderhoud op lange termijn."
-                : "The imported approach page is rewritten here into a clearer path from first contact to long-term upkeep."}
+                ? "Van eerste contact tot uitvoering en opvolging: zo verloopt een aanvraag voor tuinonderhoud in de praktijk."
+                : "From first contact to delivery and follow-up: this is how a garden maintenance request typically moves forward."}
             </p>
           </div>
         </section>

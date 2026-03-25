@@ -7,6 +7,7 @@ import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { useRouteLanguage } from "@/hooks/use-route-language";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, serviceJsonLd } from "@/lib/structuredData";
 import { gardenAreas, gardenLinks, getGardenCityByKey } from "@/data/garden";
+import { localizedSitePath } from "@shared/siteRoutes";
 
 interface GardenCityDetailPageProps {
   routeLanguage: "nl" | "en";
@@ -22,6 +23,7 @@ export default function GardenCityDetailPage({
   const city = getGardenCityByKey(cityKey);
   const links = gardenLinks(routeLanguage);
   const nl = routeLanguage === "nl";
+  const homeHref = localizedSitePath("home", routeLanguage);
 
   if (!city) return null;
 
@@ -39,7 +41,7 @@ export default function GardenCityDetailPage({
         }}
         jsonLd={[
           breadcrumbJsonLd(city.route(routeLanguage), [
-            { name: "Home", path: "/" },
+            { name: "Home", path: homeHref },
             { name: nl ? "Tuinonderhoud" : "Garden maintenance", path: links.landing },
             { name: nl ? "Regio" : "Region", path: links.region },
             { name: city.name, path: city.route(routeLanguage) },
@@ -70,7 +72,7 @@ export default function GardenCityDetailPage({
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
-                { label: "Home", href: "/" },
+                { label: "Home", href: homeHref },
                 { label: nl ? "Tuinonderhoud" : "Garden maintenance", href: links.landing },
                 { label: nl ? "Regio" : "Region", href: links.region },
                 { label: city.name },

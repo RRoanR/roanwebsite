@@ -20,16 +20,19 @@ import { Link } from "wouter";
 import { SeoHead } from "@/components/SeoHead";
 import { localBusinessJsonLd, websiteJsonLd } from "@/lib/structuredData";
 import {
-  domoticaOverviewPath,
-  homeAssistantFaqPath,
-  homeAssistantPath,
-  itConsultancyPath,
   localizedGardenPath,
+  localizedSitePath,
+  siteRoutePairs,
 } from "@shared/siteRoutes";
 
 export default function HomePage() {
   const { t, language } = useLanguage();
   const gardenHref = localizedGardenPath("landing", language);
+  const contactHref = localizedSitePath("contact", language);
+  const itHref = localizedSitePath("itConsultancy", language);
+  const homeAutomationHref = localizedSitePath("homeAutomationOverview", language);
+  const homeAssistantHref = localizedSitePath("homeAssistant", language);
+  const homeAssistantFaqHref = localizedSitePath("homeAssistantFaq", language);
 
   const operationalHighlights = [
     language === "nl" ? "Lokale automatisatie zonder cloud-chaos" : "Local automation without cloud chaos",
@@ -40,25 +43,26 @@ export default function HomePage() {
   return (
     <div className="site-shell min-h-screen bg-background">
       <SeoHead
-        title={language === "nl" ? "Roan Ros | IT, domotica en tuinonderhoud" : "Roan Ros | IT, domotics and garden care"}
+        title={language === "nl" ? "Roan Ros | IT, domotica en tuinonderhoud" : "Roan Ros | IT, home automation and garden care"}
         description={
           language === "nl"
             ? "Roan Ros helpt met IT-consultancy, Home Assistant domotica en betrouwbaar tuinonderhoud in België."
-            : "Roan Ros helps with IT consulting, Home Assistant domotics, and reliable garden maintenance in Belgium."
+            : "Roan Ros helps with IT consulting, Home Assistant integration, and reliable garden maintenance in Belgium."
         }
-        path="/"
+        path={siteRoutePairs.home[language]}
         language={language}
+        alternates={{ ...siteRoutePairs.home, "x-default": siteRoutePairs.home.nl }}
         jsonLd={[
-          websiteJsonLd("/"),
-          localBusinessJsonLd("/", {
+          websiteJsonLd(siteRoutePairs.home[language]),
+          localBusinessJsonLd(siteRoutePairs.home[language], {
             description:
               language === "nl"
                 ? "Bilinguale dienstverlening voor IT-consultancy, domotica en tuinonderhoud in België."
-                : "Bilingual services for IT consulting, domotics, and garden maintenance in Belgium.",
+                : "Bilingual services for IT consulting, home automation, and garden maintenance in Belgium.",
             areaServed: ["Antwerpen", "Edegem", "Kontich", "Lint", "Hove"],
             serviceType: [
               language === "nl" ? "IT-consultancy" : "IT consulting",
-              language === "nl" ? "Domotica & Home Assistant" : "Domotics & Home Assistant",
+              language === "nl" ? "Domotica & Home Assistant" : "Home automation & Home Assistant",
               language === "nl" ? "Tuinonderhoud" : "Garden maintenance",
             ],
           }),
@@ -109,7 +113,7 @@ export default function HomePage() {
                 className="mt-8 flex flex-col gap-4 sm:flex-row"
               >
                 <Link
-                  href="/contact"
+                  href={contactHref}
                   data-testid="button-hero-cta"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-center font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
                 >
@@ -154,7 +158,7 @@ export default function HomePage() {
                     <h2 className="mt-3 max-w-sm text-2xl font-bold leading-tight text-foreground sm:text-3xl">
                       {language === "nl"
                         ? "IT-consultancy als basis, domotica als slimme laag erbovenop."
-                        : "IT consulting as the base, domotics as the smart layer on top."}
+                        : "IT consulting as the base, home automation as the smart layer on top."}
                     </h2>
                   </div>
                   <div className="rounded-2xl border border-white/40 bg-white/55 px-4 py-3 text-right shadow-sm">
@@ -203,7 +207,7 @@ export default function HomePage() {
                         <Home className="h-5 w-5" />
                       </div>
                       <h3 className="mt-4 text-lg font-bold">
-                        {language === "nl" ? "Domotica subservice" : "Domotics subservice"}
+                        {language === "nl" ? "Domotica als specialisatie" : "Home automation specialization"}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                         {language === "nl"
@@ -256,7 +260,7 @@ export default function HomePage() {
                 icon={Server}
                 title={t("services.it.title")}
                 description={t("services.it.desc")}
-                href={itConsultancyPath}
+                href={itHref}
                 delay={0.1}
               />
               <ServiceCard
@@ -271,11 +275,11 @@ export default function HomePage() {
             <div className="site-card site-card-strong mx-auto mt-8 max-w-5xl rounded-[2rem] p-6 sm:p-8">
               <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
                 <div className="max-w-2xl">
-                  <div className="site-pill mb-4">{language === "nl" ? "Subservice binnen IT Consultancy" : "Subservice inside IT Consulting"}</div>
+                  <div className="site-pill mb-4">{language === "nl" ? "Specialisatie binnen IT Consultancy" : "Specialist track inside IT Consulting"}</div>
                   <h3 className="text-2xl font-bold">
                     {language === "nl"
                       ? "Domotica zit nu onder IT Consultancy, met Home Assistant als gespecialiseerde route."
-                      : "Domotics now sits under IT Consulting, with Home Assistant as the specialized path."}
+                      : "Home automation now sits under IT Consulting, with Home Assistant as the specialist path."}
                   </h3>
                   <p className="mt-3 text-muted-foreground">
                     {language === "nl"
@@ -285,13 +289,13 @@ export default function HomePage() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Link href={domoticaOverviewPath} className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
+                  <Link href={homeAutomationHref} className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
                     {t("nav.services.domotica")}
                   </Link>
-                  <Link href={homeAssistantPath} className="rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-sm">
+                  <Link href={homeAssistantHref} className="rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-sm">
                     Home Assistant
                   </Link>
-                  <Link href={homeAssistantFaqPath} className="rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-sm">
+                  <Link href={homeAssistantFaqHref} className="rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-sm">
                     FAQ
                   </Link>
                 </div>
