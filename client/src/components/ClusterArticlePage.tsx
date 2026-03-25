@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { SeoHead } from "@/components/SeoHead";
 import { PageBreadcrumbs, type BreadcrumbEntry } from "@/components/PageBreadcrumbs";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structuredData";
+import { localizedSitePath, type LocalizedRoutePair } from "@shared/siteRoutes";
 
 type Language = "nl" | "en";
 
@@ -21,7 +22,7 @@ export interface ClusterFaqItem {
 
 interface ClusterArticlePageProps {
   language: Language;
-  seoPath: string;
+  seoPaths: LocalizedRoutePair;
   title: Record<Language, string>;
   description: Record<Language, string>;
   intro: Record<Language, string>;
@@ -40,7 +41,7 @@ interface ClusterArticlePageProps {
 
 export function ClusterArticlePage({
   language,
-  seoPath,
+  seoPaths,
   title,
   description,
   intro,
@@ -51,8 +52,10 @@ export function ClusterArticlePage({
   ctaTitle,
   ctaBody,
   ctaLabel,
-  ctaHref = "/contact",
+  ctaHref,
 }: ClusterArticlePageProps) {
+  const seoPath = seoPaths[language];
+  const resolvedCtaHref = ctaHref ?? localizedSitePath("contact", language);
   const jsonLd: Record<string, unknown>[] = [
     breadcrumbJsonLd(
       seoPath,
@@ -82,6 +85,7 @@ export function ClusterArticlePage({
         description={description[language]}
         path={seoPath}
         language={language}
+        alternates={{ ...seoPaths, "x-default": seoPaths.nl }}
         jsonLd={jsonLd}
       />
       <Navbar />
@@ -163,7 +167,7 @@ export function ClusterArticlePage({
               <h2 className="text-2xl font-bold font-display mb-3">{ctaTitle[language]}</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto mb-7">{ctaBody[language]}</p>
               <Link
-                href={ctaHref}
+                href={resolvedCtaHref}
                 className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all"
               >
                 {ctaLabel[language]}

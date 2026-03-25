@@ -22,15 +22,13 @@ import GardenFaqPage from "@/pages/garden/GardenFaq";
 import GardenServiceDetailPage from "@/pages/garden/GardenServiceDetail";
 import GardenCityDetailPage from "@/pages/garden/GardenCityDetail";
 import {
-  domoticaOverviewPath,
   gardenCityRoutePairs,
   gardenServiceRoutePairs,
-  homeAssistantFaqPath,
-  homeAssistantPath,
-  itConsultancyPath,
   legacyDomoticaOverviewPath,
   legacyHomeAssistantFaqPath,
+  legacyHomeAssistantFaqHtmlPaths,
   legacyHomeAssistantPath,
+  siteRoutePairs,
 } from "@shared/siteRoutes";
 
 function Router() {
@@ -41,6 +39,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
+      <Route path="/en/"><HomePage /></Route>
+      <Route path="/en"><HomePage /></Route>
 
       <Route path="/tuinonderhoud/">{() => <GardenLandingPage routeLanguage="nl" />}</Route>
       <Route path="/tuinonderhoud">{() => <GardenLandingPage routeLanguage="nl" />}</Route>
@@ -95,31 +95,43 @@ function Router() {
         </Route>,
       ])}
 
-      <Route path={domoticaOverviewPath} component={DomoticaOverviewPage} />
-      <Route path={withoutTrailingSlash(domoticaOverviewPath)} component={DomoticaOverviewPage} />
-      <Route path={homeAssistantPath} component={HomeAssistantServicePage} />
-      <Route path={withoutTrailingSlash(homeAssistantPath)} component={HomeAssistantServicePage} />
-      <Route path={homeAssistantFaqPath} component={HomeAssistantFaqPage} />
-      <Route path={withoutTrailingSlash(homeAssistantFaqPath)} component={HomeAssistantFaqPage} />
+      <Route path={siteRoutePairs.homeAutomationOverview.nl} component={DomoticaOverviewPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.homeAutomationOverview.nl)} component={DomoticaOverviewPage} />
+      <Route path={siteRoutePairs.homeAutomationOverview.en} component={DomoticaOverviewPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.homeAutomationOverview.en)} component={DomoticaOverviewPage} />
+      <Route path={siteRoutePairs.homeAssistant.nl} component={HomeAssistantServicePage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.homeAssistant.nl)} component={HomeAssistantServicePage} />
+      <Route path={siteRoutePairs.homeAssistant.en} component={HomeAssistantServicePage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.homeAssistant.en)} component={HomeAssistantServicePage} />
+      <Route path={siteRoutePairs.homeAssistantFaq.nl} component={HomeAssistantFaqPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.homeAssistantFaq.nl)} component={HomeAssistantFaqPage} />
+      <Route path={siteRoutePairs.homeAssistantFaq.en} component={HomeAssistantFaqPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.homeAssistantFaq.en)} component={HomeAssistantFaqPage} />
       <Route path={legacyDomoticaOverviewPath} component={DomoticaOverviewPage} />
       <Route path={withoutTrailingSlash(legacyDomoticaOverviewPath)} component={DomoticaOverviewPage} />
       <Route path={legacyHomeAssistantPath} component={HomeAssistantServicePage} />
       <Route path={withoutTrailingSlash(legacyHomeAssistantPath)} component={HomeAssistantServicePage} />
       <Route path={legacyHomeAssistantFaqPath} component={HomeAssistantFaqPage} />
       <Route path={withoutTrailingSlash(legacyHomeAssistantFaqPath)} component={HomeAssistantFaqPage} />
-      <Route path="/domotica/home-assistant/faq.html" component={HomeAssistantFaqPage} />
-      <Route path="/it-consultancy/domotica/home-assistant/faq.html" component={HomeAssistantFaqPage} />
-      <Route path="/domotica/home-assistant/:slug">{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
-      <Route path="/domotica/home-assistant/:slug/">{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
-      <Route path="/it-consultancy/domotica/home-assistant/:slug">{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
-      <Route path="/it-consultancy/domotica/home-assistant/:slug/">{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
+      {legacyHomeAssistantFaqHtmlPaths.map((path) => (
+        <Route key={path} path={path} component={HomeAssistantFaqPage} />
+      ))}
+      <Route path={`${withoutTrailingSlash(legacyHomeAssistantPath)}/:slug`}>{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
+      <Route path={`${withoutTrailingSlash(siteRoutePairs.homeAssistant.nl)}/:slug`}>{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
+      <Route path={`${withoutTrailingSlash(siteRoutePairs.homeAssistant.en)}/:slug`}>{(params) => <HomeAssistantTopicPage slug={params.slug} />}</Route>
 
-      <Route path={itConsultancyPath} component={ITConsultancyPage} />
-      <Route path={withoutTrailingSlash(itConsultancyPath)} component={ITConsultancyPage} />
-      <Route path="/privacy-en-bewaring" component={PrivacyBewaringPage} />
-      <Route path="/privacy-en-bewaring/" component={PrivacyBewaringPage} />
-      <Route path="/contact" component={ContactPage} />
-      <Route path="/contact/" component={ContactPage} />
+      <Route path={siteRoutePairs.itConsultancy.nl} component={ITConsultancyPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.itConsultancy.nl)} component={ITConsultancyPage} />
+      <Route path={siteRoutePairs.itConsultancy.en} component={ITConsultancyPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.itConsultancy.en)} component={ITConsultancyPage} />
+      <Route path={siteRoutePairs.privacy.nl} component={PrivacyBewaringPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.privacy.nl)} component={PrivacyBewaringPage} />
+      <Route path={siteRoutePairs.privacy.en} component={PrivacyBewaringPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.privacy.en)} component={PrivacyBewaringPage} />
+      <Route path={siteRoutePairs.contact.nl} component={ContactPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.contact.nl)} component={ContactPage} />
+      <Route path={siteRoutePairs.contact.en} component={ContactPage} />
+      <Route path={withoutTrailingSlash(siteRoutePairs.contact.en)} component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
   );

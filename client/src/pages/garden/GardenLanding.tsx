@@ -9,7 +9,7 @@ import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { useRouteLanguage } from "@/hooks/use-route-language";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd, serviceJsonLd } from "@/lib/structuredData";
 import { gardenAreas, gardenFaqs, gardenLinks, gardenServices } from "@/data/garden";
-import { gardenRoutePairs } from "@shared/siteRoutes";
+import { gardenRoutePairs, localizedSitePath } from "@shared/siteRoutes";
 
 interface GardenLandingPageProps {
   routeLanguage: "nl" | "en";
@@ -22,6 +22,7 @@ export default function GardenLandingPage({ routeLanguage }: GardenLandingPagePr
 
   const nl = routeLanguage === "nl";
   const links = gardenLinks(routeLanguage);
+  const homeHref = localizedSitePath("home", routeLanguage);
   const alternates = {
     nl: gardenRoutePairs.landing.nl,
     en: gardenRoutePairs.landing.en,
@@ -46,7 +47,7 @@ export default function GardenLandingPage({ routeLanguage }: GardenLandingPagePr
         alternates={alternates}
         jsonLd={[
           breadcrumbJsonLd(alternates[routeLanguage], [
-            { name: "Home", path: "/" },
+            { name: "Home", path: homeHref },
             { name: nl ? "Tuinonderhoud" : "Garden maintenance", path: alternates[routeLanguage] },
           ]),
           localBusinessJsonLd(alternates[routeLanguage], {
@@ -81,7 +82,7 @@ export default function GardenLandingPage({ routeLanguage }: GardenLandingPagePr
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <PageBreadcrumbs
               items={[
-                { label: "Home", href: "/" },
+                { label: "Home", href: homeHref },
                 { label: nl ? "Tuinonderhoud" : "Garden maintenance" },
               ]}
             />
@@ -181,8 +182,8 @@ export default function GardenLandingPage({ routeLanguage }: GardenLandingPagePr
               </h2>
               <p className="text-muted-foreground text-lg">
                 {nl
-                  ? "De aangeleverde HTML-copy is hier omgezet naar een duidelijke, brand-consistente dienstverlening."
-                  : "The imported HTML copy is translated here into a clearer, brand-consistent service offer."}
+                  ? "Een helder overzicht van de tuinwerken waarmee u terechtkunt, van onderhoud en snoei tot opfrissing en seizoenswerk."
+                  : "A clear overview of the garden work you can request, from maintenance and trimming to refresh work and seasonal care."}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -291,8 +292,8 @@ export default function GardenLandingPage({ routeLanguage }: GardenLandingPagePr
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   {nl
-                    ? "Gebruik dezelfde leadflow als de rest van de site, maar met tuinonderhoud als voorgeselecteerde dienst."
-                    : "Use the same lead flow as the rest of the site, with garden maintenance preselected."}
+                    ? "Gebruik het formulier hieronder om snel een offerte of eerste afspraak aan te vragen voor tuinonderhoud."
+                    : "Use the form below to quickly request a quote or first visit for garden maintenance."}
                 </p>
                 <div className="flex flex-wrap gap-4 text-sm font-semibold">
                   <Link href={links.approach} className="garden-link-inline">

@@ -6,10 +6,15 @@ import { Footer } from "@/components/Footer";
 import { ArrowLeft, Cpu, HeadphonesIcon, Home, Network, ShieldCheck } from "lucide-react";
 import { SeoHead } from "@/components/SeoHead";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/structuredData";
-import { domoticaOverviewPath, homeAssistantPath, itConsultancyPath } from "@shared/siteRoutes";
+import { localizedSitePath, siteRoutePairs } from "@shared/siteRoutes";
 
 export default function ITConsultancyPage() {
   const { t, language } = useLanguage();
+  const homeHref = localizedSitePath("home", language);
+  const contactHref = localizedSitePath("contact", language);
+  const itHref = localizedSitePath("itConsultancy", language);
+  const homeAutomationHref = localizedSitePath("homeAutomationOverview", language);
+  const homeAssistantHref = localizedSitePath("homeAssistant", language);
 
   const features = [
     { icon: Network, title: t("services.it.feature1"), desc: t("services.it.feature1Desc") },
@@ -20,21 +25,22 @@ export default function ITConsultancyPage() {
   return (
     <div className="site-shell min-h-screen bg-background">
       <SeoHead
-        title={language === "nl" ? "IT-consultancy, infrastructuur en domotica | Roan Ros" : "IT consulting, infrastructure and domotics | Roan Ros"}
+        title={language === "nl" ? "IT-consultancy, infrastructuur en domotica | Roan Ros" : "IT consulting, infrastructure and home automation | Roan Ros"}
         description={
           language === "nl"
             ? "Strategische IT-consultancy, infrastructuur, Home Assistant domotica en troubleshooting voor zelfstandigen en kleine teams."
-            : "Strategic IT consulting, infrastructure, Home Assistant domotics, and troubleshooting for freelancers and small teams."
+            : "Strategic IT consulting, infrastructure, Home Assistant integration, and troubleshooting for freelancers and small teams."
         }
-        path={itConsultancyPath}
+        path={siteRoutePairs.itConsultancy[language]}
         language={language}
+        alternates={{ ...siteRoutePairs.itConsultancy, "x-default": siteRoutePairs.itConsultancy.nl }}
         jsonLd={[
-          breadcrumbJsonLd(itConsultancyPath, [
-            { name: "Home", path: "/" },
-            { name: language === "nl" ? "IT Consultancy" : "IT Consulting", path: itConsultancyPath },
+          breadcrumbJsonLd(siteRoutePairs.itConsultancy[language], [
+            { name: "Home", path: homeHref },
+            { name: language === "nl" ? "IT Consultancy" : "IT Consulting", path: itHref },
           ]),
-          serviceJsonLd(itConsultancyPath, {
-            serviceName: language === "nl" ? "IT-consultancy en domotica" : "IT consulting and domotics",
+          serviceJsonLd(siteRoutePairs.itConsultancy[language], {
+            serviceName: language === "nl" ? "IT-consultancy en domotica" : "IT consulting and home automation",
             serviceType: language === "nl" ? "IT infrastructuur, support en Home Assistant" : "IT infrastructure, support, and Home Assistant",
             description:
               language === "nl"
@@ -49,7 +55,7 @@ export default function ITConsultancyPage() {
       <main className="site-main">
         <section className="site-hero pb-16 pt-32 md:pb-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground" data-testid="link-back-home">
+            <Link href={homeHref} className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground" data-testid="link-back-home">
               <ArrowLeft className="h-4 w-4" />
               {language === "nl" ? "Terug naar Home" : "Back to Home"}
             </Link>
@@ -75,10 +81,10 @@ export default function ITConsultancyPage() {
                 </motion.p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href={domoticaOverviewPath} className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20">
-                    {language === "nl" ? "Bekijk domotica als subservice" : "View domotics subservice"}
+                  <Link href={homeAutomationHref} className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20">
+                    {language === "nl" ? "Bekijk domotica als specialisatie" : "View home automation specialization"}
                   </Link>
-                  <Link href="/contact" className="rounded-full bg-card px-6 py-3 text-sm font-semibold shadow-sm">
+                  <Link href={contactHref} className="rounded-full bg-card px-6 py-3 text-sm font-semibold shadow-sm">
                     {language === "nl" ? "Plan adviesgesprek" : "Plan an advice call"}
                   </Link>
                 </div>
@@ -107,7 +113,7 @@ export default function ITConsultancyPage() {
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                       <Home className="h-5 w-5" />
                     </div>
-                    <h2 className="mt-4 text-lg font-bold">{language === "nl" ? "Domotica subservice" : "Domotics subservice"}</h2>
+                    <h2 className="mt-4 text-lg font-bold">{language === "nl" ? "Domotica als specialisatie" : "Home automation specialization"}</h2>
                     <p className="mt-2 text-sm text-muted-foreground">
                       {language === "nl"
                         ? "Home Assistant, protocolkeuze, energie-inzicht en onderhoud als gespecialiseerde laag binnen IT."
@@ -148,20 +154,20 @@ export default function ITConsultancyPage() {
 
               <div className="site-card site-card-strong rounded-[2rem] p-6">
                 <div className="mb-4 flex items-center gap-3">
-                  <div className="site-pill">{language === "nl" ? "Subservice spotlight" : "Subservice spotlight"}</div>
-                </div>
-                <h3 className="text-2xl font-bold">{language === "nl" ? "Domotica en Home Assistant" : "Domotics and Home Assistant"}</h3>
+                <div className="site-pill">{language === "nl" ? "Specialisatie in beeld" : "Specialization spotlight"}</div>
+              </div>
+                <h3 className="text-2xl font-bold">{language === "nl" ? "Domotica en Home Assistant" : "Home automation and Home Assistant"}</h3>
                 <p className="mt-3 text-muted-foreground">
                   {language === "nl"
                     ? "Domotica is hier geen los eiland meer, maar een gespecialiseerde uitbreiding van uw IT-omgeving. Daardoor blijven netwerk, beveiliging, dashboards en onderhoud op elkaar afgestemd."
-                    : "Domotics is no longer a disconnected island here, but a specialized extension of your IT environment. That keeps networking, security, dashboards, and maintenance aligned."}
+                    : "Home automation is not a disconnected island here, but a specialized extension of your IT environment. That keeps networking, security, dashboards, and maintenance aligned."}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <Link href={domoticaOverviewPath} className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-                    {language === "nl" ? "Naar domotica-overzicht" : "Go to domotics overview"}
+                  <Link href={homeAutomationHref} className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
+                    {language === "nl" ? "Naar domotica-overzicht" : "Go to home automation overview"}
                   </Link>
-                  <Link href={homeAssistantPath} className="rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-sm">
+                  <Link href={homeAssistantHref} className="rounded-full bg-card px-5 py-3 text-sm font-semibold shadow-sm">
                     Home Assistant
                   </Link>
                 </div>
@@ -205,7 +211,7 @@ export default function ITConsultancyPage() {
                   : "We look at structure and priorities first, so you do not end up with even more disconnected tools."}
               </p>
               <Link
-                href="/contact"
+                href={contactHref}
                 data-testid="button-it-consultancy-cta"
                 className="mt-7 inline-block rounded-full bg-primary px-8 py-4 font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
               >

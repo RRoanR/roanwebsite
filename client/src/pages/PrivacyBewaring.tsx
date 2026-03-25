@@ -6,9 +6,12 @@ import { Footer } from "@/components/Footer";
 import { ArrowLeft, Shield, Database, Clock, Lock } from "lucide-react";
 import { SeoHead } from "@/components/SeoHead";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
+import { localizedSitePath, siteRoutePairs } from "@shared/siteRoutes";
 
 export default function PrivacyBewaringPage() {
   const { language } = useLanguage();
+  const homeHref = localizedSitePath("home", language);
+  const contactHref = localizedSitePath("contact", language);
 
   const sections = [
     {
@@ -50,12 +53,13 @@ export default function PrivacyBewaringPage() {
             ? "Lees hoe Roan Ros persoonsgegevens, projectfoto's en technische documentatie bewaart en beschermt."
             : "Read how Roan Ros stores and protects personal data, project photos, and technical documentation."
         }
-        path="/privacy-en-bewaring/"
+        path={siteRoutePairs.privacy[language]}
         language={language}
+        alternates={{ ...siteRoutePairs.privacy, "x-default": siteRoutePairs.privacy.nl }}
         jsonLd={[
-          breadcrumbJsonLd("/privacy-en-bewaring/", [
-            { name: "Home", path: "/" },
-            { name: language === "nl" ? "Privacy & Bewaring" : "Privacy & Data Retention", path: "/privacy-en-bewaring/" },
+          breadcrumbJsonLd(siteRoutePairs.privacy[language], [
+            { name: "Home", path: homeHref },
+            { name: language === "nl" ? "Privacy & Bewaring" : "Privacy & Data Retention", path: siteRoutePairs.privacy[language] },
           ]),
         ]}
       />
@@ -63,7 +67,7 @@ export default function PrivacyBewaringPage() {
 
       <section className="pt-32 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8" data-testid="link-back-home">
+          <Link href={homeHref} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8" data-testid="link-back-home">
             <ArrowLeft className="w-4 h-4" />
             {language === 'nl' ? 'Terug naar Home' : 'Back to Home'}
           </Link>
@@ -123,11 +127,11 @@ export default function PrivacyBewaringPage() {
                 : 'Do you have questions about your privacy or would you like to exercise your rights?'}
             </p>
             <Link
-              href="/contact"
+              href={contactHref}
               data-testid="button-privacy-contact"
               className="inline-block px-8 py-4 rounded-full font-bold text-primary-foreground bg-primary shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all"
             >
-              {language === 'nl' ? 'Neem contact op' : 'Get in Touch'}
+              {language === 'nl' ? 'Neem contact op' : 'Contact us'}
             </Link>
           </div>
         </div>

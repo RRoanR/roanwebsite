@@ -1,7 +1,7 @@
 import { useLanguage } from "@/lib/i18n";
 import { Link } from "wouter";
 import logoImg from "@assets/roanros_logo_1771933628066.png";
-import { domoticaOverviewPath, itConsultancyPath, localizedGardenPath } from "@shared/siteRoutes";
+import { localizedGardenPath, localizedSitePath } from "@shared/siteRoutes";
 
 export function Footer() {
   const { t, language } = useLanguage();
@@ -12,7 +12,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div className="space-y-4">
-            <Link href="/">
+            <Link href={localizedSitePath("home", language)}>
               <div className="flex cursor-pointer items-center gap-3">
                 <img src={logoImg} alt="Roan Ros logo" className="h-8 w-8 rounded-md object-contain" />
                 <span className="font-display font-bold">Roan Ros</span>
@@ -30,16 +30,16 @@ export function Footer() {
               <Link href={gardenHref} className="hover:text-foreground transition-colors">
                 {t('nav.services.garden')}
               </Link>
-              <Link href={itConsultancyPath} className="hover:text-foreground transition-colors">
+              <Link href={localizedSitePath("itConsultancy", language)} className="hover:text-foreground transition-colors">
                 {t('nav.services.it')}
               </Link>
-              <Link href={domoticaOverviewPath} className="hover:text-foreground transition-colors">
+              <Link href={localizedSitePath("homeAutomationOverview", language)} className="hover:text-foreground transition-colors">
                 {t('nav.services.domotica')}
               </Link>
-              <Link href="/contact" className="hover:text-foreground transition-colors">
+              <Link href={localizedSitePath("contact", language)} className="hover:text-foreground transition-colors">
                 {t('nav.contact')}
               </Link>
-              <Link href="/privacy-en-bewaring" className="hover:text-foreground transition-colors">
+              <Link href={localizedSitePath("privacy", language)} className="hover:text-foreground transition-colors">
                 {t('nav.privacy')}
               </Link>
             </div>

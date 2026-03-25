@@ -8,7 +8,7 @@ import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { useRouteLanguage } from "@/hooks/use-route-language";
 import { breadcrumbJsonLd, faqJsonLd, localBusinessJsonLd } from "@/lib/structuredData";
 import { gardenAreas, gardenFaqs, gardenLinks } from "@/data/garden";
-import { gardenRoutePairs } from "@shared/siteRoutes";
+import { gardenRoutePairs, localizedSitePath } from "@shared/siteRoutes";
 
 interface GardenRegionPageProps {
   routeLanguage: "nl" | "en";
@@ -19,6 +19,7 @@ export default function GardenRegionPage({ routeLanguage }: GardenRegionPageProp
 
   const nl = routeLanguage === "nl";
   const links = gardenLinks(routeLanguage);
+  const homeHref = localizedSitePath("home", routeLanguage);
   const alternates = {
     nl: gardenRoutePairs.region.nl,
     en: gardenRoutePairs.region.en,
@@ -39,7 +40,7 @@ export default function GardenRegionPage({ routeLanguage }: GardenRegionPageProp
         alternates={alternates}
         jsonLd={[
           breadcrumbJsonLd(alternates[routeLanguage], [
-            { name: "Home", path: "/" },
+            { name: "Home", path: homeHref },
             { name: nl ? "Tuinonderhoud" : "Garden maintenance", path: links.landing },
             { name: nl ? "Regio" : "Region", path: alternates[routeLanguage] },
           ]),
@@ -65,7 +66,7 @@ export default function GardenRegionPage({ routeLanguage }: GardenRegionPageProp
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
-                { label: "Home", href: "/" },
+                { label: "Home", href: homeHref },
                 { label: nl ? "Tuinonderhoud" : "Garden maintenance", href: links.landing },
                 { label: nl ? "Regio" : "Region" },
               ]}

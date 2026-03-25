@@ -8,7 +8,7 @@ import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { useRouteLanguage } from "@/hooks/use-route-language";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/structuredData";
 import { gardenLinks, gardenServices } from "@/data/garden";
-import { gardenRoutePairs } from "@shared/siteRoutes";
+import { gardenRoutePairs, localizedSitePath } from "@shared/siteRoutes";
 
 interface GardenServicesPageProps {
   routeLanguage: "nl" | "en";
@@ -19,6 +19,7 @@ export default function GardenServicesPage({ routeLanguage }: GardenServicesPage
 
   const nl = routeLanguage === "nl";
   const links = gardenLinks(routeLanguage);
+  const homeHref = localizedSitePath("home", routeLanguage);
   const alternates = {
     nl: gardenRoutePairs.services.nl,
     en: gardenRoutePairs.services.en,
@@ -43,7 +44,7 @@ export default function GardenServicesPage({ routeLanguage }: GardenServicesPage
         alternates={alternates}
         jsonLd={[
           breadcrumbJsonLd(alternates[routeLanguage], [
-            { name: "Home", path: "/" },
+            { name: "Home", path: homeHref },
             { name: nl ? "Tuinonderhoud" : "Garden maintenance", path: gardenRoutePairs.landing[routeLanguage] },
             { name: nl ? "Diensten" : "Services", path: alternates[routeLanguage] },
           ]),
@@ -64,7 +65,7 @@ export default function GardenServicesPage({ routeLanguage }: GardenServicesPage
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
-                { label: "Home", href: "/" },
+                { label: "Home", href: homeHref },
                 { label: nl ? "Tuinonderhoud" : "Garden maintenance", href: links.landing },
                 { label: nl ? "Diensten" : "Services" },
               ]}
@@ -78,8 +79,8 @@ export default function GardenServicesPage({ routeLanguage }: GardenServicesPage
             </motion.h1>
             <p className="text-lg text-muted-foreground max-w-3xl">
               {nl
-                ? "Alles uit de aangeleverde dienstencopy is hier samengebracht in een duidelijke catalogus, met nadruk op onderhoud, snoeiwerken en een haalbaar onderhoudsritme."
-                : "Everything from the imported service copy is brought together here in a clearer catalogue, focused on upkeep, trimming, and a realistic maintenance cadence."}
+                ? "Een duidelijk overzicht van onderhoud, snoeiwerken, seizoensopkuis en andere tuinzorg die op aanvraag of volgens schema kan gebeuren."
+                : "A clear overview of maintenance, trimming, seasonal clean-ups, and other garden care that can be planned on request or by schedule."}
             </p>
           </div>
         </section>

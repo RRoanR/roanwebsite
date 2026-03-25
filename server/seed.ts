@@ -14,16 +14,16 @@ async function seed() {
         name: "Jan Peeters",
         email: "jan.peeters@example.be",
         phone: "+32470123456",
-        service: "Plaatsbeschrijvingen",
+        service: "garden",
         sliderValue: 1500,
-        message: "We need a survey for our new home.",
+        message: "We would like help with recurring garden maintenance around our home.",
         language: "nl"
       },
       {
         name: "Alice Smith",
         email: "alice@example.com",
         phone: "+32470987654",
-        service: "IT consultant",
+        service: "it",
         sliderValue: 5000,
         message: "Looking for IT consulting for our small business.",
         language: "en"

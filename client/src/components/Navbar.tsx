@@ -5,11 +5,8 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoImg from "@assets/roanros_logo_1771933628066.png";
 import {
-  domoticaOverviewPath,
-  homeAssistantFaqPath,
-  homeAssistantPath,
-  itConsultancyPath,
   localizedGardenPath,
+  localizedSitePath,
   normalizePath,
 } from "@shared/siteRoutes";
 
@@ -37,19 +34,19 @@ export function Navbar() {
       label: t("nav.services.it"),
       links: [
         {
-          href: itConsultancyPath,
+          href: localizedSitePath("itConsultancy", language),
           label: language === "nl" ? "Overzicht" : "Overview",
         },
         {
-          href: domoticaOverviewPath,
+          href: localizedSitePath("homeAutomationOverview", language),
           label: t("nav.services.domotica"),
         },
         {
-          href: homeAssistantPath,
+          href: localizedSitePath("homeAssistant", language),
           label: "Home Assistant",
         },
         {
-          href: homeAssistantFaqPath,
+          href: localizedSitePath("homeAssistantFaq", language),
           label: "FAQ",
         },
       ],
@@ -60,13 +57,13 @@ export function Navbar() {
 
   const simpleLinks: NavLink[] = [
     { href: gardenHref, label: t("nav.services.garden") },
-    { href: "/contact", label: t("nav.contact") },
+    { href: localizedSitePath("contact", language), label: t("nav.contact") },
   ];
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-6">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-[1.75rem] border border-white/45 bg-background/75 px-4 shadow-[0_20px_60px_-30px_hsl(var(--accent)/0.55)] backdrop-blur-xl sm:px-6 md:h-20">
-        <Link href="/" data-testid="link-home" onClick={() => setMobileOpen(false)}>
+        <Link href={localizedSitePath("home", language)} data-testid="link-home" onClick={() => setMobileOpen(false)}>
           <div className="flex cursor-pointer items-center gap-2 sm:gap-3">
             <div className="relative">
               <div className="absolute inset-0 rounded-2xl bg-primary/25 blur-lg" />
@@ -135,7 +132,7 @@ export function Navbar() {
           <LanguageToggle />
 
           <Link
-            href="/contact"
+            href={localizedSitePath("contact", language)}
             data-testid="button-cta"
             className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
           >
@@ -202,7 +199,7 @@ export function Navbar() {
             ))}
 
             <Link
-              href="/contact"
+              href={localizedSitePath("contact", language)}
               onClick={() => setMobileOpen(false)}
               className="mt-3 block rounded-xl bg-primary px-4 py-3 text-center text-base font-bold text-primary-foreground shadow-md"
             >

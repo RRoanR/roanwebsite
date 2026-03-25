@@ -1,11 +1,16 @@
 import type { ClusterFaqItem, ClusterSection } from "@/components/ClusterArticlePage";
-import { homeAssistantPath } from "@shared/siteRoutes";
+import {
+  type LocalizedRoutePair,
+  homeAssistantCityRoutePairs,
+  homeAssistantTopicRoutePairs,
+  siteRoutePairs,
+} from "@shared/siteRoutes";
 
 type Language = "nl" | "en";
 
 export interface DomoticaTopicData {
   slug: string;
-  path: string;
+  paths: LocalizedRoutePair;
   title: Record<Language, string>;
   description: Record<Language, string>;
   intro: Record<Language, string>;
@@ -15,10 +20,13 @@ export interface DomoticaTopicData {
 
 export interface DomoticaFaqCategory {
   title: Record<Language, string>;
-  items: Array<ClusterFaqItem & { link: string }>;
+  items: Array<ClusterFaqItem & { link: LocalizedRoutePair }>;
 }
 
-const homeAssistantBasePath = homeAssistantPath;
+function slugFromPath(path: string) {
+  const segments = path.split("/").filter(Boolean);
+  return segments.at(-1) ?? "";
+}
 
 const commonFaqs: ClusterFaqItem[] = [
   {
@@ -56,7 +64,7 @@ const commonFaqs: ClusterFaqItem[] = [
 export const domoticaTopics: DomoticaTopicData[] = [
   {
     slug: "wat-is-home-assistant",
-    path: `${homeAssistantBasePath}wat-is-home-assistant/`,
+    paths: homeAssistantTopicRoutePairs.whatIsHomeAssistant,
     title: {
       nl: "Wat is Home Assistant?",
       en: "What is Home Assistant?",
@@ -103,7 +111,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "installatie-vs-configuratie",
-    path: `${homeAssistantBasePath}installatie-vs-configuratie/`,
+    paths: homeAssistantTopicRoutePairs.installationVsConfiguration,
     title: { nl: "Installatie vs configuratie", en: "Installation vs configuration" },
     description: {
       nl: "Waarom een installatie nog geen stabiel systeem is en welke configuratiekeuzes echt het verschil maken.",
@@ -146,7 +154,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "zigbee-zwave-matter-thread",
-    path: `${homeAssistantBasePath}zigbee-zwave-matter-thread/`,
+    paths: homeAssistantTopicRoutePairs.protocols,
     title: { nl: "Zigbee vs Z-Wave vs Matter/Thread", en: "Zigbee vs Z-Wave vs Matter/Thread" },
     description: {
       nl: "Heldere protocolkeuze voor Home Assistant: wanneer Zigbee, Z-Wave of Matter/Thread de beste fit is.",
@@ -189,7 +197,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "dashboards-tablet-wandpaneel",
-    path: `${homeAssistantBasePath}dashboards-tablet-wandpaneel/`,
+    paths: homeAssistantTopicRoutePairs.dashboards,
     title: { nl: "Dashboards, tablet en wandpaneel", en: "Dashboards, tablet and wall panel" },
     description: {
       nl: "Dashboards die voor iedereen werken: structuur, rollen, failsafe bediening en onderhoud.",
@@ -232,7 +240,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "energie-monitoring-zonnepanelen-laadpaal",
-    path: `${homeAssistantBasePath}energie-monitoring-zonnepanelen-laadpaal/`,
+    paths: homeAssistantTopicRoutePairs.energy,
     title: { nl: "Energie monitoring, zonnepanelen en laadpaal", en: "Energy monitoring, solar and EV charger" },
     description: {
       nl: "Praktische aanpak voor energie-inzicht in Home Assistant met zonnepanelen en laadpaal-integraties.",
@@ -268,7 +276,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "beveiliging-meldingen-aanwezigheid",
-    path: `${homeAssistantBasePath}beveiliging-meldingen-aanwezigheid/`,
+    paths: homeAssistantTopicRoutePairs.security,
     title: { nl: "Beveiliging, meldingen en aanwezigheid", en: "Security, notifications and presence" },
     description: {
       nl: "Aanwezigheidslogica en meldingen in Home Assistant met focus op rust, zichtbaarheid en beheerbaarheid.",
@@ -311,7 +319,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "onderhoud-back-ups-updates",
-    path: `${homeAssistantBasePath}onderhoud-back-ups-updates/`,
+    paths: homeAssistantTopicRoutePairs.maintenance,
     title: { nl: "Onderhoud, back-ups en updates", en: "Maintenance, backups and updates" },
     description: {
       nl: "Zo houdt u Home Assistant stabiel met gecontroleerde updates, herstelopties en periodieke checks.",
@@ -354,7 +362,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "slimme-verlichting-sensoren-scenes",
-    path: `${homeAssistantBasePath}slimme-verlichting-sensoren-scenes/`,
+    paths: homeAssistantTopicRoutePairs.lighting,
     title: { nl: "Slimme verlichting, sensoren en scenes", en: "Smart lighting, sensors and scenes" },
     description: {
       nl: "Lichtautomatisaties die logisch aanvoelen met goede sensorlogica, scenes en manuele overruling.",
@@ -390,7 +398,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "antwerpen",
-    path: `${homeAssistantBasePath}antwerpen/`,
+    paths: homeAssistantCityRoutePairs.antwerp,
     title: { nl: "Home Assistant installateur in Antwerpen", en: "Home Assistant specialist in Antwerp" },
     description: {
       nl: "Lokale Home Assistant hulp in Antwerpen voor integraties, dashboards, energie en onderhoud.",
@@ -426,7 +434,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "berchem",
-    path: `${homeAssistantBasePath}berchem/`,
+    paths: homeAssistantCityRoutePairs.berchem,
     title: { nl: "Home Assistant in Berchem", en: "Home Assistant in Berchem" },
     description: {
       nl: "Home Assistant ondersteuning in Berchem met focus op stabiliteit, overzicht en gebruiksgemak.",
@@ -462,7 +470,7 @@ export const domoticaTopics: DomoticaTopicData[] = [
   },
   {
     slug: "deurne",
-    path: `${homeAssistantBasePath}deurne/`,
+    paths: homeAssistantCityRoutePairs.deurne,
     title: { nl: "Home Assistant in Deurne", en: "Home Assistant in Deurne" },
     description: {
       nl: "Ondersteuning in Deurne voor Home Assistant installatie, protocolkeuze, dashboards en onderhoud.",
@@ -511,7 +519,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Ja. We starten met intake, bepalen scope en voeren gefaseerd uit met opvolging.",
           en: "Yes. We start with intake, define scope, and execute in phases with follow-up.",
         },
-        link: homeAssistantPath,
+        link: siteRoutePairs.homeAssistant,
       },
       {
         question: {
@@ -522,7 +530,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Installatie is de basis. Configuratie maakt het systeem bruikbaar, stabiel en onderhoudbaar.",
           en: "Installation is the baseline. Configuration makes the system usable, stable, and maintainable.",
         },
-        link: `${homeAssistantBasePath}installatie-vs-configuratie/`,
+        link: homeAssistantTopicRoutePairs.installationVsConfiguration,
       },
     ],
   },
@@ -538,7 +546,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Ja, maar compatibiliteit hangt af van hardware, firmware en integratiemethode.",
           en: "Yes, but compatibility depends on hardware, firmware, and integration method.",
         },
-        link: `${homeAssistantBasePath}zigbee-zwave-matter-thread/`,
+        link: homeAssistantTopicRoutePairs.protocols,
       },
       {
         question: {
@@ -549,7 +557,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Niet altijd. Een doordachte mix is vaak realistischer dan alles vervangen.",
           en: "Not always. A thoughtful mix is often more realistic than replacing everything.",
         },
-        link: `${homeAssistantBasePath}zigbee-zwave-matter-thread/`,
+        link: homeAssistantTopicRoutePairs.protocols,
       },
     ],
   },
@@ -565,7 +573,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Dat hangt af van scope, aantal integraties en gewenste complexiteit. U krijgt een duidelijke intake-scope.",
           en: "It depends on scope, number of integrations, and complexity. You receive a clear intake scope.",
         },
-        link: homeAssistantPath,
+        link: siteRoutePairs.homeAssistant,
       },
       {
         question: {
@@ -576,7 +584,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Ja. Eerst stabiele quick wins, daarna uitbreiden op basis van echte gebruikservaring.",
           en: "Yes. Stable quick wins first, then expansion based on real usage.",
         },
-        link: homeAssistantPath,
+        link: siteRoutePairs.homeAssistant,
       },
     ],
   },
@@ -592,7 +600,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Home Assistant ondersteunt sterke lokale controle, maar integraties verschillen. We maken dit expliciet per koppeling.",
           en: "Home Assistant supports strong local control, but integrations differ. We make this explicit per integration.",
         },
-        link: `${homeAssistantBasePath}wat-is-home-assistant/`,
+        link: homeAssistantTopicRoutePairs.whatIsHomeAssistant,
       },
       {
         question: {
@@ -603,7 +611,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Ja. Met duidelijke updateflow, checkmomenten en herstelstrategie blijft uitval beperkt.",
           en: "Yes. With a clear update flow, check cadence, and recovery strategy, downtime stays limited.",
         },
-        link: `${homeAssistantBasePath}onderhoud-back-ups-updates/`,
+        link: homeAssistantTopicRoutePairs.maintenance,
       },
     ],
   },
@@ -619,7 +627,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Vaak wel. De mogelijkheden hangen af van meter, omvormer, laadoplossing en beschikbare integraties.",
           en: "Often yes. Capabilities depend on meter, inverter, charger setup, and available integrations.",
         },
-        link: `${homeAssistantBasePath}energie-monitoring-zonnepanelen-laadpaal/`,
+        link: homeAssistantTopicRoutePairs.energy,
       },
       {
         question: {
@@ -630,7 +638,7 @@ export const domoticaFaqCategories: DomoticaFaqCategory[] = [
           nl: "Ja, voor slimme meldingen en aanwezigheidsscenario's. Dit vervangt geen gecertificeerd alarmsysteem.",
           en: "Yes, for smart alerts and presence scenarios. This does not replace certified alarm systems.",
         },
-        link: `${homeAssistantBasePath}beveiliging-meldingen-aanwezigheid/`,
+        link: homeAssistantTopicRoutePairs.security,
       },
     ],
   },
@@ -642,3 +650,11 @@ export const domoticaFaqItems: ClusterFaqItem[] = domoticaFaqCategories.flatMap(
     answer: item.answer,
   })),
 );
+
+export function getDomoticaTopicBySlug(slug: string) {
+  const normalizedSlug = slug.replace(/\.html$/, "");
+  return domoticaTopics.find(
+    (item) =>
+      slugFromPath(item.paths.nl) === normalizedSlug || slugFromPath(item.paths.en) === normalizedSlug,
+  ) ?? null;
+}

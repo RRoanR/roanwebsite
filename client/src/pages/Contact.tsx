@@ -6,9 +6,11 @@ import { Footer } from "@/components/Footer";
 import { CheckCircle2 } from "lucide-react";
 import { SeoHead } from "@/components/SeoHead";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
+import { localizedSitePath, siteRoutePairs } from "@shared/siteRoutes";
 
 export default function ContactPage() {
   const { t, language } = useLanguage();
+  const homeHref = localizedSitePath("home", language);
 
   return (
     <div className="site-shell min-h-screen bg-background">
@@ -19,12 +21,13 @@ export default function ContactPage() {
             ? "Neem contact op met Roan Ros voor domotica, IT consulting of tuinonderhoud in België."
             : "Contact Roan Ros for home automation, IT consulting, or garden maintenance in Belgium."
         }
-        path="/contact/"
+        path={siteRoutePairs.contact[language]}
         language={language}
+        alternates={{ ...siteRoutePairs.contact, "x-default": siteRoutePairs.contact.nl }}
         jsonLd={[
-          breadcrumbJsonLd("/contact/", [
-            { name: "Home", path: "/" },
-            { name: "Contact", path: "/contact/" },
+          breadcrumbJsonLd(siteRoutePairs.contact[language], [
+            { name: "Home", path: homeHref },
+            { name: "Contact", path: siteRoutePairs.contact[language] },
           ]),
         ]}
       />
@@ -51,13 +54,17 @@ export default function ContactPage() {
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                     </div>
-                    <span className="font-medium">Fast response time (24h)</span>
+                    <span className="font-medium">
+                      {language === "nl" ? "Snelle reactie binnen 24 uur" : "Fast response within 24 hours"}
+                    </span>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                     </div>
-                    <span className="font-medium">Transparent pricing</span>
+                    <span className="font-medium">
+                      {language === "nl" ? "Transparante prijs en duidelijke scope" : "Transparent pricing and clear scope"}
+                    </span>
                   </div>
                 </div>
 

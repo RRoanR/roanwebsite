@@ -8,7 +8,7 @@ import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { useRouteLanguage } from "@/hooks/use-route-language";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
 import { gardenLinks } from "@/data/garden";
-import { gardenRoutePairs } from "@shared/siteRoutes";
+import { gardenRoutePairs, localizedSitePath } from "@shared/siteRoutes";
 
 interface GardenContactPageProps {
   routeLanguage: "nl" | "en";
@@ -19,6 +19,7 @@ export default function GardenContactPage({ routeLanguage }: GardenContactPagePr
 
   const nl = routeLanguage === "nl";
   const links = gardenLinks(routeLanguage);
+  const homeHref = localizedSitePath("home", routeLanguage);
   const alternates = {
     nl: gardenRoutePairs.contact.nl,
     en: gardenRoutePairs.contact.en,
@@ -39,7 +40,7 @@ export default function GardenContactPage({ routeLanguage }: GardenContactPagePr
         alternates={alternates}
         jsonLd={[
           breadcrumbJsonLd(alternates[routeLanguage], [
-            { name: "Home", path: "/" },
+            { name: "Home", path: homeHref },
             { name: nl ? "Tuinonderhoud" : "Garden maintenance", path: links.landing },
             { name: "Contact", path: alternates[routeLanguage] },
           ]),
@@ -52,7 +53,7 @@ export default function GardenContactPage({ routeLanguage }: GardenContactPagePr
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
-                { label: "Home", href: "/" },
+                { label: "Home", href: homeHref },
                 { label: nl ? "Tuinonderhoud" : "Garden maintenance", href: links.landing },
                 { label: "Contact" },
               ]}

@@ -6,10 +6,16 @@ import { SeoHead } from "@/components/SeoHead";
 import { PageBreadcrumbs } from "@/components/PageBreadcrumbs";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structuredData";
 import { domoticaFaqCategories, domoticaFaqItems } from "@/data/domotica";
-import { domoticaOverviewPath, homeAssistantFaqPath, homeAssistantPath, itConsultancyPath } from "@shared/siteRoutes";
+import { localizedSitePath, siteRoutePairs } from "@shared/siteRoutes";
 
 export default function HomeAssistantFaqPage() {
   const { language } = useLanguage();
+  const homeHref = localizedSitePath("home", language);
+  const contactHref = localizedSitePath("contact", language);
+  const itHref = localizedSitePath("itConsultancy", language);
+  const homeAutomationHref = localizedSitePath("homeAutomationOverview", language);
+  const homeAssistantHref = localizedSitePath("homeAssistant", language);
+  const homeAssistantFaqHref = localizedSitePath("homeAssistantFaq", language);
 
   return (
     <div className="site-shell min-h-screen bg-background">
@@ -24,18 +30,19 @@ export default function HomeAssistantFaqPage() {
             ? "Veelgestelde vragen over Home Assistant installatie, compatibiliteit, onderhoud en energie monitoring."
             : "Frequently asked questions about Home Assistant setup, compatibility, maintenance, and energy monitoring."
         }
-        path={homeAssistantFaqPath}
+        path={siteRoutePairs.homeAssistantFaq[language]}
         language={language}
+        alternates={{ ...siteRoutePairs.homeAssistantFaq, "x-default": siteRoutePairs.homeAssistantFaq.nl }}
         jsonLd={[
-          breadcrumbJsonLd(homeAssistantFaqPath, [
-            { name: "Home", path: "/" },
-            { name: language === "nl" ? "IT Consultancy" : "IT Consulting", path: itConsultancyPath },
-            { name: language === "nl" ? "Domotica" : "Domotics", path: domoticaOverviewPath },
-            { name: "Home Assistant", path: homeAssistantPath },
-            { name: "FAQ", path: homeAssistantFaqPath },
+          breadcrumbJsonLd(siteRoutePairs.homeAssistantFaq[language], [
+            { name: "Home", path: homeHref },
+            { name: language === "nl" ? "IT Consultancy" : "IT Consulting", path: itHref },
+            { name: language === "nl" ? "Domotica" : "Home automation", path: homeAutomationHref },
+            { name: "Home Assistant", path: homeAssistantHref },
+            { name: "FAQ", path: homeAssistantFaqHref },
           ]),
           faqJsonLd(
-            homeAssistantFaqPath,
+            siteRoutePairs.homeAssistantFaq[language],
             domoticaFaqItems.map((item) => ({
               question: item.question[language],
               answer: item.answer[language],
@@ -50,10 +57,10 @@ export default function HomeAssistantFaqPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <PageBreadcrumbs
               items={[
-                { label: "Home", href: "/" },
-                { label: language === "nl" ? "IT Consultancy" : "IT Consulting", href: itConsultancyPath },
-                { label: language === "nl" ? "Domotica" : "Domotics", href: domoticaOverviewPath },
-                { label: "Home Assistant", href: homeAssistantPath },
+                { label: "Home", href: homeHref },
+                { label: language === "nl" ? "IT Consultancy" : "IT Consulting", href: itHref },
+                { label: language === "nl" ? "Domotica" : "Home automation", href: homeAutomationHref },
+                { label: "Home Assistant", href: homeAssistantHref },
                 { label: "FAQ" },
               ]}
             />
@@ -76,7 +83,7 @@ export default function HomeAssistantFaqPage() {
                   <article key={item.question.nl} className="site-card rounded-[1.5rem] p-5">
                     <h3 className="text-lg font-bold mb-2">{item.question[language]}</h3>
                     <p className="text-muted-foreground mb-3">{item.answer[language]}</p>
-                    <Link href={item.link} className="text-sm font-semibold text-primary hover:underline">
+                    <Link href={item.link[language]} className="text-sm font-semibold text-primary hover:underline">
                       {language === "nl" ? "Lees meer" : "Read more"}
                     </Link>
                   </article>
@@ -97,11 +104,11 @@ export default function HomeAssistantFaqPage() {
                 : "View the service page or book an advice call right away."}
             </p>
             <div className="flex justify-center flex-wrap gap-3">
-              <Link href={homeAssistantPath} className="px-6 py-3 rounded-full bg-secondary">
+              <Link href={homeAssistantHref} className="px-6 py-3 rounded-full bg-secondary">
                 {language === "nl" ? "Naar servicepagina" : "Go to service page"}
               </Link>
               <Link
-                href="/contact"
+                href={contactHref}
                 className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold"
               >
                 {language === "nl" ? "Contact opnemen" : "Contact us"}
